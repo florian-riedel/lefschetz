@@ -1,0 +1,85 @@
+\subsection{Higher Reidemeister invariants}
+% As an application of the parametrized theory, we give an invariant
+% construction of a "higher" Reidemeister trace attached to a dynamical system attached parametrized over the closed interval $I=[0,1]$. 
+% Given some nice $W\in \Top$ and a map $f\colon I \times W\to W$,
+% we obtain, for each $t\in I$ a Lefschetz index 
+% $\lambda_{f_t}\colon \SS\to \Gamma(W^{f_t};\SS)$ as well as a Reidemeister trace
+% $\rho_{f_t}\colon \SS\to \SS[\cL^{f_t}W]$. 
+% If $f_0=f_1$, CITE construct a class
+% \[ [\rho_{f_1}-\rho_{f_0}]\in \pi_1 \cofib\left(\Gamma(W;\SS)\to \SS[\cL W]\right)\,.\]
+% we generalize this in several directions. 
+% First we replace $I$ by an arbitrary
+% proper space that is locally of constant shape. We replace the interior of $I$ by some nice open $\iota \colon \open \hookrightarrow \base$ with closed compact complement 
+% $j\colon \closed = \base \setminus U \hookrightarrow \base $ and consider
+% an arbitrary allowable dynamical system $f\curvearrowright X \xrightarrow{p} \base$. In particular, we do not require that $f$ be constant on the
+% connected components of $\closed$. 
+Throughout this section, fix a base space $\base$ together with an
+open subset $\iota \colon \open \hookrightarrow \base$ 
+with closed complement $j\colon \closed = \base \setminus \open \hookrightarrow \base$. 
+
+Let $f\curvearrowright X \xrightarrow{p} \base$ be an allowable
+dynamical system and assume that $f$ is fiberwise homotopic to the identity, providing us with an identification $\cL^{f}\ani{X}[\base]\simeq \cL\ani{X}[\base]$.
+Then by REF we have an associated Reidemeister trace
+\[ \rho_{f}\colon \SS_{\base} \to \SS_{\base}[\cL\ani{X}[\base]]\]
+together with a factorization as
+\[ \SS_{\base} \xrightarrow{\lambda_f} \pbmsec{X^f}{\base} 
+\xrightarrow{\ass^f_{\base}} \SS_{\base}[\cL\ani{X}[\base]]\,.\]
+We now construct from this other interesting invariants.
+
+We write:
+\[ C_X \coloneq \cofib\left(\pbmsec{X}{\base}
+\xrightarrow{\ass^{\id}_{\base}} \SS_{\base}[\cL \ani{X}[\base]]\right)\in \D{\base}\,,\]
+for the cofiber of the assembly map associated to 
+$\id \curvearrowright X \xrightarrow{p} \base$.
+Observe that, since both terms are contained in the full
+subcategory of local systems on $\base$, $C_{X}$ is a local
+system as well.
+
+\begin{defn}
+    Say that $f\curvearrowright X \xrightarrow{p} \base$ has
+    \tdef{good restriction} with respect to $\base = \open \sqcup \closed$
+    if the composite map 
+    \[ \pbmsec{j^*X^{j^*f}}{\closed} \xrightarrow{\ass_{\closed}^{j^*f}} \SS_{\base}[\cL\ani{j^*X}[\closed]] \to j^*C_X \in \D{\closed}\]
+    is null.
+\end{defn}
+
+\begin{exam}
+    This condition is satisfied when:
+    \begin{enumerate}
+        \item $f$ restricts to the identity on $j^*X$. 
+        \item $f$ has no fixed points on $j^*X$.
+    \end{enumerate}
+\end{exam}
+
+\begin{prop}
+    For any allowable dynamical system $f\curvearrowright X\xrightarrow{p} \base$ with good restriction, the map 
+    \[ \pbmsec{X^f}{\base}\xrightarrow{\ass_{X}^{f}}
+    \SS_{\base}[\cL\ani{X}[\base]]\to C_{X}\]
+    naturally factors through the map 
+    \[ \iota_!\iota^*C_{\base}\to C_{X}\,.\]
+\end{prop}
+\begin{proof}
+    Recall that by the recollement, we have a fiber sequence 
+    \[ \iota_!\iota^*C_{X} \to C_{X} \to j_*j^*C_{X}\,,\]
+    and so it suffices to construct a nullhomotopy of the composite 
+    map $\pbmsec{X^f}{\base} \to j_*j^*C_{X}$. 
+    Recall that the assembly $\ass_{X}^f$ is the trace of the map
+    \[(\pcoShat{\base}{X},f^?)\xrightarrow{a_X^f} (\pSp{\base}{\ani{X}[\base]},f^*)
+    \in \Endtrl(\pPrlf{\base})\]
+    Base change along the symmetric monoidal functor $j^*\colon \D{\base}\to \D{\closed}$ induces a symmetric monoidal functor
+    of $(\infty,2)$-categories which we denote 
+    \[ -\otimes_{\base} \closed \colon \pPrlf{\base} \too \pPrlf{\closed}\,.\]
+    By the general nonsense REF, we have a factorization of 
+    $a_{X}^{f} \otimes_{\base} \closed$ through the natural map 
+    \[(\pcoShat{\base}{X}\otimes_{\base} \closed, f^?\otimes_{\base}\closed) 
+    \too (\pcoShat{\closed}{j^*X}, (j^*f)^?) \in \pPrlf{\closed}\,.\]
+    Taking traces again, we learn that it suffices to produce a 
+    nullhomotopy of the composite
+    \[ \pbmsec{j^*X^{j^*f}}{\closed}\xrightarrow{\ass_{\closed}^{j^*f}}
+    j^* \SS_{\base}[\cL \ani{X}[\base]]\to j^* C_X\,,\]
+    which is provided by the assumption that $f$ has good restriction.
+\end{proof} 
+In particular, pre-composing with the index $\lambda_f$ we obtain a map
+$\SS_\base \to \iota_!\iota^*C_{\base}$, i.e.~a class in the compactly
+supported cohomology $\cptSections{\open;C_{M}}[0]$. In particular,
+for $\base= [0,1]=I$, this defines a class in $\pi_1C_{I}$. 
