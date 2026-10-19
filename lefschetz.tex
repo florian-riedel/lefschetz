@@ -1,7 +1,7 @@
 We deduce a topological and homotopical Lefschetz fixed point 
 via sheaves and local systems.
 
-\subsection{Topolgical Lefschetz}
+\subsection{Topological Lefschetz}
 
 \begin{defn}
     Let $\Top$ denote the category of locally compact Hausdorff
@@ -14,8 +14,9 @@ via sheaves and local systems.
 Now fix some base $\base\in \Top$ for the remainder of this section. 
 
 We make use of the following construction from the appendix:
-For any $X\in \Top$ we write $\mdef{\D{X}}\coloneq \Shv(X;\Sp)$ for the 
-category of sheaves of spectra on $X$. Then, the assignment 
+For any $X\in \Top_{\base}$ we write 
+\[\mdef{\D{X}}\coloneq \Shv(X;\Sp) \in \CAlg(\Prlst)\]
+for the stably presentably monoidal $\infty$-category of sheaves of spectra on $X$. Then, the assignment 
 $X\mapsto \D{X}$ refines to a symmetric monoidal functor $(\infty,2)$-functor
 \[ \mdef{\sD{(-)}}\colon \sSpan{\pTop{\base}}_{\cI,\cP}\too \pPrlf{\base}\,.\]
 Here, the source is the $(\infty,2)$-category of spans of REF and the
@@ -241,7 +242,7 @@ via the functor $\Omega\pSp{\base}{(-)}$.
 \begin{lem}\label{lem: etale internal right adj}
 For any $(p\colon A\to \base)\in \pSpc{\base}$ the span 
 $(A\xleftarrow{\id} A \xrightarrow{p} \base) \in \sSpan{\pSpc{\base}}_{\simeq, \all}$ admits an internal right adjoint given by 
-$(\base \xrightarrow{p} A \xleftarrow{\id} A)$.
+$(\base \xleftarrow{p} A \xrightarrow{\id} A)$.
 \end{lem}
 
 \begin{lem}\label{lem: homo trace identification}
