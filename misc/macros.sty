@@ -16,10 +16,12 @@
 \newcommand{\base}{M}
 \newcommand{\open}{U}
 \newcommand{\closed}{Z}
-\newcommand{\pSpc}[1]{\mathcal{S}_{#1}}
+
+\newcommand{\Spc}{\mathscr{S}}
+\newcommand{\pSpc}[1]{\mathscr{S}_{#1}}
 \newcommand{\pSp}[2]{\Sp_{#1}^{#2}}
 
-\DeclareMathOperator{\Sheaves}{\mathcal{D}}
+%\DeclareMathOperator{\Sheaves}{\mathcal{D}}
 \newcommand{\D}[1]{\Sp_{#1}} % Sheaves on (1:Space)
 \newcommand{\sD}[1]{\mathcal{S}\mathrm{p}_{#1}}
 \newcommand{\fctD}[1]{\Sheaves_!^*({#1})} % Sheaves 6FF applied to (1:Span of spaces)
@@ -34,21 +36,15 @@
 \newcommand{\pPrlf}[1]{\mathcal{P}\mathrm{r}^{\mathrm{L}}_{#1}} % Modules in Prlstf over (1: category)
 
 \newcommand{\Bordfr}[1]{\mathrm{Bord}_1^{\mathrm{fr}}(\RR^{#1})}
-
 \newcommand{\Prdual}{\mathrm{Pr}_{\mathrm{st}}^{\dual}}
-% \newcommand{\rig}{\mathrm{rig}} % rigid cats
-% \newcommand{\lrig}{\mathrm{lrig}} % locally rigid cats
 
 \newcommand{\ass}{\mathfrak{a}}
 \newcommand{\loc}{\mathrm{loc}}
-
-\newcommand{\integral}[2]{\int_{#2}{#1}}
 
 
 %% Old stuff below
 
 \newcommand{\dual}{\lozenge}  % dualizable objects
-\newcommand{\evalu}{\mathrm{ev}}
 
 \newcommand{\tr}[2]{\mathrm{tr}_{#2} (#1)} % Trace of (1:Map) in (2:category)
 \newcommand{\Trc}{\mathrm{Tr}^{\otimes}} % The 2-categorical trace functor
@@ -64,35 +60,28 @@
     {H^{#2} (#1)}%
   }
 
-  \NewDocumentCommand{\cptSections}{ m o }{%
+  \NewDocumentCommand{\cptSec}{ m o }{%
     \IfNoValueTF{#2}
     {\Gamma_c (#1)}
-    {H^{#2}_c (#1)}%
+    {H_{{#2},\mathrm{c}} (#1)}%
   }
 
 \newcommand{\Span}[1]{\operatorname{\mathrm{Span}}({#1})} % Category of Spans in (1:cat)
 \newcommand{\sSpan}[1]{\operatorname{\mathcal S\mathrm{pan}}({#1})} % Category of Spans in (2:cat)
 
-\newcommand{\bcat}{\mathfrak{B}} % Base category in the 6ff
-
- % Local Systems
-
-\newcommand{\ch}[2]{\lambda^{#1}_{#2}} % Lefschetz trace
-\newcommand{\chr}[2]{\rho^{#1}_{#2}} % Lefschetz trace
-\newcommand{\ind}[2]{\mathrm{ind}_{#2}(#1)} % index 
-
 \newcommand{\freeondual}{\Sp\lbrack T,T^\vee\rbrack}
 
-\DeclareMathOperator{\fundgroupoid}{\Pi_\infty}
+\newcommand{\fundgroupoid}{\Pi_{\infty}}
+
 \NewDocumentCommand{\ani}{ m o }{%
     \IfNoValueTF{#2}
-    {\fundgroupoid({#1})}
-    {\operatorname{\Pi_\infty^{#2}} (#1)}%
+    {\Pi_{\infty} ({#1})}
+    {\Pi_{\infty}^{#2} (#1)}%
   }
 
-\newcommand{\lchaus}{\mathrm{LCHaus}}
-\newcommand{\spaces}{\mathrm{Ani}}
-\newcommand{\etaletopoi}{\mathrm{LTop}_{\acute et}}
+% \newcommand{\lchaus}{\mathrm{LCHaus}}
+% \newcommand{\spaces}{\mathrm{Ani}}
+% \newcommand{\etaletopoi}{\mathrm{LTop}_{\acute et}}
 
 \DeclareMathOperator{\lcH}{\mathcal{H}} % Locally compact Hausdorff spaces
 \DeclareMathOperator{\VD}{\mathbb{V}} % Categorical Verdier dual
@@ -116,7 +105,6 @@
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\et}{\acute{e}t}
 \DeclareMathOperator{\Sp}{Sp}
-\DeclareMathOperator{\Spc}{\mathcal{S}}
 \DeclareMathOperator{\Set}{Set}
 \DeclareMathOperator{\Prl}{Pr^L}
 \DeclareMathOperator{\Prll}{Pr^{LL}}
@@ -132,9 +120,6 @@
 \DeclareMathOperator{\QCoh}{QCoh}
 \DeclareMathOperator{\Ind}{Ind}
 \DeclareMathOperator{\Pro}{Pro}
-\DeclareMathOperator{\Ql}{\mathbb{Q}_{\ell}}
-\DeclareMathOperator{\Qp}{\mathbb{Q}_{p}}
-\DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\ev}{ev}
 \DeclareMathOperator{\coev}{coev}
 \DeclareMathOperator{\Fun}{Fun}
@@ -148,6 +133,16 @@
 
 \newcommand{\Yo}{\text{\usefont{U}{min}{m}{n}\symbol{'110}}}
 
+\newcommand{\too}{\longrightarrow}
+\newcommand{\rar}{\xrightarrow}
+\newcommand{\lar}{\xleftarrow}
+\newcommand{\rari}{\xhookrightarrow}
+\newcommand{\pt}{\mathrm{pt}} %previously \ast, but * is overloaded
+\newcommand{\op}{{\mathrm{op}}}
+\newcommand{\1}{\mathds{1}}
+
+\renewcommand{\hat}{\widehat}
+
 \newcommand{\BB}{\mathbb{B}}
 \newcommand{\DD}{\bb{D}}
 \newcommand{\EE}{\bb{E}}
@@ -155,7 +150,6 @@
 \newcommand{\CC}{\bb{C}}
 \newcommand{\RR}{\bb{R}}
 \newcommand{\FF}{\bb{F}}
-\newcommand{\F}{\bb{F}}
 \newcommand{\bF}{\bar{\F}}
 \newcommand{\GG}{\bb{G}}
 \newcommand{\QQ}{\mathbb{Q}}
@@ -201,24 +195,6 @@
 \newcommand{\bb}{\mathbb}
 \renewcommand{\rm}{\mathrm}
 
-\newcommand{\too}{\longrightarrow}
-\newcommand{\rar}{\xrightarrow}
-\newcommand{\lar}{\xleftarrow}
-\newcommand{\rari}{\xhookrightarrow}
-\newcommand{\empt}{\varnothing}
-\newcommand{\p}{\prime}
-\newcommand{\ul}{\underline}
-\newcommand{\sub}{\subseteq}
-\newcommand{\eps}{\varepsilon}
-\newcommand{\blank}{{-}}
-\newcommand{\iso}{\cong}
-\newcommand{\pt}{\mathrm{pt}} %previously \ast, but * is overloaded
-\newcommand{\op}{{\mathrm{op}}}
-\newcommand{\ab}{^{\mathrm{ab}}}
-\newcommand{\hyp}{\mathrm{hyp}}
-\newcommand{\1}{\mathds{1}}
-
-\renewcommand{\hat}{\widehat}
 
 \newcommand{\tdef}[1]{\textit{\textcolor{DefColor}{#1}}}  % text definition
 \newcommand{\mdef}[1]{\textcolor{DefColor}{#1}} % math mode definition

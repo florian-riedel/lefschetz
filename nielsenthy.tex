@@ -1,8 +1,11 @@
+\begin{defn}
+    Allowable dynamical system goes here
+\end{defn}
 \subsection{Parametrized traces and the Nielsen fixed point theorem}
 For an allowable dynamical system $f\curvearrowright \tset\xrightarrow p\base$, we defined the associated Lefschetz index and Reidemeister trace
 \begin{equation}
   \label{eq:nielsenthy-intro-characters}
-  \lambda^f\colon (pi)_*(pi)^*\SS_\base\to \SS_\base\,
+  \lambda^f\colon \cptSec{X^f}[\base]\to \SS_\base\,
   \qquad\text{and}\qquad\rho_{f}\colon \SS_\base \to \SS [\cL^{f}\ani{\tset}[\base]]\,,
 \end{equation}
 where $i\colon\tset^f\to\tset$ denotes the inclusion of the fixed points.
@@ -10,7 +13,7 @@ The goal of this subsection is to establish the following relationship between $
 \begin{thm}\label{thm: lefschetz-nielsen}
   Let $f\curvearrowright \tset\xrightarrow p\base$ be an allowable dynamical system. There is a commutative diagram in the category of sheaves of spectra on $\base$:
   \[\begin{tikzcd}
-      &  (pi)_*(pi)^!\SS_\base\\
+      &  \pbmsec{X^f}{\base}\\
       \SS_\base & {\SS [\cL^{f}\ani{\tset}[\base]]},
       \arrow["\mathfrak a", from=1-2, to=2-2]
       \arrow["{\lambda_f}", from=2-1, to=1-2]
@@ -21,7 +24,7 @@ The goal of this subsection is to establish the following relationship between $
   \item $\mathfrak a$ is natural in proper maps of allowable dynamical systems; and
   \item for $f = \id$, the map $\mathfrak a$ is equivalent to the composition
     \[
-      p_*p^!\SS_\base\xrightarrow\sim\SS\lbrack \ani{\tset}[\base]\rbrack\to \SS\lbrack \cL \ani{\tset}[\base]\rbrack,
+      \pbmsec{X^f}[\base]\xrightarrow\sim\SS\lbrack \ani{\tset}[\base]\rbrack\to \SS\lbrack \cL \ani{\tset}[\base]\rbrack,
     \]
     where the first map is the canonical equivalence and the second map is induced by the map $\ani{\tset}[\base]\to \cL \ani{\tset}[\base]$ adjoint to the projection $S_\base^1\times \ani{\tset}[\base]\to \ani{\tset}[\base]$.
   \end{enumerate}
@@ -41,7 +44,7 @@ in the category of traceable endomorphisms $\Endtrl (\pPrlf\base )$, our goal is
   Let $f\curvearrowright \tset\xrightarrow p\base$ be an allowable dynamical system. The lax commutative square
   \[
     \begin{tikzcd}
-      \Sp_\base\arrow[d,equal] \arrow[r] & Sp_\base^{\ani{\tset}[\base]}\arrow[d,"f^*"]\\
+      \Sp_\base\arrow[d,equal] \arrow[r] & \Sp_\base^{\ani{\tset}[\base]}\arrow[d,"f^*"]\\
       \Sp_\base\arrow[r]\arrow[ru,Rightarrow, shorten <=5pt,shorten >=5pt] & \Sp_\base^{\ani{\tset}[\base]}
     \end{tikzcd}
   \]
@@ -74,7 +77,7 @@ in the category of traceable endomorphisms $\Endtrl (\pPrlf\base )$, our goal is
   \begin{equation}
     \label{eq:lax-trace-on-cosheaves}
     \begin{tikzcd}
-      &  (pi)_*(pi)^!\SS_\base\\
+      &  \pbmsec{X^f}{\base}\\
       \TrcL (f^?\curvearrowright\coShat_\base (\tset )) & {\SS [\cL^{f}\ani{\tset}[\base]]},
       \arrow[from=1-2, to=2-2]
       \arrow[from=2-1, to=1-2]
@@ -83,7 +86,7 @@ in the category of traceable endomorphisms $\Endtrl (\pPrlf\base )$, our goal is
   \end{equation}
   in $\Sp_\base$, natural in proper maps of allowable dynamical systems. Furthermore, the composite
   \[
-    \SS_\base\simeq\TrcL (\id\curvearrowright\Sp_\base)\to \TrcL (f^?\curvearrowright\coShat_\base (\tset ))\to (pi)_*(pi)^!\SS_\base
+    \SS_\base\simeq\TrcL (\id\curvearrowright\Sp_\base)\to \TrcL (f^?\curvearrowright\coShat_\base (\tset ))\to \pbmsec{X^f}{\base}
   \]
   is homotopic to $\lambda_f$.
 \end{prop}
@@ -132,26 +135,15 @@ We can therefore view the Nielsen fixed point theorem as a refinement of the Lef
   where $i$ denotes the inclusion. By~\cref{thm: lefschetz-nielsen}, we get a commutative diagram
   \[
     \begin{tikzcd}
-      \SS\lbrack \tset^f\rbrack \arrow[d] \arrow[r,"\sim"] & (pi)_*(pi)^!\SS\arrow[d,"\mathfrak a"] \\
+      \SS\lbrack \tset^f\rbrack \arrow[d] \arrow[r,"\sim"] & \pbmsec{X^f}{\base}\arrow[d,"\mathfrak a"] \\
       \SS\lbrack\cL \tset^f\rbrack\arrow[r] & \SS\lbrack\cL^f\tset\rbrack,
     \end{tikzcd}
   \]
-  where the left vertical map is induced by the canonical map $\tset^f\to\cL \tset^f$, which is an equivalence since $\tset^f$ is discrete. On $\pi_0$, we thus find that the image of $\mathfrak a\colon (pi)_*(pi)^!\SS\to \SS\lbrack\cL^f\tset\rbrack$ is contained in the span of the basis vectors given by path components of $(x,c_x)\in\cL^f\tset$, where $x\in \tset^f$ and $c_x$ is the constant loop at $x$. It follows that $N_f\leq\# \tset^f$ as desired.
+  where the left vertical map is induced by the canonical map $\tset^f\to\cL \tset^f$, which is an equivalence since $\tset^f$ is discrete. On $\pi_0$, we thus find that the image of $\mathfrak a\colon \pbmsec{X^f}{\base}\to \SS\lbrack\cL^f\tset\rbrack$ is contained in the span of the basis vectors given by path components of $(x,c_x)\in\cL^f\tset$, where $x\in \tset^f$ and $c_x$ is the constant loop at $x$. It follows that $N_f\leq\# \tset^f$ as desired.
 \end{proof}
 
- We prove this by following the pattern of~\cref{sec: lefschetz theory}. First, then, we factor the square
-\begin{equation}
-  \label{eq:lax-comm-square-reidemeister}
-  \begin{tikzcd}[column sep=large]
-    \Sp \arrow[r,"\ani{\tset}^*"] \arrow[d,equal] & \Sp^{\ani{\tset}} \arrow[d,"g^*"]\\
-    \Sp \arrow[r,swap,"\ani{\tset} ^*"] & \Sp^{\ani{\tset}}
-  \end{tikzcd}
-\end{equation}
-
-through an object in $\Endtrl(\Prlstf)$ that has access to actual topological information about the pair $(\tset,f)$. Such a factorization is achieved by the {\em assembly functor} of Bartels and Nikolaus. Although this work is the subject of a still unpublished article, an expository account can be found in the lecture notes~\cite{Nikolaus2024}.
-
 \subsection{Cosheaves and assembly}
-
+\todo{This whole section is out of date no?}
 \begin{defn}[Bartels--Nikolaus]\label{defn: abstract assembly}
   Let $(\mathcal C,\otimes ,\1)$ be a closed symmetric monoidal category with internal mapping object $\Hom_{\mathcal C}({-},{-})$. Given objects $A$ and $B$ in $\mathcal C$ together with a map 
   \[
@@ -297,7 +289,9 @@ Part (ii) means that we can factor $(\fundgroupoid\tset )^*\colon\Sp\to\Sp^{\fun
   \end{equation}
   where the bottom horizontal arrow is the Reidemeister trace.
 \end{cor}
+
 \subsection{Another trace ``calculation''}
+\todo{Should this still be hear?}
 Keeping with the pattern laid out in~\cref{sec: lefschetz theory}, the next step in our treatment of Lefschetz--Nielsen theory is a calculation of the categorical trace that shows up as the apex in the triangle~\eqref{eq:nielsen-triangle-without-identification}. Unlike in the Lefschetz and Reidemeister trace incarnations of this step, we will not be able to calculate $\tr{f^?\curvearrowright\coShat (\tset )}{}$ in the strict sense (without a big effort); instead, we will give a lax calculation that suffices for the purposes of fixed point theory. This idea is again adapted to our setting from unpublished work of Bartels and Nikolaus, who show using simple manipulations in closed monoidal categories that the map induced on $K$-theory by their assembly functor $a_\delta\colon\coShat (\tset )\to \Sp^{\fundgroupoid (\tset )}$ factors through $\tset_*\tset^!K\SS$, thereby removing the difficult~\cref{thm: K theory of completed cosheaves} from the dependencies of the customer-facing~\cref{thm: Bartels--Nikolaus geometric topology}.
 
 We should expect the calculation of $\tr{f^?\curvearrowright\coShat (\tset )}{}$ to be difficult, because for $f=\id$ it is already a difficult theorem of Efimov.\todo{motivate linearizing over free algebra on dualizable generator}

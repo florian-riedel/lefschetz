@@ -14,10 +14,10 @@ via sheaves and local systems.
 Now fix some base $\base\in \Top$ for the remainder of this section. 
 
 We make use of the following construction from the appendix:
-For any $X\in \Top$ we write $\D{X}\coloneq \Shv(X;\Sp)$ for the 
+For any $X\in \Top$ we write $\mdef{\D{X}}\coloneq \Shv(X;\Sp)$ for the 
 category of sheaves of spectra on $X$. Then, the assignment 
 $X\mapsto \D{X}$ refines to a symmetric monoidal functor $(\infty,2)$-functor
-\[ \D{(-)}\colon \sSpan{\pTop{\base}}_{\cI,\cP}\too \pPrlf{\base}\,.\]
+\[ \mdef{\sD{(-)}}\colon \sSpan{\pTop{\base}}_{\cI,\cP}\too \pPrlf{\base}\,.\]
 Here, the source is the $(\infty,2)$-category of spans of REF and the
 target is the $(\infty,2)$-category of $\D{\base}$-linear presentable
 $\infty$-categories. 
@@ -27,8 +27,12 @@ $\infty$-categories.
 % by the same name.
 
 \begin{notation}
-For any map $f\colon (X,p)\to (Y,q)$ in $\pTop{\base}$ we write 
-\[ \pb{f}\colon q_!q^*\SS_{\base}\to p_!p^*\SS_{\base} \]
+For any $(X,p)\in \Top{\base}$ and any $E\in \D{X}$ we write
+\[ \mdef{\cptSec{X;E}[\base]}\coloneq p_!E \in \D{\base}\,. \]
+For $E=\SS_X$ we simply write $\cptSec{X}[\base]=\cptSec{X;\SS_X}[\base]$.
+Moreover, for any map $f\colon (X,p)\to (Y,q)$ in $\pTop{\base}$ use
+the notation
+\[ \mdef{\pb{f}}\colon \cptSec{Y}[\base]\to \cptSec{X}[\base] \]
 for the pullback on relative compactly supported cohomology. 
 Explicitly, $\pb{f}$ is the image of the 2-morphism 
 \[
@@ -44,7 +48,7 @@ Explicitly, $\pb{f}$ is the image of the 2-morphism
 	\arrow["q"', from=3-2, to=2-3]
 \end{tikzcd}
 \]
-under the 2-functor $\D{(-)}\colon \sSpan{\pTop{\base}}_{\cP,\cI} \to \pPrlf{\base}$.
+under the 2-functor $\sD{(-)}\colon \sSpan{\pTop{\base}}_{\cP,\cI} \to \pPrlf{\base}$.
 \end{notation}
 
 \begin{lem}\label{lem: proper internal right adj}
@@ -57,7 +61,7 @@ under the 2-functor $\D{(-)}\colon \sSpan{\pTop{\base}}_{\cP,\cI} \to \pPrlf{\ba
     Let $f\colon (X,p)\to (X,p)$ be a self map in $\pTop{\base}$ with
     fixed points $i\colon X^f\to X$. Then we
     have an equivalence:
-    \[ \tr{f_!\colon \D{X}\to \D{X}}{\pPrl{\base}}\simeq (pi)_!(pi)^{\ast}\SS_{\base}\in \D{\base}\,.\]
+    \[ \tr{f_!\colon \D{X}\to \D{X}}{\pPrl{\base}}\simeq \cptSec{X^f}[\base]\in \D{\base}\,.\]
 \end{lem}
 \begin{proof}
   By CITE, the symmetric monoidal $(\infty,2)$-functor 
@@ -91,7 +95,7 @@ the functor $p_!$ admits an internal right adjoint by REF/CITE,
 and hence this defines a morphism $(\D{X},f_!)\to (\D{\base},\id)$ in $\Endtrl(\pPrlf{\base})$. Applying the symmetric
 monoidal functor $\TrcL\colon \Endtrl(\pPrlf{\base}) \to \D{\base}$ and using the identification of \cref{lem: top trace identification} we obtain
 a map:
-\[ \mdef{\lambda^f}\colon (pi)_!(pi)^{\ast}\SS_{\base} 
+\[ \mdef{\lambda^f}\colon \cptSec{X^f}[\base]
 \to \SS_{\base} \in \D{\base}\]
 which we call the \tdef{Lefschetz index} of $f$. 
     \end{cons}
@@ -99,13 +103,13 @@ which we call the \tdef{Lefschetz index} of $f$.
 \begin{prop}\label{prop: Top Lefschetz}
 Let $f\colon (X,p)\to (X,p)$ be a self map in $\psTop{\base}$ with 
 fixed points $i\colon X^f\to X$. 
-Let $\lambda^f\colon (pi)_!(pi)^{\ast}\SS_{\base} \to \SS_{\base}$ be
+Let $\lambda^f\colon \cptSec{X^f}[\base] \to \SS_{\base}$ be
 the Lefschetz index of \cref{cons: Lefschetz index}. 
 The composite 
-\[ \SS_{\base} \xrightarrow{\pb{pi}} (pi)_!(pi)^{\ast}\SS_{\base}
+\[ \SS_{\base} \xrightarrow{\pb{pi}} \cptSec{X^f}[\base]
 \xrightarrow{\lambda^f} \SS_{\base}\,\]
 of $\lambda^f$ with the pullback along $pi\colon X^f\to \base$ is given by the trace of the pullback map 
-\[ \pb{f}\colon p_!p^{\ast}\SS_{\base}\to p_!p^{\ast}\SS_{\base} \]
+\[ \pb{f}\colon \cptSec{X}[\base]\to \cptSec{X}[\base] \]
 on (relative) compactly supported cohomology.
 \end{prop}
 \begin{proof}
@@ -282,9 +286,9 @@ which we call the \tdef{Reidemeister trace} of $f$.
     terminal map $p\colon A\to \base$,
    homotopy fixed points $i\colon \cL^fA \to A$
     and Reidemeister
-    trace $\rho_f\colon \SS_{\base}\to \SS_{\base}[\cL^f]$.
+    trace $\rho_f\colon \SS_{\base}\to \SS_{\base}[\cL^f A]$.
     The composite
-    \[ \SS_{\base}\xrightarrow{\rho_f} \SS_{\base}[\cL^fA] \xrightarrow{\tf{ip}} \SS_{\base}\]
+    \[ \SS_{\base}\xrightarrow{\rho_f} \SS_{\base}[\cL^f A] \xrightarrow{\tf{ip}} \SS_{\base}\]
     is given by the trace of the transfer 
     \[ \tf{f}\colon \SS_{\base}[A]\to \SS_{\base}[A]\]
     on relative spherical homology.
