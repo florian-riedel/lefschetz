@@ -38,8 +38,64 @@ The proof of~\cref{thm: lefschetz-nielsen} follows the same pattern as our treat
     \Sp_\base\arrow[r]\arrow[ru,Rightarrow, shorten <=5pt,shorten >=5pt] & \Sp_\base^{\ani{\tset}[\base]}
   \end{tikzcd},
 \]
-our goal is to factor this lax commutative square through a traceable endomorphism that encodes the topology of the dynamical system. Such a factorization is provided by the assembly functor machinery of Bartels--Nikolaus and Volpe--Wolff--Ramzi, as we explain in the next section.
+our goal is to factor this lax commutative square through a traceable endomorphism that encodes the topology of the dynamical system. Such a factorization is provided by the assembly functors and Wall objects of Bartels--Nikolaus and Volpe--Wolff--Ramzi, as we explain in the next section.
 \subsubsection{Factoring the Reidemeister trace}\label{subsec:factoring-reidemeister}
+A key ingredient in our proof of~\cref{thm: lefschetz-nielsen} is the following bit of general nonsense:
+\begin{lem}[Bartels--Nikolaus]
+  Let $\cC $ be a symmetric monoidal category and let $A$, $B$, and $C$ be objects in $\cC$. Suppose we are given the data of a copairing and a pairing of the form
+  \[
+    \delta\colon\mathbf 1\too A\otimes B\quad\text{and}\quad
+    \nu\colon B\otimes C\too\mathbf 1.
+  \]
+  Let
+  \[
+    \mdef{a_{\delta ,\nu}}\colon C\too A
+  \]
+  denote the composition
+  \[
+    C\simeq \mathbf 1\otimes C\xtoo{\delta\otimes\id} A\otimes B\otimes C\xtoo{\id\otimes\nu}A\otimes\mathbf 1\simeq A.
+  \]
+  Given a symmetric monoidal functor $F\colon\cC\to\cD$ where $\cD$ is closed, there is a canonical factorization
+  \[\begin{tikzcd}
+      &  F(B)^\vee\\
+      F(C) & {F(A)},
+      \arrow["{a_{F(\delta ),\varepsilon }}", from=1-2, to=2-2]
+      \arrow[from=2-1, to=1-2]
+      \arrow["{F(a_{\delta ,\nu})}"', from=2-1, to=2-2]
+    \end{tikzcd}\]
+  natural in $\delta$ and $\nu$,
+  where $\varepsilon\colon F(B)^\vee\otimes F(B)\to\mathbf 1$ is the evaluation pairing in $\cD$ and $F(C)\to F(B)^\vee$ is adjoint to the pairing $F(C)\otimes F(B)\simeq F(C\otimes B)\rar{F(\nu )} F(\mathbf 1)\simeq\mathbf 1$.
+\end{lem}
+We refer to the map $a_{\delta ,\nu}$ defined in the lemma as the \tdef{assembly map} associated with $\delta$ and $\nu$. Of particular interest is the case where $\cC = \pPrdual\base$, and \[A = \Sp_\base^{\ani{\tset}[\base]}, \quad B = \D{\tset},\quad \text{and} \quad C = \pcoShat{\base}{\tset}\] for some proper shape submersion $p\colon\tset\to\base$ between locally compact Hausdorff spaces. In this case, one can take $\nu$ to be the evaluation pairing \[\varepsilon\colon\pcoShat\base\tset\otimes\D\tset\too\Sp_\base,\] and $\delta$ to be the left adjoint of the composition
+\[
+  \D\tset\otimes\Sp_\base^{\ani{\tset}[\base]}\xtoo{\id\otimes\psi}\D\tset\otimes\D\tset\simeq\D{\tset\times\tset}\xtoo{\Delta^*}\D\tset\xtoo{X_*}\Sp_\base,
+\]
+where $\psi$ denotes the inclusion of locally constant sheaves into all sheaves. The associated assembly map
+\[
+  a_{\delta ,\varepsilon}\colon\pcoShat\base\tset\too\Sp_\base^{\ani{\tset}[\base]}
+\]
+is then a categorification of the Waldhausen assembly map in the unparametrized case $\base=\pt$, or more generally the parametrized Waldhausen assembly map of the Dwyer--Weiss--Williams index theorem. More precisely, for the parametrized K-theory functor \[\mathrm K\colon\pPrdual\base\too\Sp_\base,\] we have a natural identification of $\mathrm K(a_{\delta ,\varepsilon })$ with the parametrized Waldhausen assembly map as objects in the arrow category $\Fun (\Delta^1,\Sp_\base )$.
+
+We will need a slight variation on the above to deal with self-maps:  
+\begin{cons}
+  Let $(X,p\colon\tset\to\base ,f\colon\tset\to\tset )$ be an allowable dynamical system. Define a pairing \[\nu\colon (\pcoShat\base\tset ,f^?)\otimes (\D\tset ,f^*)\too (\Sp_\base ,\id)\] in $\Endtrl (\pPrl\base)$ to be the lax commutative square
+  \[
+    \begin{tikzcd}
+      {\coShat_\base(\tset)\otimes\D\tset} & \Sp_\base\\
+      {\coShat_\base(\tset)\otimes\D\tset} & \Sp_\base,
+      \arrow["{\varepsilon}", from=1-1, to=1-2]
+      \arrow["{f^?\otimes f^*}", from=1-1, to=2-1]
+      \arrow["\id", from=1-2, to=2-2]
+      \arrow[Rightarrow, from=2-1, to=1-2]
+      \arrow["{\varepsilon}"', from=2-1, to=2-2]
+    \end{tikzcd}
+  \]
+  where the 2-cell is the composite
+  \[
+    \varepsilon (f^?\otimes f^*)\simeq \varepsilon (\id\otimes f^*)(f^?\otimes \id)\simeq\varepsilon (f_?\otimes\id )(f^?\otimes\id)\simeq\varepsilon (f_?f^?\otimes\id)\too\varepsilon, 
+  \]
+  where the second natural equivalence is the definition of $f_?$. 
+\end{cons}
 \begin{thm}
   Let $f\curvearrowright \tset\xrightarrow p\base$ be an allowable dynamical system. The lax commutative square
   \[
@@ -90,31 +146,20 @@ our goal is to factor this lax commutative square through a traceable endomorphi
   \]
   is homotopic to $\lambda_f$.
 \end{prop}
-\begin{lem}
-  Let $\cC $ be a symmetric monoidal category and let $A$, $B$, and $C$ be objects in $\cC$. Suppose we are given the data of a copairing and a pairing of the form
+\begin{proof}[Proof of~\cref{prop: lax calculation of trace on coshv hat}]
+  The lax commutative square
   \[
-    \delta\colon\mathbf 1\too A\otimes B\quad\text{and}\quad
-    \nu\colon B\otimes C\too\mathbf 1.
+    \begin{tikzcd}
+      {\coShat_\base(\tset)} & \Sp_\base^{\ani{\tset}[\base]} \\
+      {\coShat_\base(\tset)} & \Sp_\base^{\ani{\tset}[\base]}
+      \arrow["{a_{\delta}}", from=1-1, to=1-2]
+      \arrow["{f^?}", from=1-1, to=2-1]
+      \arrow["f^{\ast}", from=1-2, to=2-2]
+      \arrow[Rightarrow, from=2-1, to=1-2]
+      \arrow["{a_{\delta}}"', from=2-1, to=2-2]
+    \end{tikzcd}
   \]
-  Let
-  \[
-    a_{\delta ,\nu}\colon C\too A
-  \]
-  denote the composition
-  \[
-    C\simeq \mathbf 1\otimes C\xtoo{\delta\otimes\id} A\otimes B\otimes C\xtoo{\id\otimes\nu}A\otimes\mathbf 1\simeq A.
-  \]
-  Given a symmetric monoidal functor $F\colon\cC\to\cD$ where $\cD$ is closed, there is a canonical factorization
-  \[\begin{tikzcd}
-      &  F(B)^\vee\\
-      F(C) & {F(A)},
-      \arrow["{a_{F(\delta ),\varepsilon }}", from=1-2, to=2-2]
-      \arrow[from=2-1, to=1-2]
-      \arrow["{F(a_{\delta ,\nu})}"', from=2-1, to=2-2]
-    \end{tikzcd}\]
-  natural in $\delta$ and $\nu$,
-  where $\varepsilon\colon F(B)^\vee\otimes F(B)\to\mathbf 1$ is the evaluation pairing in $\cD$ and $F(C)\to F(B)^\vee$ is adjoint to the pairing $F(C)\otimes F(B)\simeq F(C\otimes B)\rar{F(\nu )} F(\mathbf 1)\simeq\mathbf 1$.
-\end{lem}
+\end{proof}
 \subsubsection{The Nielsen fixed point theorem}\label{subsec:classical-nielsen}
 Let $\tset$ be a topological set that is compact Hausdorff and locally of constant shape. For a self-map $f\colon \tset\to \tset$, the so-called Nielsen fixed point theorem of Reidemeister~\cite{Reidemeister1936} and Wecken~\cite{Wecken1941a,Wecken1941b,Wecken1942} gives a lower bound on the number of fixed points of $f$ that only depends on the homotopy class of $f$. The lower bound is expressed in terms of the following numerical invariant:
 \begin{defn}\label{defn: Nielsen number}
@@ -133,7 +178,7 @@ Since the Lefschetz trace is the sum of the coordinates of the Reidemeister trac
   \label{eq:lefschetz-vs-nielsen-fixed-pt}
   \text{Lefschetz trace }\geq 1\Rightarrow N_f\geq 1.
 \end{equation}
-We can therefore view the Nielsen fixed point theorem as a refinement of the Lefschetz fixed point theorem. Note however that aside from~\eqref{eq:lefschetz-vs-nielsen-fixed-pt}, there is no general formula relating the Nielsen number and the Lefschetz trace. ()
+We can therefore view the Nielsen fixed point theorem as a refinement of the Lefschetz fixed point theorem. Note however that aside from~\eqref{eq:lefschetz-vs-nielsen-fixed-pt}, there is no general formula relating the Nielsen number and the Lefschetz trace.
 \begin{proof}
   We may assume that $\# \tset^f < \infty$, as the statement is trivial otherwise. Consider the commutative diagram
   \[
