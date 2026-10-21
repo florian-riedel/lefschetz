@@ -5,8 +5,8 @@
 For an allowable dynamical system $f\curvearrowright \tset\xrightarrow p\base$, we defined the associated Lefschetz index and Reidemeister trace
 \begin{equation}
   \label{eq:nielsenthy-intro-characters}
-  \lambda^f\colon \cptSec{X^f}[\base]\to \SS_\base\,
-  \qquad\text{and}\qquad\rho_{f}\colon \SS_\base \to \SS [\cL^{f}\ani{\tset}[\base]]\,,
+  \lambda^f\colon \cptSec{X^f}[\base]\too \SS_\base\,
+  \qquad\text{and}\qquad\rho_{f}\colon \SS_\base \too \SS [\cL^{f}\ani{\tset}[\base]]\,,
 \end{equation}
 where $i\colon\tset^f\to\tset$ denotes the inclusion of the fixed points.
 The goal of this subsection is to establish the following relationship between $\lambda^f$ and $\rho_{f}$:
@@ -24,21 +24,21 @@ The goal of this subsection is to establish the following relationship between $
   \item $\mathfrak a$ is natural in proper maps of allowable dynamical systems; and
   \item for $f = \id$, the map $\mathfrak a$ is equivalent to the composition
     \[
-      \pbmsec{X^f}{\base}\xrightarrow\sim\SS\lbrack \ani{\tset}[\base]\rbrack\to \SS\lbrack \cL \ani{\tset}[\base]\rbrack,
+      \pbmsec{X^f}{\base}\xtoo\sim\SS\lbrack \ani{\tset}[\base]\rbrack\xtoo{\hphantom{\sim}} \SS\lbrack \cL \ani{\tset}[\base]\rbrack,
     \]
-    where the first map is the canonical equivalence and the second map is induced by the map $\ani{\tset}[\base]\to \cL \ani{\tset}[\base]$ adjoint to the projection $S_\base^1\times \ani{\tset}[\base]\to \ani{\tset}[\base]$.
+    where the first map is the canonical equivalence and the second map is induced by the fiberwise ``constant loop'' map $\ani{\tset}[\base]\to \cL \ani{\tset}[\base]$, which is adjoint to the fiberwise projection $S_\base^1\times \ani{\tset}[\base]\to \ani{\tset}[\base]$.
   \end{enumerate}
 \end{thm}
 As an immediate consequence of this result, we will deduce the classical Nielsen fixed point theorem, see~\cref{subsec:classical-nielsen}.
 
-The proof of~\cref{thm: lefschetz-nielsen} follows the same pattern as our treatment of the Lefschetz trace formula in the preceding section. Since $\rho_f$ can be defined as the trace of the morphism
+The proof of~\cref{thm: lefschetz-nielsen} follows the same pattern as our treatment of the Lefschetz trace formula in the preceding section. Since $\rho_f$ can be defined as the trace of the lax commutative square
 \[
   \begin{tikzcd}
     \Sp_\base\arrow[d,equal] \arrow[r] & \Sp_\base^{\ani{\tset}[\base]}\arrow[d,"f^*"]\\
     \Sp_\base\arrow[r]\arrow[ru,Rightarrow, shorten <=5pt,shorten >=5pt] & \Sp_\base^{\ani{\tset}[\base]}
-  \end{tikzcd}
+  \end{tikzcd},
 \]
-in the category of traceable endomorphisms $\Endtrl (\pPrlf\base )$, our goal is to factor this morphism through a traceable endomorphism that ``remembers the topology'' of the dynamical system. Such a factorization is provided by the assembly functor and Wall object of Bartels--Nikolaus (in the unparametrized case) and Volpe--Wolff--Ramzi (in the general case), as we explain in~\cref{subsec:factoring-reidemeister}.
+our goal is to factor this lax commutative square through a traceable endomorphism that encodes the topology of the dynamical system. Such a factorization is provided by the assembly functor machinery of Bartels--Nikolaus and Volpe--Wolff--Ramzi, as we explain in the next section.
 \subsubsection{Factoring the Reidemeister trace}\label{subsec:factoring-reidemeister}
 \begin{thm}
   Let $f\curvearrowright \tset\xrightarrow p\base$ be an allowable dynamical system. The lax commutative square
@@ -90,21 +90,30 @@ in the category of traceable endomorphisms $\Endtrl (\pPrlf\base )$, our goal is
   \]
   is homotopic to $\lambda_f$.
 \end{prop}
-In order to prove~\cref{prop: lax calculation of trace on coshv hat}, we want to interpret the lax commutative square
+\begin{lem}
+  Let $\cC $ be a symmetric monoidal category and let $A$, $B$, and $C$ be objects in $\cC$. Suppose we are given the data of a copairing and a pairing of the form
   \[
-    \begin{tikzcd}
-      \coShat_\base(\tset )\arrow[d,"f^?"] \arrow[r,"a_\delta"] & \Sp_\base^{\ani{\tset}[\base]}\arrow[d,"f^*"]\\
-      \coShat_\base(\tset )\arrow[r,"a_\delta"]\arrow[ru,Rightarrow, shorten <=5pt,shorten >=5pt] & \Sp_\base^{\ani{\tset}[\base]}
-    \end{tikzcd}
+    \delta\colon\mathbf 1\too A\otimes B\quad\text{and}\quad
+    \nu\colon B\otimes C\too\mathbf 1.
   \]
-  in terms of an assembly map in a convenient closed symmetric monoidal category. As inspiration, recall that for a commutative ring $k$ there is an (often useful) equivalence between on one side the category of pairs $(V,t\colon V\to V)$, where $V$ is a $k$-module and $t$ is a $k$-linear map, and on the other side the category of modules over the polynomial ring $k\lbrack T\rbrack$. This equivalence is a consequence of the fact that $k\lbrack T\rbrack$ is the free associative (and coincidentally also commutative) $k$-algebra on a single generator, so a module structure $k\lbrack T\rbrack\to\End_k(V)$ is uniquely determined by the value of $T$. Similarly, we will consider the free associate $\Sp_\base$-algebra on a single dualizable object:
-  \begin{thm}
-    The forgetful functor
-    \[
-      \Fun(B\NN ,\pPrll\base)\too\pPrl\base
-    \]
-    has a left adjoint. Furthermore, this adjunction is monadic and symmetric monoidal, where $\Fun (B\NN ,\pPrll\base)$ is equipped with the pointwise Lurie tensor product.
-  \end{thm}
+  Let
+  \[
+    a_{\delta ,\nu}\colon C\too A
+  \]
+  denote the composition
+  \[
+    C\simeq \mathbf 1\otimes C\xtoo{\delta\otimes\id} A\otimes B\otimes C\xtoo{\id\otimes\nu}A\otimes\mathbf 1\simeq A.
+  \]
+  Given a symmetric monoidal functor $F\colon\cC\to\cD$ where $\cD$ is closed, there is a canonical factorization
+  \[\begin{tikzcd}
+      &  F(B)^\vee\\
+      F(C) & {F(A)},
+      \arrow["{a_{F(\delta ),\varepsilon }}", from=1-2, to=2-2]
+      \arrow[from=2-1, to=1-2]
+      \arrow["{F(a_{\delta ,\nu})}"', from=2-1, to=2-2]
+    \end{tikzcd}\]
+  where $\varepsilon F(B)^\vee\otimes F(B)\to\mathbf 1$ is the evaluation pairing in $\cD$ and $F(C)\to F(B)^\vee$ is adjoint to the pairing $F(C)\otimes F(B)\simeq F(C\otimes B)\rar{F(\nu )} F(\mathbf 1)\simeq\mathbf 1$.
+\end{lem}
 \subsubsection{The Nielsen fixed point theorem}\label{subsec:classical-nielsen}
 Let $\tset$ be a topological set that is compact Hausdorff and locally of constant shape. For a self-map $f\colon \tset\to \tset$, the so-called Nielsen fixed point theorem of Reidemeister~\cite{Reidemeister1936} and Wecken~\cite{Wecken1941a,Wecken1941b,Wecken1942} gives a lower bound on the number of fixed points of $f$ that only depends on the homotopy class of $f$. The lower bound is expressed in terms of the following numerical invariant:
 \begin{defn}\label{defn: Nielsen number}
