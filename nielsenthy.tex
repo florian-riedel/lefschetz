@@ -1,5 +1,19 @@
 \begin{defn}
-    Shapely dynamical system goes here
+  A \tdef{dynamical system} is a tuple $(\tset ,\base ,p\colon\tset\to\base ,f\colon\tset\to\tset )$, where $\tset$ and $\base$ are topological spaces, and $p$ and $f$ are continuous maps such that
+  \[
+    \begin{tikzcd}
+      \tset\arrow[dr,swap,"p"] \arrow[rr,"f"] & & \tset\arrow[dl,"p"]\\
+      &\base
+    \end{tikzcd}
+  \]
+  commutes.
+\end{defn}
+We think of $f$ as the evolution of the dynamical system and $\base$ as a space of parameters. For example, if $\base = \RR$ and $p_1\colon\RR\times\tset\to\RR$ is the projection onto the first coordinate, then a dynamical system \[(\RR\times \tset ,\,\RR ,\, p_1,\, f )\] is uniquely determined by the ``flow'' map \[\phi\colon\RR\times\tset\too\tset,\quad (t,x)\mapsto p_2f(t,x),\]
+where $p_2\colon\RR\times\tset\to\tset$ denotes the projection onto the second coordinate. (Note however that there is in general no reason for $\phi$ to be compatible with the group structure on $\RR$.)
+
+We will consider dynamical systems satisfying a mild technical condition:
+\begin{defn}
+    A dynamical system $(\tset ,\base ,p, f)$ is \tdef{shapely} if $\tset$ and $\base$ are locally compact Hausdorff spaces and $p$ is a proper shape submersion.
 \end{defn}
 \subsection{Parametrized traces and the Nielsen fixed point theorem}
 For a shapely dynamical system $f\curvearrowright \tset\xrightarrow p\base$, we defined the associated Lefschetz index and Reidemeister trace
