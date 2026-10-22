@@ -1,8 +1,8 @@
 \begin{defn}
-    Allowable dynamical system goes here
+    Shapely dynamical system goes here
 \end{defn}
 \subsection{Parametrized traces and the Nielsen fixed point theorem}
-For an allowable dynamical system $f\curvearrowright \tset\xrightarrow p\base$, we defined the associated Lefschetz index and Reidemeister trace
+For a shapely dynamical system $f\curvearrowright \tset\xrightarrow p\base$, we defined the associated Lefschetz index and Reidemeister trace
 \begin{equation}
   \label{eq:nielsenthy-intro-characters}
   \lambda^f\colon \cptSec{X^f}[\base]\too \SS_\base\,
@@ -11,7 +11,7 @@ For an allowable dynamical system $f\curvearrowright \tset\xrightarrow p\base$, 
 where $i\colon\tset^f\to\tset$ denotes the inclusion of the fixed points.
 The goal of this subsection is to establish the following relationship between $\lambda^f$ and $\rho_{f}$:
 \begin{thm}\label{thm: lefschetz-nielsen}
-  Let $f\curvearrowright \tset\xrightarrow p\base$ be an allowable dynamical system. There is a commutative diagram in the category of sheaves of spectra on $\base$:
+  Let $f\curvearrowright \tset\xrightarrow p\base$ be a shapely dynamical system. There is a commutative diagram in the category of sheaves of spectra on $\base$:
   \[\begin{tikzcd}
       &  \pbmsec{X^f}{\base}\\
       \SS_\base & {\SS [\cL^{f}\ani{\tset}[\base]]},
@@ -21,7 +21,7 @@ The goal of this subsection is to establish the following relationship between $
     \end{tikzcd}\]
   where $\lambda_f$ denotes the $\SS_\base$-linear dual of $\lambda^f$. Furthermore,
   \begin{enumerate}[label=(\roman*)]
-  \item $\mathfrak a$ is natural in proper maps of allowable dynamical systems; and
+  \item $\mathfrak a$ is natural in proper maps of shapely dynamical systems; and
   \item for $f = \id$, the map $\mathfrak a$ is equivalent to the composition
     \[
       \pbmsec{X^f}{\base}\xtoo\sim\SS\lbrack \ani{\tset}[\base]\rbrack\xtoo{\hphantom{\sim}} \SS\lbrack \cL \ani{\tset}[\base]\rbrack,
@@ -93,7 +93,7 @@ We will need a twisted variation on the above to deal with self-maps. In order t
   \Onote{This is shown in the proof of~\cite[Lem~3.4]{Harr2026b}, but the writing in that proof is horrendous, so we should write a clean version here.}.
 \end{proof}
 \begin{cons}\label{cons: twisted pairing and copairing}
-  Let $(X,p\colon\tset\to\base ,f\colon\tset\to\tset )$ be an allowable dynamical system. Define a pairing \[\nu\colon (\pcoShat\base\tset ,f^?)\otimes (\D\tset ,f^*)\too (\Sp_\base ,\id)\] in $\Endtrl (\pPrl\base)$ to be the lax commutative square
+  Let $(X,p\colon\tset\to\base ,f\colon\tset\to\tset )$ be a shapely dynamical system. Define a pairing \[\nu\colon (\pcoShat\base\tset ,f^?)\otimes (\D\tset ,f^*)\too (\Sp_\base ,\id)\] in $\Endtrl (\pPrl\base)$ to be the lax commutative square
   \[
     \begin{tikzcd}
       {\coShat_\base(\tset)\otimes\D\tset} & \Sp_\base\\
@@ -147,7 +147,7 @@ We will need a twisted variation on the above to deal with self-maps. In order t
   \Onote{unfold definitions}
 \end{proof}
 \begin{thm}
-  Let $f\curvearrowright \tset\xrightarrow p\base$ be an allowable dynamical system. The lax commutative square
+  Let $f\curvearrowright \tset\xrightarrow p\base$ be a shapely dynamical system. The lax commutative square
   \[
     \begin{tikzcd}
       \Sp_\base\arrow[d,equal] \arrow[r] & \Sp_\base^{\ani{\tset}[\base]}\arrow[d,"f^*"]\\
@@ -171,7 +171,7 @@ We will need a twisted variation on the above to deal with self-maps. In order t
       \arrow["{a_{\delta ,\varepsilon} }"', from=2-2, to=2-3]
     \end{tikzcd}
   \end{equation}
-  natural in proper maps of allowable dynamical systems,
+  natural in proper maps of shapely dynamical systems,
   where $w_\tset$ is the parametrized Wall object and the rightmost square is the assembly map in $\Endtrl (\pPrlf{B})$ associated with the $\delta$ and $\nu$ constructed in~\cref{cons: twisted pairing and copairing}. 
 \end{thm}
 \begin{proof}
@@ -190,7 +190,7 @@ We will need a twisted variation on the above to deal with self-maps. In order t
   But this is exactly the definition of the 2-cell~\labelcref{eq:reidemeister lax square}, see~\cref{subsec: homotopical lefschetz}. 
 \end{proof}
 \begin{prop}\label{prop: lax calculation of trace on coshv hat}
-  Let $f\curvearrowright \tset\xrightarrow p\base$ be an allowable dynamical system. 
+  Let $f\curvearrowright \tset\xrightarrow p\base$ be a shapely dynamical system. 
   The map
   \[
     \TrcL (a_\delta)\colon \TrcL (f^?\curvearrowright\coShat_\base (\tset ))\too \TrcL(f^*\curvearrowright \Sp_\base^{\ani{\tset}[\base]})\simeq \SS [\cL^{f}\ani{\tset}[\base]]
@@ -206,7 +206,7 @@ We will need a twisted variation on the above to deal with self-maps. In order t
       \arrow[from=2-1, to=2-2]
     \end{tikzcd}
   \end{equation}
-  in $\Sp_\base$, natural in proper maps of allowable dynamical systems. Furthermore, the composite
+  in $\Sp_\base$, natural in proper maps of shapely dynamical systems. Furthermore, the composite
   \[
     \SS_\base\simeq\TrcL (\id\curvearrowright\Sp_\base)\to \TrcL (f^?\curvearrowright\coShat_\base (\tset ))\to \pbmsec{X^f}{\base}
   \]
