@@ -32,12 +32,13 @@ The goal of this subsection is to establish the following relationship between $
 As an immediate consequence of this result, we will deduce the classical Nielsen fixed point theorem, see~\cref{subsec:classical-nielsen}.
 
 The proof of~\cref{thm: lefschetz-nielsen} follows the same pattern as our treatment of the Lefschetz trace formula in the preceding section. Since $\rho_f$ can be defined as the trace of the lax commutative square
-\[
+\begin{equation}
+  \label{eq:reidemeister lax square}
   \begin{tikzcd}
     \Sp_\base\arrow[d,equal] \arrow[r] & \Sp_\base^{\ani{\tset}[\base]}\arrow[d,"f^*"]\\
     \Sp_\base\arrow[r]\arrow[ru,Rightarrow, shorten <=5pt,shorten >=5pt] & \Sp_\base^{\ani{\tset}[\base]}
   \end{tikzcd},
-\]
+\end{equation}
 our goal is to factor this lax commutative square through a traceable endomorphism that encodes the topology of the dynamical system. Such a factorization is provided by the assembly functors and Wall objects of Bartels--Nikolaus and Volpe--Wolff--Ramzi, as we explain in the next section.
 \subsubsection{Factoring the Reidemeister trace}\label{subsec:factoring-reidemeister}
 A key ingredient in our proof of~\cref{thm: lefschetz-nielsen} is the following bit of general nonsense:
@@ -89,7 +90,7 @@ We will need a twisted variation on the above to deal with self-maps. In order t
   of functors $\Sp_\base\to\D\tset\otimes\D Y$.
 \end{lem}
 \begin{proof}
-  \Onote{This is shown in the proof of~\cite[Lem~3.4]{Harr2026}, but the writing in that proof is horrendous, so we should write a clean version here.}.
+  \Onote{This is shown in the proof of~\cite[Lem~3.4]{Harr2026b}, but the writing in that proof is horrendous, so we should write a clean version here.}.
 \end{proof}
 \begin{cons}\label{cons: twisted pairing and copairing}
   Let $(X,p\colon\tset\to\base ,f\colon\tset\to\tset )$ be an allowable dynamical system. Define a pairing \[\nu\colon (\pcoShat\base\tset ,f^?)\otimes (\D\tset ,f^*)\too (\Sp_\base ,\id)\] in $\Endtrl (\pPrl\base)$ to be the lax commutative square
@@ -132,6 +133,19 @@ We will need a twisted variation on the above to deal with self-maps. In order t
   \]
   where the last map is the counit of the $f_!\dashv f^*$ adjunction.
 \end{cons}
+\begin{lem}\label{lem: twisted assembly is adjoint of assembly}
+  Let
+  \[
+    \begin{tikzcd}
+      \pcoShat\base\tset\arrow[d,"f_?"] \arrow[r,"a_{\delta ,\varepsilon}"] & \Sp_\base^{\ani{\tset}[\base]}\arrow[d,"f_!"]\\
+      \pcoShat\base\tset\arrow[r,"a_{\delta ,\varepsilon }"] & \Sp_\base^{\ani{\tset}[\base]}
+    \end{tikzcd},
+  \]
+  denote the commutative square coming from the naturality of $a_{\delta ,\varepsilon }$ as in~\cite[Thm~8.14]{Mukherjee_Nikolaus2026}. The lax commutative square defined by adjoining the vertical functors is canonically identified with the assembly map $a_{\delta ,\nu}$ associated with the pairing and copairing from~\cref{cons: twisted pairing and copairing}.
+\end{lem}
+\begin{proof}
+  \Onote{unfold definitions}
+\end{proof}
 \begin{thm}
   Let $f\curvearrowright \tset\xrightarrow p\base$ be an allowable dynamical system. The lax commutative square
   \[
@@ -161,7 +175,19 @@ We will need a twisted variation on the above to deal with self-maps. In order t
   where $w_\tset$ is the parametrized Wall object and the rightmost square is the assembly map in $\Endtrl (\pPrlf{B})$ associated with the $\delta$ and $\nu$ constructed in~\cref{cons: twisted pairing and copairing}. 
 \end{thm}
 \begin{proof}
-  The leftmost 2-cell is adjoint to the natural map $f_?w_\tset\to w_\tset$  described in Construction 3.1 of~\cite{Harr2026}.
+  The left-hand 2-cell is adjoint to the natural map \[\theta\colon f_?w_\tset\to w_\tset\]  described in Construction 3.1 of~\cite{Harr2026b}. We can therefore describe this 2-cell as
+  \[
+    w_\tset\xtoo{\text{unit}} f^?f_?w_\tset\xtoo{f^?(\theta )} f^?w_\tset.
+  \]
+  By~\cref{lem: twisted assembly is adjoint of assembly}, the right-hand 2-cell is the Beck--Chevalley morphism
+  \[
+    a_{\delta ,\varepsilon }f^?\xtoo{\text{unit}} f^*f_!a_{\delta ,\varepsilon }f^?\simeq f^*a_{\delta ,\varepsilon }f_?f^?\xtoo{\text{counit}}f^*a_{\delta ,\varepsilon },
+  \]
+  where the equivalence is the naturality 2-cell of~\cite[Thm~8.14]{Mukherjee_Nikolaus2026}. By functoriality of unit transformations, we find that the composed 2-cell is adjoint to the unit map \[f_!f^*a_{\delta ,\varepsilon }w_\tset\too a_{\delta ,\varepsilon },\] and~\cite[Lem~3.4]{Harr2026b} gives a natural identification of this map with the counit map
+  \[
+    f_!\SS_\tset\too\SS_\tset.
+  \]
+  But this is exactly the definition of the 2-cell~\labelcref{eq:reidemeister lax square}, see~\cref{subsec: homotopical lefschetz}. 
 \end{proof}
 \begin{prop}\label{prop: lax calculation of trace on coshv hat}
   Let $f\curvearrowright \tset\xrightarrow p\base$ be an allowable dynamical system. 
