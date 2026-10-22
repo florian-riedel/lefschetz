@@ -74,9 +74,9 @@ where $\psi$ denotes the inclusion of locally constant sheaves into all sheaves.
 \[
   a_{\delta ,\varepsilon}\colon\pcoShat\base\tset\too\Sp_\base^{\ani{\tset}[\base]}
 \]
-is then a categorification of the Waldhausen assembly map in the unparametrized case $\base=\pt$, or more generally the parametrized Waldhausen assembly map of the Dwyer--Weiss--Williams index theorem. More precisely, for the parametrized K-theory functor \[\mathrm K\colon\pPrdual\base\too\Sp_\base,\] we have a natural identification of $\mathrm K(a_{\delta ,\varepsilon })$ with the parametrized Waldhausen assembly map as objects in the arrow category $\Fun (\Delta^1,\Sp_\base )$.
+is a categorification of the Waldhausen assembly map in the unparametrized case $\base=\pt$ by work of Bartels--Nikolaus, or more generally the parametrized Waldhausen assembly map of the Dwyer--Weiss--Williams index theorem by work of Volpe--Wolff--Ramzi. More precisely, for the parametrized K-theory functor \[\mathrm K\colon\pPrdual\base\too\Sp_\base,\] we have a natural identification of $\mathrm K(a_{\delta ,\varepsilon })$ with the parametrized Waldhausen assembly map as objects in the arrow category $\Fun (\Delta^1,\Sp_\base )$.
 
-We will need a slight variation on the above to deal with self-maps. In order to set this up, we will need to know a basic property of the copairing described above:
+We will need a twisted variation on the above to deal with self-maps. In order to set this up, we need a basic property of the copairing described above:
 \begin{lem}
   Let $p\colon \tset\to\base$ be a proper shape submersion between locally compact Hausdorff spaces, and let
   \[
@@ -112,7 +112,7 @@ We will need a slight variation on the above to deal with self-maps. In order to
 
   Similarly, we define a copairing
   \[
-    \delta\colon (\Sp_\base ,\id)\too (\D\tset ,f^*)\otimes (\Sp_\base^{\ani{\tset}[\base]},f_!)\otimes
+    \delta\colon (\Sp_\base ,\id)\too (\D\tset ,f^*)\otimes (\Sp_\base^{\ani{\tset}[\base]},f^*)
   \]
   to be the lax commutative square
   \[
@@ -161,7 +161,7 @@ We will need a slight variation on the above to deal with self-maps. In order to
   where $w_\tset$ is the parametrized Wall object and the rightmost square is the assembly map in $\Endtrl (\pPrlf{B})$ associated with the $\delta$ and $\nu$ constructed in~\cref{cons: twisted pairing and copairing}. 
 \end{thm}
 \begin{proof}
-  \Onote{Fill in proof}
+  The leftmost 2-cell is adjoint to the natural map $f_?w_\tset\to w_\tset$  described in Construction 3.1 of~\cite{Harr2026}.
 \end{proof}
 \begin{prop}\label{prop: lax calculation of trace on coshv hat}
   Let $f\curvearrowright \tset\xrightarrow p\base$ be an allowable dynamical system. 
