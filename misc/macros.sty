@@ -19,11 +19,23 @@
 
 \newcommand{\Spc}{\mathscr{S}}
 \newcommand{\pSpc}[1]{\mathscr{S}_{#1}}
-\newcommand{\pSp}[2]{\Sp_{#1}^{#2}}
+\NewDocumentCommand{\pSp}{ m o }{%
+  \IfNoValueTF{#2}
+    {\Sp_{#1}}
+    {\Sp_{#1}^{#2}}%
+  }
+\NewDocumentCommand{\pSpf}{ m o }{%
+  \IfNoValueTF{#2}
+    {\mathcal{S}\mathrm{p}_{#1}}
+    {\mathcal{S}\mathrm{p}_{#1}^{#2}}%
+  }
+%\newcommand{\pSp}[2]{\Sp_{#1}^{#2}}
+%\newcommand{\pSpf}[2]{\mathcal{S}\mathrm{p_{#1}}^{#2}}
 
 %\DeclareMathOperator{\Sheaves}{\mathcal{D}}
 \newcommand{\D}[1]{\Sp_{#1}} % Sheaves on (1:Space)
 \newcommand{\sD}[1]{\mathcal{S}\mathrm{p}_{#1}}
+
 \newcommand{\fctD}[1]{\Sheaves_!^*({#1})} % Sheaves 6FF applied to (1:Span of spaces)
 \newcommand{\coShat}{\check{\mathfrak{D}}}
 \newcommand{\pcoShat}[2]{\check{\mathfrak{D}}_{#1}(#2)}
@@ -55,7 +67,7 @@
 \newcommand{\Endll}{\mathrm{End}^{\mathrm{LL}}}
 
 \newcommand{\bmH}{H^{\mathrm{BM}}} % Borel--Moore homology
-\newcommand{\pbmsec}[2]{H_{#2}^{\mathrm{BM}}(#1)}
+\newcommand{\pbmsec}[2]{\Gamma_{#2,c}(#1)^{\vee}}
 
 \NewDocumentCommand{\Sections}{ m o }{%
   \IfNoValueTF{#2}
@@ -66,13 +78,13 @@
   \NewDocumentCommand{\cptSec}{ m o }{%
     \IfNoValueTF{#2}
     {\Gamma_c (#1)}
-    {H_{{#2},\mathrm{c}} (#1)}%
+    {\Gamma_{{#2},\mathrm{c}} (#1)}%
   }
 
 \newcommand{\Span}[1]{\operatorname{\mathrm{Span}}({#1})} % Category of Spans in (1:cat)
 \newcommand{\sSpan}[1]{\operatorname{\mathcal S\mathrm{pan}}({#1})} % Category of Spans in (2:cat)
 
-\newcommand{\freeondual}{\Sp\lbrack T,T^\vee\rbrack}
+%\newcommand{\freeondual}{\Sp\lbrack T,T^\vee\rbrack}
 
 \newcommand{\fundgroupoid}{\Pi_{\infty}}
 
@@ -117,10 +129,8 @@
 \DeclareMathOperator{\Mod}{Mod}
 \DeclareMathOperator{\Vect}{Vect}
 \DeclareMathOperator{\grVect}{grVect}
-\DeclareMathOperator{\coMod}{coMod}
 \DeclareMathOperator{\Cat}{Cat}
 \DeclareMathOperator{\CAlg}{CAlg}
-\DeclareMathOperator{\QCoh}{QCoh}
 \DeclareMathOperator{\Ind}{Ind}
 \DeclareMathOperator{\Pro}{Pro}
 \DeclareMathOperator{\ev}{ev}
@@ -163,10 +173,10 @@
 \renewcommand{\SS}{\mathbb{S}}
 \renewcommand{\AA}{\mathbb{A}}
 
-\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cA}{\mathscr{A}}
 \newcommand{\cB}{\mathcal{B}}
-\newcommand{\cC}{\mathcal{C}}
-\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cC}{\mathscr{C}}
+\newcommand{\cD}{\mathscr{D}}
 \newcommand{\cE}{\mathcal{E}}
 \newcommand{\cF}{\mathcal{F}}
 \newcommand{\cG}{\mathcal{G}}
@@ -174,7 +184,7 @@
 \newcommand{\cI}{\mathcal{I}}
 \newcommand{\cJ}{\mathcal{J}}
 \newcommand{\cK}{\mathcal{K}}
-\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cL}{\mathscr{L}}
 \newcommand{\cM}{\mathcal{M}}
 \newcommand{\cN}{\mathcal{N}}
 \newcommand{\cO}{\mathcal{O}}

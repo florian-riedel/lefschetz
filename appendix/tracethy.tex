@@ -1,8 +1,9 @@
+\subsection{The $(\infty,2)$-functoriality of traces}
 Throughout this section, fix a symmetric monoidal $(\infty,2)$-category $(\cC,\otimes)$ with
 monoidal unit $\1_{\cC} \in \cC$ and write $\Omega\cC$ for the $(\infty,1)$-category of
 endomorphisms $\1_{\cC} \to \1_{\cC}$. The symmetric monoidal structure on $\cC$
 induces a natural symmetric monoidal structure on $\Omega \cC$, such that
-the tensor product $f\otimes_{\Omega_{\cC}} g$ of two endomorphisms
+the tensor product $f\otimes_{\Omega\cC} g$ of two endomorphisms
 $f,g\colon \1_{\cC} \to \1_{\cC}$ is simply given by the map $f\otimes g\colon \1_{\cC} \to \1_{\cC}$. 
 
 \begin{defn}
@@ -20,7 +21,7 @@ $f,g\colon \1_{\cC} \to \1_{\cC}$ is simply given by the map $f\otimes g\colon \
 \end{rmk}
 
 By definition, any $X\in \cC^{\dual}$ comes equipped with evaluation and
-coevaluation maps
+co-evaluation maps
 \[ \coev_{X}\colon \1_{\cC} \too X\otimes X^{\vee}\]
 \[ \ev_{X}\colon X^{\vee} \otimes X \too \1_{\cC}\]
 Moreover, since $\cC$ is symmetric monoidal, there is a canonical \textit{braiding}, giving a natural
@@ -28,25 +29,24 @@ equivalence
 \[ \tau \colon X\otimes X^{\vee} \simeq X^{\vee} \otimes X \,.\]
 
 \begin{defn}
-  A \tdef{generalized endomorphism} of an object $X\in \cC$ is a map
-  \[ f\colon Y\otimes X  \to X \otimes Z,\]
-  for some $Y,Z\in \cC$. If $X\in \cC^{\dual}$,
+  For any map $f\colon X\to X \in \cC^{\dual}$,
   the \tdef{trace} of $f$ is defined to be the composite
-  \[ \mdef{\tr{f}{\cC}} \colon  Y \rar{Y \otimes \coev_X} Y\otimes X \otimes X^{\vee} \rar{f \otimes \id} Z\otimes X \otimes X^{\vee} \rar{Z\otimes \tau} Z\otimes  X^{\vee} \otimes X \rar{Z\otimes \ev_X} Z .\]
+  \[ \mdef{\tr{f}{\cC}} \colon  \1_{\cC}  \xrightarrow{\coev_X}  X \otimes X^{\vee} \rar{f \otimes \id} X \otimes X^{\vee} \rar{\tau} X^{\vee} \otimes X \rar{\ev_X} \1_{\cC} .\]
   We refer to $\tr{\id_X}{\cC}\colon \1_{\cC} \to \1_{\cC}$ as the \tdef{dimension} of
   $X$ and denote it by $\mathrm{dim}_{\cC}(X)$.
 \end{defn}
 
-\begin{lem}\label{lem: sym mon preserve trace}
-    Let $F\colon \cC\to \cD$ be a symmetric monoidal $(\infty,2)$-functor
-    and let $f\colon Y\otimes X \to X\otimes Z$ be a generalized
-    endomorphism of some dualizable object $X\in \cC^{\dual}$.  
-    We have a natural equivalence 
-    \[ F(\tr{f}{\cC})\simeq \tr{F(f)}{\cD}\,, \]
-    in the $(\infty,1)$ category of maps $F(Y)\to F(Z)$. 
-\end{lem}
-In~\cite{Hoyois_Scherotzke_Sibilla2017} Hoyois--Scherotzke--Sibilla construct an $(\infty,1)$-category $\Endtrl(\cC)$
-of \textit{traceable endomorphisms} in $\cC$ as follows:
+% \begin{lem}\label{lem: sym mon preserve trace}
+%     Let $F\colon \cC\to \cD$ be a symmetric monoidal $(\infty,2)$-functor
+%     and let $f\colon Y\otimes X \to X\otimes Z$ be a generalized
+%     endomorphism of some dualizable object $X\in \cC^{\dual}$.  
+%     We have a natural equivalence 
+%     \[ F(\tr{f}{\cC})\simeq \tr{F(f)}{\cD}\,, \]
+%     in the $(\infty,1)$ category of maps $F(Y)\to F(Z)$. 
+% \end{lem}
+We will make use of the $(\infty,2)$-functoriality of the trace.
+For this purpose, recall the following construction of 
+Hoyois--Scherotzke--Sibilla~\cite{Hoyois_Scherotzke_Sibilla2017}.
 
 \begin{cons}
 The assignment $\cC\mapsto \cC^{\dual}$ refines to a functor
@@ -67,12 +67,26 @@ $\alpha \colon \varphi \circ f \to g \circ \varphi $ i.e.~a lax commutative diag
     X & Y \\
     X & Y \arrow["\varphi", from=1-1, to=1-2] \arrow["f"', from=1-1, to=2-1] \arrow["g", from=1-2, to=2-2] \arrow["\alpha", shorten <=4pt, shorten >=4pt, Rightarrow, from=2-1, to=1-2] \arrow["\varphi"', from=2-1, to=2-2]
   \end{tikzcd}\]
+  Note that the assignment $\cC \mapsto \Endtrl(\cC)$ is manifestly
+  functorial, meaning any symmetric monoidal $(\infty,2)$-functor
+  $F\colon \cC \to \cD$ induces a functor $F\colon \Endtrl(\cC)\to \Endtrl(\cD)$. The following theorem says that that the trace
+  is compatible with everything in sight.
 
-\begin{thm}\cite[Theorem 1.7.]{Hoyois_Scherotzke_Sibilla2017}\label{thm: trace functor}
+\begin{thm}\cite[Theorem 1.7]{Hoyois_Scherotzke_Sibilla2017}\label{thm: trace functor}
   The $(\infty,1)$-category $\Endtrl(\cC)$ inherits a natural
   symmetric monoidal structure, such that the assignment taking $(X,f) \in \Endtrl(\cC)$ to the
   trace $\tr{f}{\cC} \in \Omega_{\cC}$ refines to a symmetric monoidal functor
   \[ \Trc_{\cC}\colon \Endtrl(\cC) \too \Omega \cC.\]
+  Moreover, for any symmetric monoidal $(\infty,2)$-functor 
+  $F\colon \cC \to \cD$, we have a commutative diagram:
+  \[ \begin{tikzcd}
+	{\Endtrl(\cC)} & {\Endtrl(\cD)} \\
+	{\Omega \cC} & {\Omega \cD}
+	\arrow["F", from=1-1, to=1-2]
+	\arrow["{\Trc_{\cC}}"', from=1-1, to=2-1]
+	\arrow["{\Trc_{\cD}}", from=1-2, to=2-2]
+	\arrow["{\Omega F}"', from=2-1, to=2-2]
+\end{tikzcd}\]
 \end{thm}
 
 More explicitly, the functoriality of $\Trc_{\cC}$ works as follows.
@@ -81,41 +95,44 @@ Then $\Trc_{\cC}$ takes the map $(\varphi,\alpha)$ to the natural transformation
 \[ \tr{f}{\cC} \to \tr{\psi \varphi f}{\cC} \rar{\alpha} \tr{\psi g \varphi}{\cC}
 \simeq \tr{\varphi \psi g}{\cC} \to \tr{g}{\cC},\]
 where the first and last map are given by the unit and counit of the adjunction
-$\varphi \dashv \psi$, respectively. Diagrammatically, these are also induced by the 2-cells
-in the following diagram
-\begin{equation}\label{eq: trace functoriality}
-  \begin{tikzcd}
-	{\1_\cC} & {X \otimes X^\vee} && {X\otimes X^\vee} & {\1_\cC} \\
-	{\1_\cC} & {Y\otimes Y^\vee} && {Y \otimes Y^\vee} & {\1_\cC}
-	\arrow["{\rm{coev}_X}", from=1-1, to=1-2]
-	\arrow[equals, from=1-1, to=2-1]
-	\arrow["{f\otimes \id}", from=1-2, to=1-4]
-	\arrow[Rightarrow, from=1-2, to=2-1]
-	\arrow["{\varphi \otimes \psi^\vee}", from=1-2, to=2-2]
-	\arrow["{\ev_X}", from=1-4, to=1-5]
-	\arrow["\alpha"', Rightarrow, from=1-4, to=2-2]
-	\arrow["{\varphi \otimes \psi^\vee}"', from=1-4, to=2-4]
-	\arrow[Rightarrow, from=1-5, to=2-4]
-	\arrow[equals, from=1-5, to=2-5]
-	\arrow["{\rm{coev}_Y}"', from=2-1, to=2-2]
-	\arrow["{g\otimes \id}"', from=2-2, to=2-4]
-	\arrow["{\ev_Y}"', from=2-4, to=2-5]
-\end{tikzcd}\end{equation}
+$\varphi \dashv \psi$, respectively. 
 
-% \begin{rmk}\label{rmk:compatibility-of-fancy-trace-with-normal-trace}
-%   The functor $\Trc_{\cC}$ enjoys the following compatibility with the natural symmetric
-%   monoidal structure on $\Omega\cC$.
-%   Given an endomorphism $\gamma \colon a \to a$ of dualizable object in $\Omega \cC$, we
-%   obtain an endomorphism in $\Endtrl(\cC)$ of the form
-%   \[ (a,\gamma) \colon (\1_{\cC},\id) \too (\1_{\cC},\id). \]
-%   Then we have a natural equivalence
-%   \[ \Trc(a,\gamma) \simeq \tr{\gamma}{\Omega \cC}\]
-%   of endomorphisms of
-%   $\Trc(\1_{\cC},\id)= \dim{\1_{\cC}}{\cC} = \1_{\Omega \cC} \in \Omega\cC$.\todo{Insert reference to Hoyois et al or short argument.}
-% \end{rmk}
+\subsection{Spans}
+% Diagrammatically, these are also induced by the 2-cells
+% in the following diagram
+% \begin{equation}\label{eq: trace functoriality}
+%   \begin{tikzcd}
+% 	{\1_\cC} & {X \otimes X^\vee} && {X\otimes X^\vee} & {\1_\cC} \\
+% 	{\1_\cC} & {Y\otimes Y^\vee} && {Y \otimes Y^\vee} & {\1_\cC}
+% 	\arrow["{\rm{coev}_X}", from=1-1, to=1-2]
+% 	\arrow[equals, from=1-1, to=2-1]
+% 	\arrow["{f\otimes \id}", from=1-2, to=1-4]
+% 	\arrow[Rightarrow, from=1-2, to=2-1]
+% 	\arrow["{\varphi \otimes \psi^\vee}", from=1-2, to=2-2]
+% 	\arrow["{\ev_X}", from=1-4, to=1-5]
+% 	\arrow["\alpha"', Rightarrow, from=1-4, to=2-2]
+% 	\arrow["{\varphi \otimes \psi^\vee}"', from=1-4, to=2-4]
+% 	\arrow[Rightarrow, from=1-5, to=2-4]
+% 	\arrow[equals, from=1-5, to=2-5]
+% 	\arrow["{\rm{coev}_Y}"', from=2-1, to=2-2]
+% 	\arrow["{g\otimes \id}"', from=2-2, to=2-4]
+% 	\arrow["{\ev_Y}"', from=2-4, to=2-5]
+% \end{tikzcd}\end{equation}
 
-The $(-)^{\vee}\colon (\cC^{\dual})^{\op}\to \cC^{\dual}$ induces a functor on
-$\Endtrl(\cC^{\dual})$ in the obvious way. Note that in general $\Endtrl(\cC)^{\dual}\neq \Endtrl(\cC^{\dual})$.
+% % \begin{rmk}\label{rmk:compatibility-of-fancy-trace-with-normal-trace}
+% %   The functor $\Trc_{\cC}$ enjoys the following compatibility with the natural symmetric
+% %   monoidal structure on $\Omega\cC$.
+% %   Given an endomorphism $\gamma \colon a \to a$ of dualizable object in $\Omega \cC$, we
+% %   obtain an endomorphism in $\Endtrl(\cC)$ of the form
+% %   \[ (a,\gamma) \colon (\1_{\cC},\id) \too (\1_{\cC},\id). \]
+% %   Then we have a natural equivalence
+% %   \[ \Trc(a,\gamma) \simeq \tr{\gamma}{\Omega \cC}\]
+% %   of endomorphisms of
+% %   $\Trc(\1_{\cC},\id)= \dim{\1_{\cC}}{\cC} = \1_{\Omega \cC} \in \Omega\cC$.\todo{Insert reference to Hoyois et al or short argument.}
+% % \end{rmk}
+
+% The $(-)^{\vee}\colon (\cC^{\dual})^{\op}\to \cC^{\dual}$ induces a functor on
+% $\Endtrl(\cC^{\dual})$ in the obvious way. Note that in general $\Endtrl(\cC)^{\dual}\neq \Endtrl(\cC^{\dual})$.
 
 % \begin{lem}
 %   Let $F\colon \cC\to \cD$ be a unital lax symmetric monoidal functor of symmetric monoidal $\infty$-categories. Let $X\in \cC$ be an object such that $F(X)\in \cD^{\dual}$.
@@ -125,12 +142,77 @@ $\Endtrl(\cC^{\dual})$ in the obvious way. Note that in general $\Endtrl(\cC)^{\
 %   given by the adjoint of the composite 
 %   \[ F(X^{\vee})\otimes F(X) \to F(X^{\vee}\otimes X) \xrightarrow{F(\ev)} F(\1_{\cC})\simeq \SS.\]
 % \end{lem}
+\begin{defn}\label{defn: geometric setup}
+A \tdef{geometric setup} is a pair $(\mathcal C, \mathcal E)$ where $\mathcal C$ is an $\infty$-category with admits all finite limits
+and $\mathcal E \subseteq \Map (\mathcal C)$ is a class of morphisms
+in $\cC$, satisfying the following conditions:
+\begin{enumerate}[label=(\roman*)]
+    \item $\mathcal E$ contains all equivalences and is closed under composition.
+    \item $\mathcal E$ is stable under base change in $\mathcal C$.
+\end{enumerate}
+ Morphisms in $\mathcal E$ are called \tdef{admissible} and we also call
+ an object $X\in \cC$ admissible whenever the terminal map $X\to \pt$ is.
+Given a geometric setup $(\cC,\cE)$, we write $\mdef{\Span{\cC}_{\cE}}$ for the associated
+symmetric monoidal $\infty$-category of \tdef{spans}, see \todo{Add Ref}. 
+\end{defn}
+
+\begin{lem}
+    Let $(\cC,\cE)$ be a geometric context and suppose we have $X\in \Span{\cC}_{\cE}$ such that the terminal map $X\to \pt$ and the 
+    diagonal $\Delta \colon X \to X\times X$ are admissible. 
+    Then $X$ is dualizable and canonically
+    self dual, with duality datum given by the spans 
+    \[ \eta_X\colon \left( \pt \leftarrow X \xrightarrow{\id} X\right), \quad \coev_X\colon \left( X \xleftarrow{\id} X \xrightarrow{\Delta} X\times X\right)\,\]
+    and
+    \[ \epsilon_{X} \left( X \xleftarrow{\id} X \to \pt \right), \quad
+    \ev_{X}\colon \left( X\times X \xleftarrow{\Delta} X \xrightarrow{\id}X
+    \right)\,.\]
+\end{lem}
 
 \begin{lem}\label{lem: trace in Span}
    Let $\cC$ be a category with finite limits and let 
-   $\Lambda= (X\xleftarrow{f}Y\xrightarrow{g}Z)$ be a map
-   in $\Span{\cC}$. Then we have that 
-   $\tr{\Lambda}{\Span{\cC}} = (\pt \leftarrow X^{\Lambda} \to \pt ) \in \Span(\cC)$
+   \[\Lambda= (X\xleftarrow{f}X\xrightarrow{g}X)\] 
+   be a map in $\Span{\cC}_{\cE}$. We have that 
+   \[\tr{\Lambda}{\Span{\cC}_{\cE}} = (\pt \leftarrow X^{\Lambda} \to \pt ) \in \Span{\cC}_{\cE}\,,\]
+   where $X^{\Lambda}$ is defined to be the pullback: 
+   \[
+\begin{tikzcd}
+	{X^{\Lambda}} & X \\
+	X & {X\times X\,.}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+	\arrow["{(f,g)}", from=1-2, to=2-2]
+	\arrow["\Delta", from=2-1, to=2-2]
+\end{tikzcd}
+\]
+\end{lem}
+
+To fully leverage the functoriality of trace, we will also
+make use of an $(\infty,2)$-categorical enhancement of the span
+category. Assume we are given subclasses $\cI, \cP \subseteq \cE$
+such that $\cI$ and $\cP$ contain all equivalences, are closed
+under composition, base change and diagonals. We write 
+$\mdef{\sSpan{\cC}_{\cI,\cP}}$ for the symmetric monoidal 
+$(\infty,2)$-category of \cite[Definition 4.10]{Cnossen_Lenz_Linskens2026}. The underlying $(\infty,1)$-category of 
+$\sSpan{\cC}_{\cI,\cP}$ agrees with $\Span{\cC}_{\cE}$ and
+a 2-morphism from $\left(X\leftarrow Z\to Y\right)$ to $\left(X\leftarrow Z'\to Y\right)$ is
+given by a commutative diagram:
+\[\begin{tikzcd}
+	& Z & \\
+	X & W & Y \\
+	& Z^{\prime}
+	\arrow[from=1-2, to=2-1]
+	\arrow[from=1-2, to=2-3]
+	\arrow["f"', from=2-2, to=1-2]
+	\arrow["i", from=2-2, to=3-2]
+	\arrow[from=3-2, to=2-1]
+	\arrow[from=3-2, to=2-3]
+\end{tikzcd}\]
+
+where $i\in\cI$ and $f\in\cP$. We record the following technical
+lemma about internal adjoints in this category:
+\begin{lem}\label{lem: internal adjoints}
+    Precise lemma about internal adjoints
 \end{lem}
 
 % For a map $(\varphi, \alpha)\colon (X,f) \to (X,g)$ in $\cC^{\trl}$ we refer to

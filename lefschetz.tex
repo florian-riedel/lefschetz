@@ -1,26 +1,38 @@
 We deduce a topological and homotopical Lefschetz fixed point 
-via sheaves and local systems.
+via sheaves and local systems. 
 
 \subsection{Topological Lefschetz}
 
 \begin{defn}
     Let $\Top$ denote the category of locally compact Hausdorff
     spaces. For any $\base \in \Top$ we write 
-    $\pTop{\base}, \sTop{\base} \subseteq \Top_{/\base}$ 
-    for the full subcategories spanned by the proper and suave maps $p\colon X\to \base$ respectively. Moreover,
-    set $\psTop{\base}= \pTop{\base} \cap \sTop{\base}$. 
+    $\pTop{\base}\subseteq \Top_{/\base}$ 
+    for the full subcategory spanned by the proper maps $p\colon X\to \base$ respectively.
 \end{defn}
 
 Now fix some base $\base\in \Top$ for the remainder of this section. 
+For any self-map $f\colon X\to X \in \Top_{/\base}$ we write 
+$\mdef{X^f}$ for the \tdef{fixed points} of $f$, i.e.~the pullback 
+\[\begin{tikzcd}
+	{X^{f}} & X \\
+	X & {X\times X}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow["\ulcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
+	\arrow["{(f,\id)}", from=1-2, to=2-2]
+	\arrow["\Delta"', from=2-1, to=2-2]
+\end{tikzcd}\]
+in $\Top_{/\base}$. 
 
 We make use of the following construction from the appendix:
 For any $X\in \Top_{\base}$ we write 
-\[\mdef{\D{X}}\coloneq \Shv(X;\Sp) \in \CAlg(\Prlst)\]
-for the stably presentably monoidal $\infty$-category of sheaves of spectra on $X$. Then, the assignment 
-$X\mapsto \D{X}$ refines to a symmetric monoidal functor $(\infty,2)$-functor
-\[ \mdef{\sD{(-)}}\colon \sSpan{\pTop{\base}}_{\cI,\cP}\too \pPrlf{\base}\,.\]
+\[\mdef{\pSp{X}}\coloneq \Shv(X;\Sp) \in \CAlg(\Prlst)\]
+for the stably presentably monoidal $\infty$-category of sheaves of spectra on $X$. Moreover, we write $\SS_{X}\in \pSp{X}$ for the monoidal
+unit. BY REF, the assignment 
+$X\mapsto \pSp{X}$ refines to a symmetric monoidal functor $(\infty,2)$-functor
+\[ \mdef{\pSpf{(-)}}\colon \sSpan{\pTop{\base}}_{\cP,\cI}\too \pPrlf{\base}\,.\]
 Here, the source is the $(\infty,2)$-category of spans of REF and the
-target is the $(\infty,2)$-category of $\D{\base}$-linear presentable
+target is the $(\infty,2)$-category of $\pSp{\base}$-linear presentable
 $\infty$-categories. 
 % We denote the symmetric monoidal functor of underlying
 % $\infty$-categories
@@ -28,14 +40,18 @@ $\infty$-categories.
 % by the same name.
 
 \begin{notation}
-For any $(X,p)\in \Top{\base}$ and any $E\in \D{X}$ we write
-\[ \mdef{\cptSec{X;E}[\base]}\coloneq p_!E \in \D{\base}\,. \]
+For any morphism $f\colon X\to Y \in \pTop{\base}$ we write 
+\[ \mdef{f^*}\colon \pSp{Y}\to \pSp{X}\quad \text{and}\quad  \mdef{f_!} \colon \pSp{X}\to \pSp{Y}\]
+for the image of the spans 
+\[ \left( Y \xleftarrow{f} X \xrightarrow{\id}X\right) \quad \text{and} \quad  \left(X \xleftarrow{\id} X \xrightarrow{f} Y \right)\,, \]
+respectively.
+For any $(X,p)\in \Top_{/\base}$ and any $E\in \pSp{X}$ we write
+\[ \mdef{\cptSec{X;E}[\base]}\coloneq p_!E \in \pSp{\base}\,. \]
 For $E=\SS_X$ we simply write $\cptSec{X}[\base]=\cptSec{X;\SS_X}[\base]$.
 Moreover, for any map $f\colon (X,p)\to (Y,q)$ in $\pTop{\base}$ use
 the notation
 \[ \mdef{\pb{f}}\colon \cptSec{Y}[\base]\to \cptSec{X}[\base] \]
-for the pullback on relative compactly supported cohomology. 
-Explicitly, $\pb{f}$ is the image of the 2-morphism 
+for the pullback on relative compactly supported cohomology, i.e.~the image of the 2-morphism 
 \[
 \begin{tikzcd}
 	& X & \\
@@ -49,28 +65,23 @@ Explicitly, $\pb{f}$ is the image of the 2-morphism
 	\arrow["q"', from=3-2, to=2-3]
 \end{tikzcd}
 \]
-under the 2-functor $\sD{(-)}\colon \sSpan{\pTop{\base}}_{\cP,\cI} \to \pPrlf{\base}$.
+under the $(\infty,2)$-functor $\pSpf{(-)}\colon \sSpan{\pTop{\base}}_{\cP,\cI} \to \pPrlf{\base}$.
 \end{notation}
 
-\begin{lem}\label{lem: proper internal right adj}
-    For any $(p\colon X\to \base)\in \pTop{\base}$ the span 
-    $(\base \xleftarrow{p} X \xrightarrow{\id} X) \in \sSpan{\pTop{\base}}_{\cP,\cI}$ admits an internal
-    right adjoint given by $(X \xleftarrow{\id} X \xrightarrow{p} \base)$.
-\end{lem}
 
 \begin{lem}\label{lem: top trace identification}
     Let $f\colon (X,p)\to (X,p)$ be a self map in $\pTop{\base}$ with
     fixed points $i\colon X^f\to X$. Then we
     have an equivalence:
-    \[ \tr{f_!\colon \D{X}\to \D{X}}{\pPrl{\base}}\simeq \cptSec{X^f}[\base]\in \D{\base}\,.\]
+    \[ \tr{f_!\colon \pSp{X}\to \pSp{X}}{\pPrl{\base}}\simeq \cptSec{X^f}[\base]\in \pSp{\base}\,.\]
 \end{lem}
 \begin{proof}
-  By CITE, the symmetric monoidal $(\infty,2)$-functor 
-  $\sD{(-)}$ induces a symmetric monoidal functor 
-  \[ \sD{(-)}\colon \Endtrl(\sSpan{\pTop{\base}}_{\cP,\cI}) 
+  By the naturality statment of \cref{thm: trace functor}, the symmetric monoidal 
+  $(\infty,2)$-functor $\pSpf{(-)}$ induces a symmetric monoidal functor 
+  \[ \pSpf{(-)}\colon \Endtrl(\sSpan{\pTop{\base}}_{\cP,\cI}) 
   \too \Endtrl(\pPrlf{\base})\,,\]
   which is compatible with trace. Thus, we learn that 
- the trace of the functor $f_!\colon \D{X}\to \D{X}$
+ the trace of the functor $f_!\colon \pSp{X}\to \pSp{X}$
  is computed as the image of the trace of the span 
  $(X\xleftarrow{\id} X \xrightarrow{f}X)$, which by \cref{lem: trace in Span}
  is given by the fixed points $\base \leftarrow X^f \to \base$,
@@ -78,38 +89,54 @@ under the 2-functor $\sD{(-)}\colon \sSpan{\pTop{\base}}_{\cP,\cI} \to \pPrlf{\b
 \end{proof}
 
 \begin{cons}\label{cons: Lefschetz index}
-    Let $f\colon (X,p)\to (X,p)$ be a self map in $\psTop{\base}$ with
-    fixed points $i\colon X^f\to X$. Consider 
-    the following diagram in $\pPrlf{\base}$:
+    Let $f\colon (X,p)\to (X,p)$ be a self map in $\pTop{\base}$ and
+    assume that the projection $p\colon X\to M$ is a shape submersion. Consider the following diagram in $\pPrlf{\base}$:
    \[\begin{tikzcd}
-	{\D{X}} & {\D{\base}} \\
-	{\D{X}} & {\D{\base}}
+	{\pSp{X}} & {\pSp{\base}} \\
+	{\pSp{X}} & {\pSp{\base}}
 	\arrow["{p_!}", from=1-1, to=1-2]
 	\arrow["{f_!}"', from=1-1, to=2-1]
 	\arrow["\id", from=1-2, to=2-2]
 	\arrow[Rightarrow, from=2-1, to=1-2]
 	\arrow["{p_!}"', from=2-1, to=2-2]
 \end{tikzcd} \]
-where the 2-cell is induced by the natural equivalence
+where the 2-cell is induced by the equation
 $pf=p$. Since $p$ is a proper shape submersion,
 the functor $p_!$ admits an internal right adjoint by REF/CITE,
-and hence this defines a morphism $(\D{X},f_!)\to (\D{\base},\id)$ in $\Endtrl(\pPrlf{\base})$. Applying the symmetric
-monoidal functor $\TrcL\colon \Endtrl(\pPrlf{\base}) \to \D{\base}$ and using the identification of \cref{lem: top trace identification} we obtain
+and hence this defines a morphism $(\pSp{X},f_!)\to (\pSp{\base},\id)$ in $\Endtrl(\pPrlf{\base})$. Applying the symmetric
+monoidal functor 
+\[ \TrcL\colon \Endtrl(\pPrlf{\base}) \to \pSp{\base}\]
+of \cref{thm: trace functor}
+and using the identification of \cref{lem: top trace identification} we obtain
 a map:
 \[ \mdef{\lambda^f}\colon \cptSec{X^f}[\base]
-\to \SS_{\base} \in \D{\base}\]
+\to \SS_{\base} \in \pSp{\base}\]
 which we call the \tdef{Lefschetz index} of $f$. 
     \end{cons}
 
+The following technical lemma will allow us to identify the pullback
+of the Lefschetz index to the point.
+
+\begin{lem}\label{lem: proper internal right adj}
+    For any $(p\colon X\to \base)\in \pTop{\base}$ the span 
+    $(\base \xleftarrow{p} X \xrightarrow{\id} X) \in \sSpan{\pTop{\base}}_{\cP,\cI}$ admits an internal
+    right adjoint given by $(X \xleftarrow{\id} X \xrightarrow{p} \base)$.
+\end{lem}
+\begin{proof}
+    This is a special case of \cref{lem: internal adjoints}. 
+\end{proof}
+
+We can now prove the main result of this section:
+
 \begin{prop}\label{prop: Top Lefschetz}
 Let $f\colon (X,p)\to (X,p)$ be a self map in $\psTop{\base}$ with 
-fixed points $i\colon X^f\to X$. 
+fixed points $i \colon X^f\subseteq X$. 
 Let $\lambda^f\colon \cptSec{X^f}[\base] \to \SS_{\base}$ be
 the Lefschetz index of \cref{cons: Lefschetz index}. 
 The composite 
-\[ \SS_{\base} \xrightarrow{\pb{pi}} \cptSec{X^f}[\base]
+\[ \SS_{\base} \xrightarrow{\pb{q}} \cptSec{X^f}[\base]
 \xrightarrow{\lambda^f} \SS_{\base}\,\]
-of $\lambda^f$ with the pullback along $pi\colon X^f\to \base$ is given by the trace of the pullback map 
+is given by the trace of the pullback map 
 \[ \pb{f}\colon \cptSec{X}[\base]\to \cptSec{X}[\base] \]
 on (relative) compactly supported cohomology.
 \end{prop}
@@ -117,8 +144,8 @@ on (relative) compactly supported cohomology.
     Consider the commutative diagram in $\Endtrl(\pPrlf{\base})$:
 \begin{equation}\label{eq: categorical factorization top}
    \begin{tikzcd}
-	{\D{\base}} & {\D{X}} & {\D{\base}} \\
-	{\D{\base}} & {\D{X}} & {\D{\base}}
+	{\pSp{\base}} & {\pSp{X}} & {\pSp{\base}} \\
+	{\pSp{\base}} & {\pSp{X}} & {\pSp{\base}}
 	\arrow["{p^*}", from=1-1, to=1-2]
 	\arrow["\id"', from=1-1, to=2-1]
 	\arrow["{p_!}", from=1-2, to=1-3]
@@ -130,14 +157,14 @@ on (relative) compactly supported cohomology.
 	\arrow["{p_!}"', from=2-2, to=2-3]
 \end{tikzcd} 
     \end{equation}
-    where$\alpha\colon f_!p^*\to p^*$ is adjoint to the preferred equivalence $f^*p^* = p^*$ and $\beta$ is the preferred
+    where $\alpha\colon f_!p^*\to p^*$ is adjoint to the preferred equivalence $f^*p^* = p^*$ and $\beta$ is the preferred
     equivalence $p_!f_!=p_!$. Applying the functor 
-    \[ \TrcL\colon \Endtrl(\pPrlf{\base})\to \D{\base}\,\]
-    we obtain a commutative diagram in $\D{\base}$ of
+    \[ \TrcL\colon \Endtrl(\pPrlf{\base})\to \pSp{\base}\,\]
+    we obtain a commutative diagram in $\pSp{\base}$ of
     the form:
     \[
 \begin{tikzcd}
-	{} & {(pi)_!(pi)^*\SS_{\base}} & \\
+	{} & {\cptSec{X^f}[\base]} & \\
 	{\SS_{\base}} && {\SS_{\base}}
 	\arrow["{\lambda^f}", from=1-2, to=2-3]
 	\arrow["{\TrcL(p^*,\alpha)}", from=2-1, to=1-2]
@@ -147,10 +174,10 @@ on (relative) compactly supported cohomology.
     The map $\beta\alpha\colon p_!p^*\SS_{\base}\to p_!p^*\SS_{\base}$ is by definition the pullback $\pb{f}$
     along $f$ and so by construction of the functor 
     $\TrcL$ REF, we have that
-    \[ \TrcL(p_!p^*,\beta\alpha)= \tr{\pb{f}}{\D{\base}}\,.\]
+    \[ \TrcL(p_!p^*,\beta\alpha)= \tr{\pb{f}}{\pSp{\base}}\,.\]
     It remains to show that $\TrcL(p^*,\alpha)$ is given
-    by the pullback $\pb{pi}$ along the projection 
-    map $pi\colon X^{f}\to \base$.
+    by the pullback $\pb{q}$ along the projection 
+    map $q\colon X^{f}\to \base$.
     Indeed, by \cref{lem: proper internal right adj} the span 
     $(\base \xleftarrow{p} X \xrightarrow{\id} X)$ admits an internal
     right adjoint and thus defines a map:
@@ -170,7 +197,7 @@ on (relative) compactly supported cohomology.
 \end{tikzcd}
 \]
 in $\Endtrl(\sSpan{\pTop{\base}}_{\cP,\cI})$ whose image under the functor 
-$\D{(-)}$ is the left hand square of \eqref{eq: categorical factorization top}. Thus, unwinding the definitions and using the naturality of the
+$\pSp{(-)}$ is the left hand square of \eqref{eq: categorical factorization top}. Thus, unwinding the definitions and using the naturality of the
 functor $\Trc$, we learn that the map $\TrcL(p^*,\alpha)$
 is the image of the 2-morphism: 
 \[
@@ -178,16 +205,16 @@ is the image of the 2-morphism:
 	& {X^f} & \\
 	\base & {X^f} & \base \\
 	& \base
-	\arrow["pi"', from=1-2, to=2-1]
-	\arrow["pi", from=1-2, to=2-3]
+	\arrow["q"', from=1-2, to=2-1]
+	\arrow["q", from=1-2, to=2-3]
 	\arrow["\id"', from=2-2, to=1-2]
-	\arrow["pi", from=2-2, to=3-2]
+	\arrow["q", from=2-2, to=3-2]
 	\arrow[from=3-2, to=2-1]
 	\arrow[from=3-2, to=2-3]
 \end{tikzcd}
 \]
-under the functor $\Omega \D{(-)}$, which is exactly the pullback along 
-$pi\colon X^f \to \base$. 
+under the functor $\Omega \pSpf{(-)}$, which is exactly the pullback along 
+$q\colon X^f \to \base$. 
 \end{proof}
 
 \subsection{Homotopical Lefschetz}\label{subsec: homotopical lefschetz}
@@ -198,23 +225,28 @@ $pi\colon X^f \to \base$.
     In a slight abuse of notation, we denote the terminal 
     of $\pSpc{\base}$ also by $\base$. 
     Moreover. for any $A\in \pSpc{\base}$ we define:
-    \[ \mdef{\pSp{\base}{A}}\coloneq \Shv((\pSpc{\base})_{/A};\Sp)\in \CAlg(\Prlst)\,, \]
-    and write $\SS_{A}$ for the monoidal unit of $\pSp{\base}{A}$.
+    \[ \mdef{\pSp{\base}[A]}\coloneq \Shv((\pSpc{\base})_{/A};\Sp)\in \CAlg(\Prlst)\,, \]
+    and write $\SS_{A}$ for the monoidal unit of $\pSp{\base}[A]$.
 \end{defn}
 
-WE make use of the following fact from REF appendix. 
-By REF the assignment $A\mapsto \pSp{\base}{A}$ refines to a symmetric
+WE
+
+We make use of the following fact from REF appendix. 
+By REF the assignment $A\mapsto \pSp{\base}[A]$ refines to a symmetric
 monoidal $(\infty,2)$-functor:
-\[ \pSp{\base}{(-)}\colon \sSpan{\pSpc{\base}}_{\simeq,\all} \too \pPrlf{\base}\,.\]
+\[ \mdef{\pSpf{\base}[(-)]}\colon \sSpan{\pSpc{\base}}_{\simeq,\all} \too \pPrlf{\base}\,.\]
 
 \begin{notation}
 Consider the induced functor on endomorphism $(\infty,1)$-categories
-\[ \Omega \pSp{\base}{(-)}\colon \Omega_{\base}\sSpan{\pSpc{\base}}_{\simeq,\all}\to \pSp{\base}{}\,.\]
-For any $A\in \pSpc{\base}$ write $\mdef{\SS_{\base}[A]}$ for the 
+\[ \Omega \pSpf{\base}{(-)}\colon \Omega_{\base}\sSpan{\pSpc{\base}}_{\simeq,\all}\too \pSp{\base}{}\,.\]
+For any $A\in \pSpc{\base}$ with terminal map $p\colon A\to M$ we write
+\[\mdef{\SS_{\base}[A]} \in \pSp{\base}\]
+for the 
 \tdef{relative spherical homology} of $A$, i.e~the image
 of the span $\base\leftarrow A \rightarrow \base$ under
-$\Omega\pSp{\base}{(-)}$. Moreover, for any map 
-$f\colon A\to B$ write $\mdef{\tf{f}}\colon \SS_{\base}[A]\to \SS_{\base}[B]$
+$\Omega\pSpf{\base}[(-)]$. Moreover, for any map 
+$f\colon A\to B\in \pSpc{\base}$ we write 
+\[\mdef{\tf{f}}\colon \SS_{\base}[A]\to \SS_{\base}[B]\]
 for the \tdef{transfer map} induced from the 2-morphism:
 \[\begin{tikzcd}
 	& B & \\
@@ -227,7 +259,7 @@ for the \tdef{transfer map} induced from the 2-morphism:
 	\arrow[from=3-2, to=2-1]
 	\arrow[from=3-2, to=2-3]
 \end{tikzcd}\]
-via the functor $\Omega\pSp{\base}{(-)}$.
+via the functor $\Omega\pSpf{\base}[(-)]$.
 \end{notation}
 
 \begin{rmk}
@@ -244,12 +276,15 @@ For any $(p\colon A\to \base)\in \pSpc{\base}$ the span
 $(A\xleftarrow{\id} A \xrightarrow{p} \base) \in \sSpan{\pSpc{\base}}_{\simeq, \all}$ admits an internal right adjoint given by 
 $(\base \xleftarrow{p} A \xrightarrow{\id} A)$.
 \end{lem}
+\begin{proof}
+This is a special case of \cref{lem: internal adjoints}. 
+\end{proof}
 
 \begin{lem}\label{lem: homo trace identification}
     Let $f\colon A\to A$ be a self map in $\pSpc{\base}$ with homotopy
     fixed points $i\colon \cL^fA \to A$. We have an equivalence 
     \[ \tr{f^* \colon \pSp{\base}{A}\to \pSp{\base}{A}}{\pPrl{\base}}
-    \simeq \SS_{\base}[\cL^fA] \in \D{\base}\,
+    \simeq \SS_{\base}[\cL^fA] \in \pSp{\base}\,
     \]
    which is natural in spans $A\xleftarrow{i} C \xrightarrow{g} B$ where
    $i$ is an equivalence and $g$ is any map.
@@ -264,8 +299,8 @@ $(\base \xleftarrow{p} A \xrightarrow{\id} A)$.
    write $p\colon A\to \base$ for the terminal map.
    Consider the following diagram in $\pPrlf{\base}$:
    \[\begin{tikzcd}
-	{\pSp{\base}{}} & {\pSp{\base}{A}} \\
-	{\pSp{\base}{}} & {\pSp{\base}{A}}
+	{\pSp{\base}} & {\pSp{\base}[A]} \\
+	{\pSp{\base}} & {\pSp{\base}[A]}
 	\arrow["{p^{*}}", from=1-1, to=1-2]
 	\arrow["{\id}"', from=1-1, to=2-1]
 	\arrow["f^*", from=1-2, to=2-2]
@@ -274,7 +309,7 @@ $(\base \xleftarrow{p} A \xrightarrow{\id} A)$.
 \end{tikzcd} \]
 where the 2-cell is induced by the natural identification
 $pf=p$. This datum defines a map
-\[ (\pSp{\base}{},\id)\to (\pSp{\base}{A},f^*)\]
+\[ (\pSp{\base},\id)\to (\pSp{\base}[A],f^*)\]
 in $\Endtrl(\pPrlf{\base})$. Applying
 the symmetric monoidal functor $\TrcL$ 
 and using the identification of \cref{lem: homo trace identification}, we obtain a map:
@@ -298,8 +333,8 @@ which we call the \tdef{Reidemeister trace} of $f$.
     The proof is completely analogous to the one of \cref{prop: Top Lefschetz}. Indeed, consider the commutative diagram in $\Endtrl(\pPrlf{\base})$:
     \[
    \begin{tikzcd}
-	{\D{\base}} & {\pSp{\base}{A}} & {\D{\base}} \\
-	{\D{\base}} & {\pSp{\base}{A}} & {\D{\base}}
+	{\pSp{\base}} & {\pSp{\base}[A]} & {\pSp{\base}} \\
+	{\pSp{\base}} & {\pSp{\base}[A]} & {\pSp{\base}}
 	\arrow["{p^*}", from=1-1, to=1-2]
 	\arrow["\id"', from=1-1, to=2-1]
 	\arrow["{p_\sharp}", from=1-2, to=1-3]
