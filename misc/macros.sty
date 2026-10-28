@@ -78,7 +78,7 @@
   \NewDocumentCommand{\cptSec}{ m o }{%
     \IfNoValueTF{#2}
     {\Gamma_c (#1)}
-    {\Gamma_{{#2},\mathrm{c}} (#1)}%
+    {\Gamma_{{#2}} (#1)}%
   }
 
 \newcommand{\Span}[1]{\operatorname{\mathrm{Span}}({#1})} % Category of Spans in (1:cat)
@@ -151,7 +151,7 @@
 \newcommand{\rar}{\xrightarrow}
 \newcommand{\lar}{\xleftarrow}
 \newcommand{\rari}{\xhookrightarrow}
-\newcommand{\pt}{\mathrm{pt}} %previously \ast, but * is overloaded
+\newcommand{\pt}{\ast} %previously \ast, but * is overloaded
 \newcommand{\op}{{\mathrm{op}}}
 \newcommand{\1}{\mathds{1}}
 

@@ -6,23 +6,51 @@
       &\base
     \end{tikzcd}
   \]
-  commutes.
+  commutes. We also call the $(X,p,f)$ a dynamical system over $\base$. 
 \end{defn}
 We think of $f$ as the evolution of the dynamical system and $\base$ as a space of parameters. For example, if $\base = \RR$ and $p_1\colon\RR\times\tset\to\RR$ is the projection onto the first coordinate, then a dynamical system \[(\RR\times \tset ,\,\RR ,\, p_1,\, f )\] as above is uniquely determined by the ``flow'' map \[\phi\colon\RR\times\tset\too\tset,\quad (t,x)\mapsto p_2f(t,x),\]
 where $p_2\colon\RR\times\tset\to\tset$ denotes the projection onto the second coordinate. (Note however that there is in general no reason for $\phi$ to be compatible with the group structure on $\RR$.)
 
 We will consider dynamical systems satisfying a mild technical condition:
+
 \begin{defn}
-    A dynamical system $(\tset ,\base ,p, f)$ is \tdef{shapely} if $\tset$ and $\base$ are locally compact Hausdorff spaces and $p$ is a proper shape submersion.
+    We call a dynamical system $(\tset ,p, f)$ over $\base$ 
+    \tdef{shapely} if the map $p\colon X\to \base$ is a proper shape submersion.
 \end{defn}
+
+
 \subsection{Parametrized traces and the Nielsen fixed point theorem}
-For a shapely dynamical system $f\curvearrowright \tset\xrightarrow p\base$, we defined the associated Lefschetz index and Reidemeister trace
+
+Let us begin with the following construction:
+
+\begin{cons}
+    Let $\psTop{\base}$ be the full subcategory of 
+    $\pTop{\base}$ spanned by those $X\to \base$ which are shape
+    submersions.
+    For any $X\in \psTop{\base}$ and any (small enough) $U\subseteq \base$, the topological space $\Map_{/\base}(U,X)$ has constant
+    shape. Thus, we may define the \tdef{relative shape} 
+    of $X$ as the sheaf of spaces $\mdef{\ani{X}[\base]}\in \pSpc{\base}$
+    given by the sheafification of the presheaf of spaces
+    $\ani{\Map_{\Top_{/\base}}(-,X)} \in \Fun(\mathrm{Open}(\base)^\op,\Spc)$. 
+    \todo{Find citations and make sure this is actually right}
+    The relative shape construction defines a functor
+    \[ \ani{-}[\base] \colon \psTop{\base} \too \pSpc{\base}\,.\]
+\end{cons}
+
+Consequently, given any shapely dynamical system $(X,p,f)$  
+over $\base$, we have an attached sheaf of spaces $\ani{X}[\base]$
+together with an endomorphism which we also denote by 
+$f\colon \ani{X}[\base]\to \ani{X}[\base]$.
+
+In particular, for a shapely dynamical system 
+$f\curvearrowright \tset\xrightarrow p\base$, we may apply 
+\cref{cons: Lefschetz index} as well as \cref{cons: Reidemeister trace}
+to define the associated Lefschetz index and Reidemeister trace
 \begin{equation}
   \label{eq:nielsenthy-intro-characters}
   \lambda^f\colon \cptSec{X^f}[\base]\too \SS_\base\,
-  \qquad\text{and}\qquad\rho_{f}\colon \SS_\base \too \SS [\cL^{f}\ani{\tset}[\base]]\,,
+  \qquad\text{and}\qquad\rho_{f}\colon \SS_\base \too \SS [\cL^{f}\ani{\tset}[\base]]\,.
 \end{equation}
-where $i\colon\tset^f\to\tset$ denotes the inclusion of the fixed points.
 The goal of this subsection is to establish the following relationship between $\lambda^f$ and $\rho_{f}$:
 \begin{thm}\label{thm: lefschetz-nielsen}
   Let $f\curvearrowright \tset\xrightarrow p\base$ be a shapely dynamical system. There is a commutative diagram in the category of sheaves of spectra on $\base$:
@@ -229,7 +257,10 @@ We will need a twisted variation on the above to deal with self-maps. In order t
 \begin{proof}
   Aside from the last statement, everything follows immediately from~\cref{lem: bartels-nikolaus nonsense}. The last statement on the other hand is the identification of the parametrized THH-assembly with the result of applying THH to the assembly functor. \Onote{details or reference for the last bit}
 \end{proof}
+
 \subsubsection{The Nielsen fixed point theorem}\label{subsec:classical-nielsen}
+We now specialize the results of the previous section to the case
+where $\base = \pt$. 
 Let $\tset$ be a topological set that is compact Hausdorff and locally of constant shape. For a self-map $f\colon \tset\to \tset$, the so-called Nielsen fixed point theorem of Reidemeister~\cite{Reidemeister1936} and Wecken~\cite{Wecken1941a,Wecken1941b,Wecken1942} gives a lower bound on the number of fixed points of $f$ that only depends on the homotopy class of $f$. The lower bound is expressed in terms of the following numerical invariant:
 \begin{defn}\label{defn: Nielsen number}
   The \tdef{Nielsen number} of $f$, denoted $\mdef{N_f}$, is the number of nonzero coordinates of the Reidemeister character $\rho_f\in\pi_0\SS\lbrack\cL^f\ani{\tset}\rbrack$ with respect to the standard basis

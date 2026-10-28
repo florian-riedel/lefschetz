@@ -97,7 +97,7 @@ Then $\Trc_{\cC}$ takes the map $(\varphi,\alpha)$ to the natural transformation
 where the first and last map are given by the unit and counit of the adjunction
 $\varphi \dashv \psi$, respectively. 
 
-\subsection{Spans}
+\subsection{Span categories}
 % Diagrammatically, these are also induced by the 2-cells
 % in the following diagram
 % \begin{equation}\label{eq: trace functoriality}
@@ -169,13 +169,12 @@ symmetric monoidal $\infty$-category of \tdef{spans}, see \todo{Add Ref}.
 \end{lem}
 
 \begin{lem}\label{lem: trace in Span}
-   Let $\cC$ be a category with finite limits and let 
+   Let $(\cC,\cE$ be a geometric context and let
    \[\Lambda= (X\xleftarrow{f}X\xrightarrow{g}X)\] 
    be a map in $\Span{\cC}_{\cE}$. We have that 
    \[\tr{\Lambda}{\Span{\cC}_{\cE}} = (\pt \leftarrow X^{\Lambda} \to \pt ) \in \Span{\cC}_{\cE}\,,\]
    where $X^{\Lambda}$ is defined to be the pullback: 
-   \[
-\begin{tikzcd}
+   \[\begin{tikzcd}
 	{X^{\Lambda}} & X \\
 	X & {X\times X\,.}
 	\arrow[from=1-1, to=1-2]
@@ -183,17 +182,24 @@ symmetric monoidal $\infty$-category of \tdef{spans}, see \todo{Add Ref}.
 	\arrow["\lrcorner"{anchor=center, pos=0.125}, draw=none, from=1-1, to=2-2]
 	\arrow["{(f,g)}", from=1-2, to=2-2]
 	\arrow["\Delta", from=2-1, to=2-2]
-\end{tikzcd}
-\]
+\end{tikzcd}\]
 \end{lem}
 
 To fully leverage the functoriality of trace, we will also
 make use of an $(\infty,2)$-categorical enhancement of the span
-category. Assume we are given subclasses $\cI, \cP \subseteq \cE$
+category.
+
+\begin{defn}
+Let $(\cC,\cE)$ be a geometric context. Given a pair of subclasses
+$\cI, \cP \subseteq \cE$ 
 such that $\cI$ and $\cP$ contain all equivalences, are closed
-under composition, base change and diagonals. We write 
+under composition, base change and diagonals we write
 $\mdef{\sSpan{\cC}_{\cI,\cP}}$ for the symmetric monoidal 
-$(\infty,2)$-category of \cite[Definition 4.10]{Cnossen_Lenz_Linskens2026}. The underlying $(\infty,1)$-category of 
+$(\infty,2)$-category of \cite[Definition 4.10]{Cnossen_Lenz_Linskens2026}. 
+\end{defn}
+
+\begin{rmk}
+The underlying $(\infty,1)$-category of 
 $\sSpan{\cC}_{\cI,\cP}$ agrees with $\Span{\cC}_{\cE}$ and
 a 2-morphism from $\left(X\leftarrow Z\to Y\right)$ to $\left(X\leftarrow Z'\to Y\right)$ is
 given by a commutative diagram:
@@ -208,11 +214,13 @@ given by a commutative diagram:
 	\arrow[from=3-2, to=2-1]
 	\arrow[from=3-2, to=2-3]
 \end{tikzcd}\]
+where $i\in\cI$ and $f\in\cP$.
+\end{rmk}
 
-where $i\in\cI$ and $f\in\cP$. We record the following technical
-lemma about internal adjoints in this category:
+We record the following technical lemma about internal adjoints in the
+$(\infty,2)$-category of spans:
 \begin{lem}\label{lem: internal adjoints}
-    Precise lemma about internal adjoints
+    Precise lemma about internal adjoints \todo{Track this lemma down again}
 \end{lem}
 
 % For a map $(\varphi, \alpha)\colon (X,f) \to (X,g)$ in $\cC^{\trl}$ we refer to
