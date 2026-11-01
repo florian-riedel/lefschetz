@@ -36,23 +36,24 @@ subcategory of local systems on $\base$, $C_{X}$ is a local
 system as well.
 
 \begin{defn}
-    Say that $f\curvearrowright X \xrightarrow{p} \base$ has
-    \tdef{good restriction} with respect to $\base = \open \sqcup \closed$
-    if the composite map 
-    \[ \pbmsec{j^*X^{j^*f}}{\closed} \xrightarrow{\ass_{\closed}^{j^*f}} \SS_{\base}[\cL\ani{j^*X}[\closed]] \to j^*C_X \in \D{\closed}\]
-    is null.
+A \tdef{good restriction} of a shapely dynamical system 
+$f\curvearrowright X \xrightarrow{p} \base$
+to the closed set $j \colon \closed \hookrightarrow \base$ is a 
+nullhomotopy of the composite map
+    \[ \pbmsec{j^*X^{j^*f}}{\closed} \xrightarrow{\ass_{\closed}^{j^*f}} \SS_{\base}[\cL\ani{j^*X}[\closed]] \to j^*C_X \in \pSp{\closed}\,.\]
 \end{defn}
 
 \begin{exam}
-    This condition is satisfied when:
+The datum of a good restriction is automatically provided in the
+following cases:
     \begin{enumerate}
         \item $f$ restricts to the identity on $j^*X$. 
         \item $f$ has no fixed points on $j^*X$.
     \end{enumerate}
 \end{exam}
 
-\begin{prop}
-    For any allowable dynamical system $f\curvearrowright X\xrightarrow{p} \base$ with good restriction, the map 
+\begin{prop}\label{prop: factorization through open cofiber}
+For any shapely dynamical system $f\curvearrowright X\xrightarrow{p} \base$ with a good restriction to $\closed$, the map 
     \[ \pbmsec{X^f}{\base}\xrightarrow{\ass_{X}^{f}}
     \SS_{\base}[\cL\ani{X}[\base]]\to C_{X}\]
     naturally factors through the map 
@@ -79,7 +80,15 @@ system as well.
     j^* \SS_{\base}[\cL \ani{X}[\base]]\to j^* C_X\,,\]
     which is provided by the assumption that $f$ has good restriction.
 \end{proof} 
-In particular, pre-composing with the index $\lambda_f$ we obtain a map
-$\SS_\base \to \iota_!\iota^*C_{\base}$, i.e.~a class in the compactly
-supported cohomology $H^0_{c}(\open, C_X)$. In particular,
-for $\base= [0,1]=I$, this defines a class in $\pi_1C_{X}$. 
+
+\begin{cons}
+  Let $(X,p,f)$ be a shapely dynamical system with a good restriction 
+  to $j\colon \closed \hookrightarrow \base$. Precomposing the map 
+  of \cref{prop: factorization through open cofiber} with the index
+  $\lambda_f$ we obtain a map $\SS_\base \to \iota_!\iota^*C_{\base}$,
+  i.e.~a class in the compactly supported cohomology 
+  \[[\rho_f^U] \in H^0_{c}(\open, C_X)\,.\]
+  In particular, for $\base= [0,1]=I$ and $\open=(0,1)\subseteq I$ this defines a class in $\pi_1C_{X}$. 
+\end{cons}
+
+\todo{This is missing a punchline and a comparison}
