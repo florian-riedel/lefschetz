@@ -14,3 +14,6 @@
 *.bcf
 *.xml
 ltximg
+main.fdb_latexmk
+main.fls
+main.tdo
