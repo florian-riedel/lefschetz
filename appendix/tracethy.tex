@@ -1,7 +1,7 @@
 
-\subsection{The \texorpdfstring{$(\infty,2)$}-functoriality of traces}
+\subsection{The \texorpdfstring{$(\infty,2)$}{(infty,2)}-functoriality of traces}
 
-Throughout this section, fix a symmetric monoidal $(\infty,2)$-category $(\cC,\otimes)$ with
+Throughout this subsection, fix a symmetric monoidal $(\infty,2)$-category $(\cC,\otimes)$ with
 monoidal unit $\1_{\cC} \in \cC$ and write $\Omega\cC$ for the $(\infty,1)$-category of
 endomorphisms $\1_{\cC} \to \1_{\cC}$. The symmetric monoidal structure on $\cC$
 induces a natural symmetric monoidal structure on $\Omega \cC$, such that
@@ -91,16 +91,14 @@ $\alpha \colon \varphi \circ f \to g \circ \varphi $ i.e.~a lax commutative diag
 \end{tikzcd}\]
 \end{thm}
 
-\begin{rmk}
 More explicitly, the functoriality of $\Trc_{\cC}$ works as follows:
-Given a map $(\varphi, \alpha)\colon (X,f) \to (Y,g)$ in $\Endtrl(\cC)$,
-denote by $\psi \colon Y\to X$ the internal right adjoint of $\varphi$.
+
+Given a map $(\varphi, \alpha)\colon (X,f) \to (Y,g)$, denote by $\psi \colon Y\to X$ the internal right adjoint of $\varphi$.
 Then $\Trc_{\cC}$ takes the map $(\varphi,\alpha)$ to the natural transformation given by the composite
 \[ \tr{f}{\cC} \to \tr{\psi \varphi f}{\cC} \rar{\alpha} \tr{\psi g \varphi}{\cC}
 \simeq \tr{\varphi \psi g}{\cC} \to \tr{g}{\cC},\]
 where the first and last map are given by the unit and counit of the adjunction
-$\varphi \dashv \psi$ respectively. 
-\end{rmk}
+$\varphi \dashv \psi$, respectively. 
 
 \subsection{Span categories}
 % Diagrammatically, these are also induced by the 2-cells
@@ -174,7 +172,7 @@ symmetric monoidal $\infty$-category of \tdef{spans}, see \todo{Add Ref}.
 \end{lem}
 
 \begin{lem}\label{lem: trace in Span}
-   Let $(\cC,\cE$ be a geometric context and let
+   Let $(\cC,\cE)$ be a geometric context and let
    \[\Lambda= (X\xleftarrow{f}X\xrightarrow{g}X)\] 
    be a map in $\Span{\cC}_{\cE}$. We have that 
    \[\tr{\Lambda}{\Span{\cC}_{\cE}} = (\pt \leftarrow X^{\Lambda} \to \pt ) \in \Span{\cC}_{\cE}\,,\]
