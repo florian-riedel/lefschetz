@@ -89,13 +89,16 @@ $\alpha \colon \varphi \circ f \to g \circ \varphi $ i.e.~a lax commutative diag
 \end{tikzcd}\]
 \end{thm}
 
-More explicitly, the functoriality of $\Trc_{\cC}$ works as follows.
-Given a map $(\varphi, \alpha)\colon (X,f) \to (Y,g)$, denote by $\psi \colon Y\to X$ the internal right adjoint of $\varphi$.
+\begin{rmk}
+More explicitly, the functoriality of $\Trc_{\cC}$ works as follows:
+Given a map $(\varphi, \alpha)\colon (X,f) \to (Y,g)$ in $\Endtrl(\cC)$,
+denote by $\psi \colon Y\to X$ the internal right adjoint of $\varphi$.
 Then $\Trc_{\cC}$ takes the map $(\varphi,\alpha)$ to the natural transformation given by the composite
 \[ \tr{f}{\cC} \to \tr{\psi \varphi f}{\cC} \rar{\alpha} \tr{\psi g \varphi}{\cC}
 \simeq \tr{\varphi \psi g}{\cC} \to \tr{g}{\cC},\]
 where the first and last map are given by the unit and counit of the adjunction
-$\varphi \dashv \psi$, respectively. 
+$\varphi \dashv \psi$ respectively. 
+\end{rmk}
 
 \subsection{Span categories}
 % Diagrammatically, these are also induced by the 2-cells
