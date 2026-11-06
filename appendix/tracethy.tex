@@ -191,18 +191,18 @@ To fully leverage the functoriality of trace, we will also
 make use of an $(\infty,2)$-categorical enhancement of the span
 category.
 
-\begin{defn}
+\begin{defn}\label{defn: Span 2-cat}
 Let $(\cC,\cE)$ be a geometric context. Given a pair of subclasses
 $\cI, \cP \subseteq \cE$ 
 such that $\cI$ and $\cP$ contain all equivalences, are closed
 under composition, base change and diagonals we write
-$\mdef{\sSpan{\cC}_{\cI,\cP}}$ for the symmetric monoidal 
+$\mdef{\sSpan{\cC}_{\cP,\cI}}$ for the symmetric monoidal 
 $(\infty,2)$-category of \cite[Definition 4.10]{Cnossen_Lenz_Linskens2026}. 
 \end{defn}
 
 \begin{rmk}
 The underlying $(\infty,1)$-category of 
-$\sSpan{\cC}_{\cI,\cP}$ agrees with $\Span{\cC}_{\cE}$ and
+$\sSpan{\cC}_{\cP,\cI}$ agrees with $\Span{\cC}_{\cE}$ and
 a 2-morphism from $\left(X\leftarrow Z\to Y\right)$ to $\left(X\leftarrow Z'\to Y\right)$ is
 given by a commutative diagram:
 \[\begin{tikzcd}
@@ -211,8 +211,8 @@ given by a commutative diagram:
 	& Z^{\prime}
 	\arrow[from=1-2, to=2-1]
 	\arrow[from=1-2, to=2-3]
-	\arrow["f"', from=2-2, to=1-2]
-	\arrow["i", from=2-2, to=3-2]
+	\arrow["i"', from=2-2, to=1-2]
+	\arrow["f", from=2-2, to=3-2]
 	\arrow[from=3-2, to=2-1]
 	\arrow[from=3-2, to=2-3]
 \end{tikzcd}\]
@@ -221,9 +221,47 @@ where $i\in\cI$ and $f\in\cP$.
 
 We record the following technical lemma about internal adjoints in the
 $(\infty,2)$-category of spans:
+
 \begin{lem}\label{lem: internal adjoints}
-    Precise lemma about internal adjoints \todo{Track this lemma down again}
+  Let $(\cC,\cE)$ be a geometric context and let $\cI,\cP\subseteq \cE$ be as in 
+  \cref{defn: Span 2-cat} . For any admissible $X\in \cC$, the 
+  following hold:
+  \begin{enumerate}[label=(\alph*)]
+    \item If the maps $X\to \pt$ and $\Delta\colon X\to X\times X$ lie in $\cP$ , 
+      the 1-morphism \[(\pt\leftarrow X\xrightarrow\id X)\in \Span{\cC}_{\cP,\cI}\]
+      has an internal right adjoint given by the flipped span.
+  \item If the maps $X\to \pt$ and $\Delta\colon X\to X\times X$ lie in $\cI$, the 
+    1-morphism \[(X\xleftarrow{\id} X\to \pt)\in \Span{\cC}_{\cP,\cI}\] 
+    has an internal right adjoint givien by flipping the span.
+  \end{enumerate}
 \end{lem}
+\begin{proof}
+In the case of (a), the adjunction between $\pt\leftarrow X\xrightarrow\id X$ and $X\xleftarrow{\id} X\to \pt$ is witnessed by the 2-morphisms:
+\[\begin{tikzcd}
+	& X\times X & \\
+	\pt & X\times X & \pt \\
+	& \pt
+	\arrow[from=1-2, to=2-1]
+	\arrow[from=1-2, to=2-3]
+	\arrow["\id"', from=2-2, to=1-2]
+	\arrow[ from=2-2, to=3-2]
+	\arrow[from=3-2, to=2-1]
+	\arrow[from=3-2, to=2-3]
+\end{tikzcd}
+\quad \text{and} \quad 
+\begin{tikzcd}
+	& X & \\
+	 X & X  & X \\
+	& X\times X
+	\arrow[from=1-2, to=2-1]
+	\arrow[from=1-2, to=2-3]
+	\arrow["\id"', from=2-2, to=1-2]
+	\arrow["\Delta", from=2-2, to=3-2]
+	\arrow[ from=3-2, to=2-1]
+	\arrow[ from=3-2, to=2-3]
+\end{tikzcd}\]
+  As for (b), simply mirror the diagrams above along the horizontal axis.
+\end{proof}
 
 % For a map $(\varphi, \alpha)\colon (X,f) \to (X,g)$ in $\cC^{\trl}$ we refer to
 % the map
