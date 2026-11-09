@@ -91,6 +91,7 @@ $\alpha \colon \varphi \circ f \to g \circ \varphi $ i.e.~a lax commutative diag
 \end{tikzcd}\]
 \end{thm}
 
+\begin{rmk}
 More explicitly, the functoriality of $\Trc_{\cC}$ works as follows:
 
 Given a map $(\varphi, \alpha)\colon (X,f) \to (Y,g)$, denote by $\psi \colon Y\to X$ the internal right adjoint of $\varphi$.
@@ -99,6 +100,8 @@ Then $\Trc_{\cC}$ takes the map $(\varphi,\alpha)$ to the natural transformation
 \simeq \tr{\varphi \psi g}{\cC} \to \tr{g}{\cC},\]
 where the first and last map are given by the unit and counit of the adjunction
 $\varphi \dashv \psi$, respectively. 
+\end{rmk}
+
 
 \subsection{Span categories}
 % Diagrammatically, these are also induced by the 2-cells
@@ -159,11 +162,12 @@ Given a geometric setup $(\cC,\cE)$, we write $\mdef{\Span{\cC}_{\cE}}$ for the 
 symmetric monoidal $\infty$-category of \tdef{spans}, see \todo{Add Ref}. 
 \end{defn}
 
-\begin{lem}
-    Let $(\cC,\cE)$ be a geometric context and suppose we have $X\in \Span{\cC}_{\cE}$ such that the terminal map $X\to \pt$ and the 
-    diagonal $\Delta \colon X \to X\times X$ are admissible. 
-    Then $X$ is dualizable and canonically
-    self dual, with duality datum given by the spans 
+\begin{lem}\label{lem: duality datum}
+    Let $(\cC,\cE)$ be a geometric context and suppose we have $X\in \Span{\cC}_{\cE}$ 
+    such that the terminal map $X\to \pt$ and the diagonal 
+    $\Delta \colon X \to X\times X$ are admissible. 
+    Then $X$ is dualizable and canonically self dual, with duality datum given by the 
+    spans:
     \[ \eta_X\colon \left( \pt \leftarrow X \xrightarrow{\id} X\right), \quad \coev_X\colon \left( X \xleftarrow{\id} X \xrightarrow{\Delta} X\times X\right)\,\]
     and
     \[ \epsilon_{X} \left( X \xleftarrow{\id} X \to \pt \right), \quad
@@ -172,9 +176,11 @@ symmetric monoidal $\infty$-category of \tdef{spans}, see \todo{Add Ref}.
 \end{lem}
 
 \begin{lem}\label{lem: trace in Span}
-   Let $(\cC,\cE)$ be a geometric context and let
+   Let $(\cC,\cE)$ be a geometric context and let $X\in \cC$ such that the terminal
+   map $X\to \pt$ and the diagonal $\Delta \colon X \to X\times X$ are admissible.
+   For any morphism
    \[\Lambda= (X\xleftarrow{f}X\xrightarrow{g}X)\] 
-   be a map in $\Span{\cC}_{\cE}$. We have that 
+   in $\Span{\cC}_{\cE}$ we have that 
    \[\tr{\Lambda}{\Span{\cC}_{\cE}} = (\pt \leftarrow X^{\Lambda} \to \pt ) \in \Span{\cC}_{\cE}\,,\]
    where $X^{\Lambda}$ is defined to be the pullback: 
    \[\begin{tikzcd}
@@ -187,7 +193,10 @@ symmetric monoidal $\infty$-category of \tdef{spans}, see \todo{Add Ref}.
 	\arrow["\Delta", from=2-1, to=2-2]
 \end{tikzcd}\]
 \end{lem}
-
+\begin{proof}
+ This is straightforward from the definition of the trace and the duality datum described  
+ in \cref{lem: duality datum}. 
+\end{proof}
 To fully leverage the functoriality of trace, we will also
 make use of an $(\infty,2)$-categorical enhancement of the span
 category.

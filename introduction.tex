@@ -1,0 +1,25 @@
+The goal of this note is to prove the following theorem:
+\begin{thm}\label{thm: main}
+  Let $p\colon X \to \base$ be a proper shape submersion of locally compact Hausdorff spaces
+  and let $f\colon X \to X$ be a self map of $X$ over $\base$. Write $X^f\subseteq X$ for
+  the fixed points and $\cL^f X$ for the homotopy fixed points\footnote{I.e.~the space of pairs $(x,\gamma)$ where $x\in X$
+  and $\gamma$ is a path from $x$ to $f(x)$.} of $f$.
+  Moreover, let
+  \[\mdef{L(f)} \in H^0_{\mathrm{c}}(\base)\]
+  denote trace of the morphism induced by $f$ on the relative cohomology $\cptSec{X}[\base]$.
+  There exists a natural\footnote{Elaborate} commutative diagram in the $\infty$-category
+  of spectral sheaves on $M$ of the form:
+  \[
+\begin{tikzcd}
+	{\cptSec{X^f}[\base]^\vee} & {\SS_{\base}[\cL^f X]} \\
+	{\SS_{\base}} & {\SS_{\base}}
+	\arrow["{\ass_f}", from=1-1, to=1-2]
+	\arrow["\pi", from=1-2, to=2-2]
+	\arrow["{\lambda_f}", from=2-1, to=1-1]
+	\arrow["{\rho_f}"{description}, from=2-1, to=1-2]
+	\arrow["{L(f)}"', from=2-1, to=2-2]
+\end{tikzcd}
+\]
+where $\pi$ is the pushforward along the map $\cL^fX \to \base$ and $\ass_f$ is induced
+by the map taking any $x\in X^f$ to the pair $(x,\mathrm{const}_x). 
+\end{thm}
