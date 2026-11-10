@@ -14,3 +14,8 @@
 *.bcf
 *.xml
 ltximg
+main.fdb_latexmk
+main.fls
+main.tdo
+main.synctex(busy)
+.DS_Store

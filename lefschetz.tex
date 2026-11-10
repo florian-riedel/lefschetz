@@ -47,7 +47,7 @@ of the span $ \base \xleftarrow{p} X \xrightarrow{p} \base$
 under the functor 
 \[\Omega \pSpf{(-)}\colon \Omega \sSpan{\pTop{\base}}_{\cP,\cI} \to
 \Omega \pPrlf{\base}\simeq \pSp{\base}\,.\]
-Moreover, for any proper map $f\colon (X,p)\to (Y,q)$ in $\Top{/\base}$ use
+Moreover, for any proper map $f\colon (X,p)\to (Y,q)$ in $\pTop{/\base}$ use
 the notation
 \[ \mdef{\pb{f}}\colon \cptSec{Y}[\base]\to \cptSec{X}[\base] \]
 for the pullback on relative compactly supported cohomology, i.e.~the image of the 2-morphism 
@@ -173,7 +173,7 @@ on relative cohomology.
     \]
     The map $\beta\alpha\colon p_!p^*\SS_{\base}\to p_!p^*\SS_{\base}$ is by definition the pullback $\pb{f}$
     along $f$ and so by construction of the functor 
-    $\TrcL$ REF, we have that
+    $\TrcL$ REF,] we have that
     \[ \TrcL(p_!p^*,\beta\alpha)= \tr{\pb{f}}{\pSp{\base}}\,.\]
     It remains to show that $\TrcL(p^*,\alpha)$ is given
     by the pullback $\pb{q}$ along the projection 
@@ -217,7 +217,32 @@ under the functor $\Omega \pSpf{(-)}$, which is exactly the pullback along
 $q\colon X^f \to \base$. 
 \end{proof}
 
+As a consequence, we immediately deduce the following:
+
+\begin{cor}\label{cor: Lefschetz finite fixed pts}
+  Let $p\colon X \to \base$ be a proper shape submersion and let $f\colon (X,p)\to (X,p)$ be a self map
+  in $\pTop{\base}$. Suppose that $X^f\simeq \base \times S$ for some finite set $S$. 
+  Then there exist classes $[\lambda^f_s]\in H^0_{\mathrm{c}}(\base)$ for each $s\in S$ such that:
+  \[ \mathrm{tr}\left(f\colon \cptSec{X}[\base] \to \cptSec{X}[\base]\right) 
+  = \sum_{s\in S} [\lambda^f_s]\in H^0_{\mathrm{c}}(\base)\,.\]
+\end{cor}
+
+In particular, for $\base = \pt$ we have $H^0_{\mathrm{c}}(M)=\ZZ$ and $\cptSec{X}[\base]=C^*(X;\SS)$ 
+so we obtain the fixed point formula of \cite{Dold_Puppe1980}.
+Moreover, using that the composite functor 
+\[ \Sp \xrightarrow{-\otimes \QQ} \Sp_{\QQ} \xrightarrow{\pi_{*}} \mathrm{grVect}_{\QQ}\]
+is strong symmetric monoidal, we recover the classical Lefschetz fixed 
+point theorem of \cite{Lefschetz1937}. 
+
 \subsection{Homotopical Lefschetz}\label{subsec: homotopical lefschetz}
+
+We now give a parametrized construction of the Reidemeister trace \cite{Reidemeister1936}
+of an endomorphism $f\colon A\to A$ of a sheaf of spaces on some base 
+topological space $\base$, 
+wich parallels that of the Lefschetz-index in \cref{cons: Lefschetz index}. 
+Moreover, we prove that the Reidemeister trace lifts the trace of the 
+induced map on relative spherical homology. 
+
 \begin{defn}
     For some $\base \in \Top$ we denote the $\infty$-category
     of sheaves of spaces on $\base$ by:
@@ -237,8 +262,8 @@ $(\infty,2)$-categorical six functor formalism.
 Consider $\pSp{\base}[(-)]$ as a functor $\pSpc{\base}^{\op}
 \to \pPrl{\base}$ via pullback of sheaves and the pointwise
 $\pSp{\base}$-linear structure induced by the terminal maps 
-and the natural identification $\pSp{\base}[\pt_{\base}]\simeq \pSp{\base}$. Write $\enquote{\all}$ for the class of 
-all maps and $\enquote{\simeq}$ for the class
+and the natural identification $\pSp{\base}[\pt_{\base}]\simeq \pSp{\base}$. Write \enquote{$\all$} for the class of 
+all maps and \enquote{$\simeq$} for the class
 of invertible maps in $\pSpc{\base}$. It is clear that 
 $(\pSpc{\base}, \all)$ is a geometric context and moreover that the
 pair $(\all, \simeq)$ forms a suitable decomposition in the sense
@@ -387,6 +412,8 @@ $\delta$ is adjoint to the preferred equivalence $p_\sharp f_{\sharp}= p_{\sharp
    diagnoal map with the pushforward along the terminal map 
    $ip\colon \cL^fA\to \pt_\base$ using \cref{lem: etale internal right adj}.
 \end{proof}
+
+
 
 %%% Local Variables:
 %%% mode: LaTeX

@@ -1,0 +1,54 @@
+Let $f\colon X \to X$ be a self map of a compact CW-complex with induced pullback map
+$H^i(f)\colon H^i(X;\QQ)\to H^i(X;\QQ)$ on (rational) singular cohomology. Since
+$X$ is compact, each of the cohomology groups is finitely generated and there but finitely
+many non-zero groups, so one defines the \emph{Lefschetz number} of $f$ to be the alernating sum:
+\[ L(f)\coloneq\sum_{i\geq 0} \mathrm{tr}\left(H^i(f)\right)\]
+The celebrated \emph{Lefschetz fixed point theorem} states that if the set of fixed points
+$X^f\subseteq X$ is finite and discrete, there exists some naturally defined integers 
+$\lambda^f(x)$ for $x\in X^f$ such that:
+\[  \sum_{x \in X^f} \lambda^f(x) = L(f)\,.\]
+The allure of this theorem is straightforward; the right hand side only depends
+on the homotopy type of $f$, why the left hand side varies wildly (and indeed may not even 
+be defined) across different but homotopic maps.
+
+ The goal of this note is to prove the following far reaching generalization:
+\begin{thm}\label{thm: main}
+  Let $p\colon X \to \base$ be a proper shape submersion of locally compact Hausdorff spaces
+  and let $f\colon X \to X$ be a self map of $X$ over $\base$. Write $X^f\subseteq X$ for
+  the fixed points and $\cL^f X$ for the homotopy fixed points\footnote{i.e.~the space of pairs $(x,\gamma)$ where $x\in X$
+  and $\gamma$ is a path from $x$ to $f(x)$.} of $f$.
+  Moreover, let
+  \[\mdef{L(f)} \in H^0_{\mathrm{c}}(\base)\]
+  denote trace of the morphism induced by $f$ on the relative cohomology $\cptSec{X}[\base]$.
+  There exists a natural\footnote{Elaborate} commutative diagram in the $\infty$-category
+  $\Shv(\base,\Sp)$ of the form:
+  \[
+\begin{tikzcd}
+	{\cptSec{X^f}[\base]^\vee} & {\SS_{\base}[\cL^f X]} \\
+	{\SS_{\base}} & {\SS_{\base}}
+	\arrow["{\ass_f}", from=1-1, to=1-2]
+	\arrow["\pi", from=1-2, to=2-2]
+	\arrow["{\lambda_f}", from=2-1, to=1-1]
+	\arrow["{\rho_f}"{description}, from=2-1, to=1-2]
+	\arrow["{L(f)}"', from=2-1, to=2-2]
+\end{tikzcd}
+\]
+where $\pi$ is the pushforward along the map $\cL^fX \to \base$ and $\ass_f$ is induced
+by the map taking any $x\in X^f$ to the pair $(x,\mathrm{const}_x).$
+\end{thm}
+
+\begin{rmk}
+  We make some observations about this theorem. 
+  \begin{enumerate}
+    \item Note that we make \emph{no assumptions} on the set of fixed points $X^f$ and its topology.
+      In particular, we deduce the weak Lefschetz theorem, namely that $L(f)\neq 0$ implies
+      that any map homotopic to $f$ has a fixed point in this generality.
+    \item In the case $M=\pt$, the factorization of $L(f)$ as composite 
+      \[ \SS \xrightarrow{\lambda_f} \Gamma(X^f) \to \SS\]
+      readily recovers the classical Lefschetz fixed point theorem whenever $X^f$ is discrete.
+    \item The map $\rho_f$ fiberwise agrees with the \emph{Reidemeister trace}. 
+    \item If $M=\pt$ and $X^f\subseteq X$ is finite and discrete, we further deduce the 
+      Lefschetz--Nielsen theorem, providing a lower bound for the number of fixed points
+      of any map homotopic to $f$ in terms of the Reidemeister trace.
+  \end{enumerate}
+\end{rmk}
