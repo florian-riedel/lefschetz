@@ -1,23 +1,8 @@
-\begin{defn}
-  A \tdef{dynamical system} is a tuple $(\tset ,\base ,p\colon\tset\to\base ,f\colon\tset\to\tset )$, where $\tset$ and $\base$ are topological spaces, and $p$ and $f$ are continuous maps such that
-  \[
-    \begin{tikzcd}
-      \tset\arrow[dr,swap,"p"] \arrow[rr,"f"] & & \tset\arrow[dl,"p"]\\
-      &\base
-    \end{tikzcd}
-  \]
-  commutes. We also call the $(X,p,f)$ a dynamical system over $\base$. 
-\end{defn}
-We think of $f$ as the evolution of the dynamical system and $\base$ as a space of parameters. For example, if $\base = \RR$ and $p_1\colon\RR\times\tset\to\RR$ is the projection onto the first coordinate, then a dynamical system \[(\RR\times \tset ,\,\RR ,\, p_1,\, f )\] as above is uniquely determined by the ``flow'' map \[\phi\colon\RR\times\tset\too\tset,\quad (t,x)\mapsto p_2f(t,x),\]
-where $p_2\colon\RR\times\tset\to\tset$ denotes the projection onto the second coordinate. (Note however that the map $\phi$ arising in this way will generally not be compatible with the group structure on $\RR$.)
-
-We will consider dynamical systems satisfying a mild technical condition:
-
-\begin{defn}
-    We call a dynamical system $(\tset ,p, f)$ over $\base$ 
-    \tdef{shapely} if the map $p\colon X\to \base$ is a proper shape submersion.
-\end{defn}
-
+In this section, we shall relate the Lefschetz index and Reidemeister trace
+constructed in \cref{subsec: topological lefschetz} and
+\cref{subsec: homotopical lefschetz} respectively.
+Culminating in the \emph{Aufhebung} in the form of \cref{thm: lefschetz-nielsen}.
+As before, we fix a base space $\base\in \Top$ throughout.
 
 \subsection{Parametrized traces and the Nielsen fixed point theorem}
 
@@ -188,7 +173,8 @@ We will need a twisted variation on the above to deal with self-maps. In order t
 \begin{proof}
   \Onote{unfold definitions}
 \end{proof}
-\begin{thm}
+
+\begin{thm}\label{thm: cosheaves factorization}
   Let $f\curvearrowright \tset\xrightarrow p\base$ be a shapely dynamical system. The lax commutative square
   \[
     \begin{tikzcd}

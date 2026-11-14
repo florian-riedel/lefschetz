@@ -1,17 +1,39 @@
 We deduce a topological and homotopical Lefschetz fixed point 
-via sheaves and local systems. 
+via sheaves and local systems. Throughout this entire secction, we fix a base 
+topological space $M$ which locally compact and Hausdorff.
 
-\subsection{Topological Lefschetz}
+\begin{notation}
+  Let \mdef{$\Top$} denote the category of \tdef{locally compact Hausdorff spaces}
+  with continuous maps between them.
+  Moreover, we write $\mdef{\pTop{\base}}, \mdef{\psTop{\base}}\subseteq \Top_{/\base}$ 
+  for the full subcategory spanned by the \tdef{proper} maps and
+  \tdef{proper shape submersions} $p\colon X\to \base$ respectively.
+\end{notation}
 
-\begin{defn}
-    Let \mdef{$\Top$} denote the category of \tdef{locally compact Hausdorff spaces}. For any $\base \in \Top$ we write 
-    $\mdef{\pTop{\base}}\subseteq \Top_{/\base}$ 
-    for the full subcategory spanned by the \tdef{proper} maps $p\colon X\to \base$ respectively. Moreover, for any $X \in \Top$ we denote 
-\[\mdef{\pSp{X}}\coloneq \Shv(X;\Sp) \in \CAlg(\Prlst)\]
-for the stably presentably monoidal $\infty$-category of \tdef{sheaves of spectra} on $X$ with unit $\SS_{X}\in \pSp{X}$.
+
+\begin{defn}\label{defn: dynamical system}
+  A \tdef{dynamical system} over $\base$ is a tuple $(X,p,f)$ where
+  $(p\colon X\to \base)\in \pTop{\base}$ and $f\colon X\to X$ is a self map over $\base$. 
+  We say that $(X,p,f)$ is \tdef{shapely} if additionally
+  $(p\colon X\to \base)\in \psTop{\base}$. 
 \end{defn}
 
-Throughout the rest of this section, we fix a base space $M\in \Top$.
+We think of $f$ as the evolution of the dynamical system and $\base$ as a space of parameters.
+For example, if $\base = \RR$ and $p_1\colon\RR\times\tset\to\RR$ is the projection onto
+the first coordinate, then a dynamical system $(\RR\times \tset ,p_1, f)$
+as above is uniquely determined by the ``flow'' map 
+\[\phi\colon\RR\times\tset\too\tset,\quad (t,x)\mapsto p_2f(t,x),\]
+where $p_2\colon\RR\times\tset\to\tset$ denotes the projection onto the second coordinate. 
+(Note however that the map $\phi$ arising in this way will generally not be compatible 
+with the group structure on $\RR$.)
+
+\subsection{Topological Lefschetz}\label{subsec: topological lefschetz}
+
+\begin{defn}
+For any $X \in \Top$ we denote by
+\[\mdef{\pSp{X}}\coloneq \Shv(X;\Sp) \in \CAlg(\Prlst)\]
+the stably presentably monoidal $\infty$-category of \tdef{sheaves of spectra} on $X$ with unit $\SS_{X}\in \pSp{X}$.
+\end{defn}
 
 \begin{cons}
 Consider the geometric context $(\pTop{\base},\all)$, let
@@ -67,10 +89,13 @@ for the pullback on relative compactly supported cohomology, i.e.~the image of t
 under the $(\infty,2)$-functor $\pSpf{(-)}\colon \sSpan{\pTop{\base}}_{\cP,\cI} \to \pPrlf{\base}$.
 \end{notation}
 
+The key insight is that, given a dynamical system $(X,p,f)$, working with the category
+$\pSp{X}$ allows us to express the cohomology of the fixed points of $f$ as a categorified
+trace, which is the content of the following lemma:
 
 \begin{lem}\label{lem: top trace identification}
-    Let $f\colon (X,p)\to (X,p)$ be a self map in $\pTop{\base}$ with
-    fixed points $i\colon X^f\to X$. Then we
+    Let $(X,p,f)$ be a dynamical system over $\base$ with
+    fixed points $ X^f\subseteq X$. Then we
     have an equivalence:
     \[ \tr{f_!\colon \pSp{X}\to \pSp{X}}{\pPrl{\base}}\simeq \cptSec{X^f}[\base]\in \pSp{\base}\,.\]
 \end{lem}
@@ -87,9 +112,13 @@ under the $(\infty,2)$-functor $\pSpf{(-)}\colon \sSpan{\pTop{\base}}_{\cP,\cI} 
  which was the claim. 
 \end{proof}
 
+If the dynamical system is additionally assumed to be \emph{shapely} in the sense
+of \cref{defn: dynamical system}, we can define a fixed point index
+via the following construction:
+
 \begin{cons}\label{cons: Lefschetz index}
-    Let $f\colon (X,p)\to (X,p)$ be a self map in $\pTop{\base}$ and
-    assume that the projection $p\colon X\to M$ is a shape submersion. Consider the following diagram in $\pPrlf{\base}$:
+    Let $(X,p,f)$ be a shapely dynamical system over $\base$. 
+    Consider the following diagram in $\pPrlf{\base}$:
    \[\begin{tikzcd}
 	{\pSp{X}} & {\pSp{\base}} \\
 	{\pSp{X}} & {\pSp{\base}}
@@ -116,32 +145,24 @@ which we call the \tdef{Lefschetz index} of $f$.
 The following technical lemma will allow us to identify the pullback
 of the Lefschetz index to the point.
 
-\begin{lem}\label{lem: proper internal right adj}
-    For any $(X,p)\in \pTop{\base}$ the span 
-    $(\base \xleftarrow{p} X \xrightarrow{\id} X) \in \sSpan{\pTop{\base}}_{\cP,\cI}$ admits an internal
-    right adjoint given by $(X \xleftarrow{\id} X \xrightarrow{p} \base)$.
-\end{lem}
-\begin{proof}
-    This is a special case of \cref{lem: internal adjoints}. 
-\end{proof}
-
 We can now prove the main result of this section:
 
-\begin{prop}\label{prop: Top Lefschetz}
-Let $f\colon (X,p)\to (X,p)$ be a self map in $\pTop{\base}$ and assume
-that $p\colon X\to \base$ is a shape submersion. 
-Let $\lambda^f\colon \cptSec{X^f}[\base] \to \SS_{\base}$ be
+\begin{thm}\label{thm: Top Lefschetz}
+Let $(X,p,f)$ be a shapely dynamical system over $\base$,
+$\lambda^f\colon \cptSec{X^f}[\base] \to \SS_{\base}$ be
 the Lefschetz index of \cref{cons: Lefschetz index} and write 
-$q\colon X^f\to \base$ for the terminal map.
+$q\colon X^f\to \base$ for the terminal map from the fixed points of $f$.
 The composite 
 \[ \SS_{\base} \xrightarrow{\pb{q}} \cptSec{X^f}[\base]
 \xrightarrow{\lambda^f} \SS_{\base}\,\]
 is given by the trace of the pullback map 
 \[ \pb{f}\colon \cptSec{X}[\base]\to \cptSec{X}[\base] \]
 on relative cohomology.
-\end{prop}
+\end{thm}
 \begin{proof}
-    Consider the commutative diagram in $\Endtrl(\pPrlf{\base})$:
+  Since $p\colon X\to \base$ is a proper shape submersion by assumption, the two functors 
+  $p^*$ and $p_!$ admit internal right adjoints by \todo{REF/CITE} and hence we may
+  consider the commutative diagram in $\Endtrl(\pPrlf{\base})$:
 \begin{equation}\label{eq: categorical factorization top}
    \begin{tikzcd}
 	{\pSp{\base}} & {\pSp{X}} & {\pSp{\base}} \\
@@ -171,16 +192,16 @@ on relative cohomology.
 	\arrow["{\TrcL(p_!p^*, \beta\alpha)}"', from=2-1, to=2-3]
 \end{tikzcd}
     \]
-    The map $\beta\alpha\colon p_!p^*\SS_{\base}\to p_!p^*\SS_{\base}$ is by definition the pullback $\pb{f}$
-    along $f$ and so by construction of the functor 
-    $\TrcL$ REF,] we have that
+    The map $\beta\alpha\colon p_!p^*\SS_{\base}\to p_!p^*\SS_{\base}$ is by definition
+    the pullback $\pb{f}$ and so by construction of the functor 
+    $\TrcL$ we have that
     \[ \TrcL(p_!p^*,\beta\alpha)= \tr{\pb{f}}{\pSp{\base}}\,.\]
     It remains to show that $\TrcL(p^*,\alpha)$ is given
     by the pullback $\pb{q}$ along the projection 
     map $q\colon X^{f}\to \base$.
-    Indeed, by \cref{lem: proper internal right adj} the span 
+    Indeed, by \cref{lem: internal adjoints} the span 
     $(\base \xleftarrow{p} X \xrightarrow{\id} X)$ admits an internal
-    right adjoint and thus defines a map:
+    right adjoint give by the flipped span. Thus, it defines a map:
     \[
     \begin{tikzcd}
 	\base & X & X \\
@@ -369,7 +390,9 @@ and using the identification of \cref{lem: homo trace identification}, we obtain
 which we call the \tdef{Reidemeister trace} of $f$. 
 \end{cons}
 
-\begin{prop}
+We can now prove the other main result of this section.
+
+\begin{thm}\label{thm: Homotopical Lefschetz}
     Let $f\colon A\to A$ be a self map in $\pSpc{\base}$ \todo{add assumption}with
     terminal map $p\colon A\to \pt_\base$,
    homotopy fixed points $i\colon \cL^fA \to A$
@@ -380,9 +403,9 @@ which we call the \tdef{Reidemeister trace} of $f$.
     is given by the trace of the transfer 
     \[ \tf{f}\colon \SS_{\base}[A]\to \SS_{\base}[A]\]
     on relative spherical homology.
-\end{prop}
+\end{thm}
 \begin{proof}
-    The proof is completely analogous to the one of \cref{prop: Top Lefschetz}. Indeed, consider the commutative diagram in $\Endtrl(\pPrlf{\base})$:
+    The proof is completely analogous to the one of \cref{thm: Top Lefschetz}. Indeed, consider the commutative diagram in $\Endtrl(\pPrlf{\base})$:
     \[
    \begin{tikzcd}
 	{\pSp{\base}} & {\pSp{\base}[A]} & {\pSp{\base}} \\
@@ -409,8 +432,8 @@ $\delta$ is adjoint to the preferred equivalence $p_\sharp f_{\sharp}= p_{\sharp
 \end{tikzcd}\]
    Unwinding the definitions the lower horizontal map naturally identifies with the trace
    of the pushforward map. Moreover, we can identify the right hand
-   diagnoal map with the pushforward along the terminal map 
-   $ip\colon \cL^fA\to \pt_\base$ using \cref{lem: etale internal right adj}.
+   diagonal map with the pushforward along the terminal map 
+   $ip\colon \cL^fA\to \pt_\base$ using \cref{lem: internal adjoints}.
 \end{proof}
 
 

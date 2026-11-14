@@ -1,30 +1,31 @@
 Let $f\colon X \to X$ be a self map of a compact CW-complex with induced pullback map
 $H^i(f)\colon H^i(X;\QQ)\to H^i(X;\QQ)$ on (rational) singular cohomology. Since
 $X$ is compact, each of the cohomology groups is finitely generated and there but finitely
-many non-zero groups, so one defines the \emph{Lefschetz number} of $f$ to be the alernating sum:
+many non-zero groups, so one defines the \emph{Lefschetz number} of $f$ to be the alternating sum:
 \[ L(f)\coloneq\sum_{i\geq 0} \mathrm{tr}\left(H^i(f)\right)\]
 The celebrated \emph{Lefschetz fixed point theorem} states that if the set of fixed points
 $X^f\subseteq X$ is finite and discrete, there exists some naturally defined integers 
 $\lambda^f(x)$ for $x\in X^f$ such that:
 \[  \sum_{x \in X^f} \lambda^f(x) = L(f)\,.\]
-The allure of this theorem is straightforward; the right hand side only depends
-on the homotopy type of $f$, why the left hand side varies wildly (and indeed may not even 
-be defined) across different but homotopic maps.
+The appeal of this theorem is immediate, the right hand side only depends on the homotopy
+type of $f$, while the terms on the left hand side may vary wildly
+(and indeed may not even be defined) across different but homotopic maps.
+The goal of this note is to prove the following far reaching generalization:
 
- The goal of this note is to prove the following far reaching generalization:
 \begin{thm}\label{thm: main}
   Let $p\colon X \to \base$ be a proper shape submersion of locally compact Hausdorff spaces
   and let $f\colon X \to X$ be a self map of $X$ over $\base$. Write $X^f\subseteq X$ for
-  the fixed points and $\cL^f X$ for the homotopy fixed points\footnote{i.e.~the space of pairs $(x,\gamma)$ where $x\in X$
-  and $\gamma$ is a path from $x$ to $f(x)$.} of $f$.
-  Moreover, let
-  \[\mdef{L(f)} \in H^0_{\mathrm{c}}(\base)\]
-  denote trace of the morphism induced by $f$ on the relative cohomology $\cptSec{X}[\base]$.
+  the fixed points and $\cL^f X$ for the homotopy fixed
+  points\footnote{i.e.~the space of pairs $(x,\gamma)$ where $x\in X$
+  and $\gamma$ is a path from $x$ to $f(x)$.} of $f$. Moreover, let
+  \[\mdef{L(f)} \in H^0_{\mathrm{c}}(\base; \SS)\]
+  denote trace of the morphism induced by $f$ on the relative spherical cohomology 
+  $\cptSec{X;\SS}[\base]$.
   There exists a natural\footnote{Elaborate} commutative diagram in the $\infty$-category
   $\Shv(\base,\Sp)$ of the form:
   \[
 \begin{tikzcd}
-	{\cptSec{X^f}[\base]^\vee} & {\SS_{\base}[\cL^f X]} \\
+  {\cptSec{X^f;\SS}[\base]^\vee} & {\SS_{\base}[\cL^f X]} \\
 	{\SS_{\base}} & {\SS_{\base}}
 	\arrow["{\ass_f}", from=1-1, to=1-2]
 	\arrow["\pi", from=1-2, to=2-2]
@@ -33,7 +34,8 @@ be defined) across different but homotopic maps.
 	\arrow["{L(f)}"', from=2-1, to=2-2]
 \end{tikzcd}
 \]
-where $\pi$ is the pushforward along the map $\cL^fX \to \base$ and $\ass_f$ is induced
+where $\SS_{\base}[-]$ denotes the relative spherical homology and 
+$\tau$ is the transfer along the map $\cL^fX \to \base$ and $\ass_f$ is induced
 by the map taking any $x\in X^f$ to the pair $(x,\mathrm{const}_x).$
 \end{thm}
 
@@ -41,14 +43,151 @@ by the map taking any $x\in X^f$ to the pair $(x,\mathrm{const}_x).$
   We make some observations about this theorem. 
   \begin{enumerate}
     \item Note that we make \emph{no assumptions} on the set of fixed points $X^f$ and its topology.
-      In particular, we deduce the weak Lefschetz theorem, namely that $L(f)\neq 0$ implies
-      that any map homotopic to $f$ has a fixed point in this generality.
+      In particular, although $X$ is to be assumed locally of constant shape,
+      the fixed points need not be \todo{example?}\footnote{Hence the notational
+      distinction between the spherical chains and sheaf cohomology}
     \item In the case $M=\pt$, the factorization of $L(f)$ as composite 
-      \[ \SS \xrightarrow{\lambda_f} \Gamma(X^f) \to \SS\]
+      \[ \SS \xrightarrow{\lambda_f} \Gamma(X^f;\SS) \to \SS\]
       readily recovers the classical Lefschetz fixed point theorem whenever $X^f$ is discrete.
     \item The map $\rho_f$ fiberwise agrees with the \emph{Reidemeister trace}. 
     \item If $M=\pt$ and $X^f\subseteq X$ is finite and discrete, we further deduce the 
       Lefschetz--Nielsen theorem, providing a lower bound for the number of fixed points
       of any map homotopic to $f$ in terms of the Reidemeister trace.
+    \item Advertisement for higher Reidemeister goes here \todo{Do it}
   \end{enumerate}
 \end{rmk}
+
+Let us discuss the proof of this theorem. For the sake of exposition and notational levity,
+we restrict to the absolute case $M=\pt$ here. Indeed, the relevant parametrized modifications
+are rather straightforward, given the relevant technology provided by \todo{CITE},
+which we consider part of the appeal of our proof.
+
+As the functor $X\mapsto H^*(X)$ and its parametrized variant are homotopy invariant,
+extracting information about the actual fixed points of $f$ is not straightforward
+and requires both geometric input and strong assumptions on $X$ and the fixed points $X^f$,
+see for example the proof given in \cite{Dold_Puppe1980}. 
+
+We circumvent this problem considering instead the functor taking $X$ to 
+it's category of sheaves of spectra $\Shv(X;\Sp)$, which is 
+much more sensitive to topological information \todo{CITE}, as well as the
+category $\Sp^X$ of local systems of spectra on $X$.
+The first key input to proving \cref{thm: main} is the following observation, 
+generalizing the fact that $\mathrm{THH}(\Shv(X;\Sp)) \simeq \cptSec{X;\SS}$ due to
+to Efimov \todo{CITe}. 
+
+\begin{prop}
+ Given a compact $X$ that is locally of constant shape and a self map 
+ $f\colon X\to X$, we have a natural equivalences of spectra:
+ \[ \mathrm{tr}\left(f_!\colon \Shv(X;\Sp) \to \Shv(X;\Sp)\right)\simeq \Gamma(X;\SS)\]
+ and
+ \[ \mathrm{tr}(f^* \colon \Sp^X \to \Sp^X)\simeq \SS[\cL^f X]\]
+ Here, the traces are computed in the symmetric
+ monoidal $\infty$-category $\Prlst$ of stably presentable $\infty$-categories.
+\end{prop}
+
+Writing $p\colon X\to \pt$ for the terminal map,
+this allows us to define the (dual) Lefschetz index and the Reidemeister trace 
+as the maps induced on traces by the commutative squares:
+\[
+\begin{tikzcd}
+  {\Shv(X;\Sp)} & {\Sp} \\
+  {\Shv(X;\Sp)} & {\Sp}
+	\arrow["{p_!}", from=1-1, to=1-2]
+	\arrow["{f_!}"', from=1-1, to=2-1]
+	\arrow["\id", from=1-2, to=2-2]
+	\arrow[Rightarrow, from=2-1, to=1-2]
+	\arrow["{p_!}"', from=2-1, to=2-2]
+\end{tikzcd} 
+\quad \text{and}\quad
+\begin{tikzcd}
+	{\Sp} & {\Sp^X} \\
+  {\Sp} & {\Sp^X}
+	\arrow["{p^{*}}", from=1-1, to=1-2]
+	\arrow["{\id}"', from=1-1, to=2-1]
+	\arrow["f^*", from=1-2, to=2-2]
+	\arrow[Rightarrow, from=2-1, to=1-2]
+	\arrow["{p^*}"', from=2-1, to=2-2]
+\end{tikzcd}
+\]
+respectively, see \cref{cons: Lefschetz index} and 
+\cref{cons: Reidemeister trace}. 
+With these definitions in hand, we prove:
+\begin{thm}
+ Let $X$ be proper and locally of constant shape and $f\colon X\to X$ be
+ a self map. Then we have commutative squares:
+\[
+\begin{tikzcd}
+	{} & {\Gamma(X^f;\SS}) & \\
+	{\SS} && {\SS}
+	\arrow["{\lambda^f}", from=1-2, to=2-3]
+  \arrow["\pi", from=2-1, to=1-2]
+	\arrow["{L(f)}"', from=2-1, to=2-3]
+\end{tikzcd}
+\quad \text{and} \quad
+\begin{tikzcd}
+  {} & {\SS[\cL^fX]} & \\
+  {\SS} && {\SS}
+  \arrow["{\tau}", from=1-2, to=2-3]
+\arrow["{\rho_f}", from=2-1, to=1-2]
+  \arrow["{L(f)}"', from=2-1, to=2-3]
+\end{tikzcd}
+\]
+in $\Sp$ where $\pi,\tau$ denote the pullback and transfer along the respective
+terminal maps to the point.
+\end{thm}
+
+To deduce \cref{thm: main} from this,
+we require a categorical invariant whose associated cohomology
+theory is the \emph{Borel--Moore homology} $\cptSec{X;\SS}^{\vee}$ of $X$.
+This is provided by the category of \emph{completed cosheaves}
+$\coShat(X)$ introduced by Nikolaus--Krause--Putzstück 
+in \cite{Krause_Nikolaus_Putzstuck2024}. Moreover, forthcoming work of Barthels--Nikolaus
+provides a factorization of the map $p^*\colon \Sp \to \Sp^X$ as the composite of 
+the \emph{local wall object} $w_X\colon \colon \coShat(X) \to \Sp^X$ with an assembly functor
+$a \colon \coShat{X}\to \Sp^X$. This in turn allows 
+us to factor the diagram defining the Reidemeister trace. More precisely, we prove:
+\begin{thm}
+ Let $X$ be compact and of locally constant shape. For any self map $f\colon X \to X$,
+ the lax commutative square 
+\[
+\begin{tikzcd}
+	{\Sp} & {\Sp^X} \\
+  {\Sp} & {\Sp^X}
+	\arrow["{p^{*}}", from=1-1, to=1-2]
+	\arrow["{\id}"', from=1-1, to=2-1]
+	\arrow["f^*", from=1-2, to=2-2]
+	\arrow[Rightarrow, from=2-1, to=1-2]
+	\arrow["{p^*}"', from=2-1, to=2-2]
+\end{tikzcd}
+\]
+admits a natural factorization as:
+\[
+    \begin{tikzcd}
+      \Sp & {\coShat(X)} & \Sp^{X} \\
+      \Sp & {\coShat(X)} & \Sp^{X}
+      \arrow["{w_{X}}", from=1-1, to=1-2]
+      \arrow["\id"', from=1-1, to=2-1]
+      \arrow["{a }", from=1-2, to=1-3]
+      \arrow["{f^?}", from=1-2, to=2-2]
+      \arrow["f^{\ast}", from=1-3, to=2-3]
+      \arrow[Rightarrow, from=2-2, to=1-3]
+      \arrow["{w_{\tset}}"', from=2-1, to=2-2]
+      \arrow[Rightarrow, from=2-1, to=1-2]
+      \arrow["{a}"', from=2-2, to=2-3]
+    \end{tikzcd}
+  \]
+  Moreover, taking traces induces a commutative diagram
+  \[
+    \begin{tikzcd}
+      &  \Gamma(X^f)^{\vee}\\
+      \SS& {\SS [\cL^{f}\ani{\tset}[\base]]},
+      \arrow["\mathfrak a", from=1-2, to=2-2]
+      \arrow["{\lambda_f}", from=2-1, to=1-2]
+      \arrow["{\rho_f}"', from=2-1, to=2-2]
+    \end{tikzcd}
+  \]
+  in the category of spectra, where $\lambda_f$ 
+  is the dual of the map $\lambda^f$ above.
+\end{thm}
+
+
