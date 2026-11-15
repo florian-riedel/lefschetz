@@ -27,6 +27,24 @@ where $p_2\colon\RR\times\tset\to\tset$ denotes the projection onto the second c
 (Note however that the map $\phi$ arising in this way will generally not be compatible 
 with the group structure on $\RR$.)
 
+\begin{rmk}
+  Let $(\cC,\cE)$ be a geometric context, $\cP,\cI\subseteq \cE$ be as 
+  in \cref{defn: Span 2-cat} and suppose we are given a symmetric 
+  monoidal $(\infty,2)$-functor 
+  \[ \cD \colon \sSpan{\cC}_{\cP,\cI}\too \mathscr{V}\]
+  where $\mathscr{V}$ is some presentably symmetric monoidal $(\infty,2)$-category.
+ The methods developed in this section, generalize straightfowardly to fixed point formulas
+  for the associated cohomology theory 
+  \[ \cH_{\cD}(-) \colon \Omega \sSpan{\cC}_{\cP,\cI}\too \Omega\mathscr{V}\,.\]
+  More precisely, given a span 
+  \[ \Lambda = \left( X \xleftarrow{f} Y \xrightarrow{g} X\right) \in \cC\]
+    where $f\in \cP$ and $g\in \cE$, we learn that the trace of the induced
+    map on cohomology $\cH_{\cD}(\Lambda)\colon \cH_{\cD}(X)\to \cH_{\cD}(X)$ naturally factors
+    though the cohomology of the coincidence locus $\cH_{\cD}(X^{\Lambda})$.
+    However, we do not pursue this generality further in this note as most six functor
+    formalisms found in nature are only \emph{lax} monoidal. \todo{CItation needed?}
+\end{rmk}
+
 \subsection{Topological Lefschetz}\label{subsec: topological lefschetz}
 
 \begin{defn}

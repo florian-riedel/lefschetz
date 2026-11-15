@@ -158,12 +158,11 @@ in $\cC$, satisfying the following conditions:
 \end{enumerate}
  Morphisms in $\mathcal E$ are called \tdef{admissible} and we also call
  an object $X\in \cC$ admissible whenever the terminal map $X\to \pt$ is.
-Given a geometric setup $(\cC,\cE)$, we write $\mdef{\Span{\cC}_{\cE}}$ for the associated
-symmetric monoidal $\infty$-category of \tdef{spans}, see \todo{Add Ref}. 
+Given a geometric setup $(\cC,\cE)$, we write $\mdef{\Span{\cC, \all, \cE}}$ for the associated symmetric monoidal $\infty$-category of \tdef{spans}, see \todo{Add Ref}. 
 \end{defn}
 
 \begin{lem}\label{lem: duality datum}
-    Let $(\cC,\cE)$ be a geometric context and suppose we have $X\in \Span{\cC}_{\cE}$ 
+    Let $(\cC,\cE)$ be a geometric context and suppose we have $X\in \Span{\cC, \all, \cE}$ 
     such that the terminal map $X\to \pt$ and the diagonal 
     $\Delta \colon X \to X\times X$ are admissible. 
     Then $X$ is dualizable and canonically self dual, with duality datum given by the 
@@ -180,8 +179,8 @@ symmetric monoidal $\infty$-category of \tdef{spans}, see \todo{Add Ref}.
    map $X\to \pt$ and the diagonal $\Delta \colon X \to X\times X$ are admissible.
    For any morphism
    \[\Lambda= (X\xleftarrow{f}X\xrightarrow{g}X)\] 
-   in $\Span{\cC}_{\cE}$ we have that 
-   \[\tr{\Lambda}{\Span{\cC}_{\cE}} = (\pt \leftarrow X^{\Lambda} \to \pt ) \in \Span{\cC}_{\cE}\,,\]
+   in $\Span{\cC, \all, \cE}$ we have that 
+   \[\tr{\Lambda}{\Span{\cC, \all, \cE}} = (\pt \leftarrow X^{\Lambda} \to \pt ) \in \Span{\cC, \all, \cE}\,,\]
    where $X^{\Lambda}$ is defined to be the pullback: 
    \[\begin{tikzcd}
 	{X^{\Lambda}} & X \\
@@ -206,15 +205,14 @@ Let $(\cC,\cE)$ be a geometric context. Given a pair of subclasses
 $\cI, \cP \subseteq \cE$ 
 such that $\cI$ and $\cP$ contain all equivalences, are closed
 under composition, base change and diagonals we write
-$\mdef{\sSpan{\cC}_{\cP,\cI}}$ for the symmetric monoidal 
+$\mdef{\sSpan{\cC, \all, \cE}_{\cP,\cI}}$ for the symmetric monoidal 
 $(\infty,2)$-category of \cite[Definition 4.10]{Cnossen_Lenz_Linskens2026}. 
 \end{defn}
 
 \begin{rmk}
-The underlying $(\infty,1)$-category of 
-$\sSpan{\cC}_{\cP,\cI}$ agrees with $\Span{\cC}_{\cE}$ and
-a 2-morphism from $\left(X\leftarrow Z\to Y\right)$ to $\left(X\leftarrow Z'\to Y\right)$ is
-given by a commutative diagram:
+The underlying $(\infty,1)$-category of $\sSpan{\cC, \all, \cE}_{\cP,\cI}$ agrees with
+$\Span{\cC, \all, \cE}$ and a 2-morphism from $\left(X\leftarrow Z\to Y\right)$ 
+to $\left(X\leftarrow Z'\to Y\right)$ is given by a commutative diagram:
 \[\begin{tikzcd}
 	& Z & \\
 	X & W & Y \\
@@ -227,6 +225,19 @@ given by a commutative diagram:
 	\arrow[from=3-2, to=2-3]
 \end{tikzcd}\]
 where $i\in\cI$ and $f\in\cP$.
+\end{rmk}
+
+\begin{rmk}\label{rmk: 2span and cohomology}
+ The $(\infty,2)$-category of spans is useful for the following: Suppose we are
+ given a six-functor formalism, i.e.~a lax symmetric monoidal $(\infty,2)$ functor
+ \[ \cD\colon \sSpan{\cC, \all, \cE}_{\cP,\cI}\too \cV\]
+ where $\cV$ is some presentably monoidal $(\infty,2)$ category. The $\infty$-category
+ of endomorphisms of the terminal object $\pt \in \cC$ is given by 
+ \[ \Omega_{\pt} \sSpan{\cC, \all, \cE}_{\cP,\cI} \simeq \Span{\cC, \cP, \cI}\]
+ \todo{cite?}
+Thus by passing to endomorphism $(\infty,1)$-categories, we obtain an associated cohomology
+ theory 
+ \[ \cH_{\cD}(-)\colon \Span{\cC,\cP,\cI} \too \Omega_{\cD(\pt)}(\cV)\,.\]
 \end{rmk}
 
 We record the following technical lemma about internal adjoints in the
