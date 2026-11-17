@@ -1,5 +1,5 @@
 We deduce a topological and homotopical Lefschetz fixed point 
-via sheaves and local systems. Throughout this entire secction, we fix a base 
+via sheaves and local systems. Throughout this entire section, we fix a base 
 topological space $M$ which locally compact and Hausdorff.
 
 \begin{notation}
@@ -55,8 +55,7 @@ the stably presentably monoidal $\infty$-category of \tdef{sheaves of spectra} o
 
 \begin{cons}
 Consider the geometric context $(\pTop{\base},\all)$, let
-$\cI$ denote the class of open immersions and $\cP$ the class of proper maps.
-
+$\cI$ denote the class of open immersions and $\cP=\all$ denote the class of all maps\footnote{Note that any map $f\colon X\to Y$ in $\pTop{\base}$ is automatically proper.}.
 By \todo{cite Volpe?}, the assignment 
 $X\mapsto \pSp{X}$ refines to a symmetric monoidal functor $(\infty,2)$-functor $\sSpan{\Top}_{\cP,\cI}\to \Prlstf$. Pre-composing
 with the functor $\sSpan{\pTop{\base}}_{\cP,\cI} \to \sSpan{\Top}_{\cP,\cI}$ that forgets the structure map, we obtain an (a priori) 
@@ -80,7 +79,7 @@ for the image under the functor $\pSpf{(-)}$ of the spans
 respectively. As in \cref{rmk: 2span and cohomology} we denote
 the induced cohomology theory by 
 \[ \mdef{\cptSec{-}[\base]}\colon \Span{\pTop{\base},\cP, \cI}\too \pSp{\base}\,.\]
-Explcicitly, for any $p\colon X\to \base$ we have that 
+Explicitly, for any $p\colon X\to \base$ we have that 
 $\cptSec{X}[\base] =  p_!p^*\SS_{\base}$, i.e.~relative (compactly supported) cohomology
 of the constant sheaf with value $\SS$.
 Moreover, for any proper map $f\colon X\to Y$ in $\pTop{\base}$, we write 
@@ -130,7 +129,7 @@ trace, which is the content of the following lemma:
   Since the functor $\pSp{(-)}$ is symmetric monoidal and $X\in \Span{\pTop{\base}}$ is
   dualizable by \cref{lem: duality datum}, it follows that $\pSp{X}$
   is dualizable.
-  Moreover, by the naturality statment of \cref{thm: trace functor}, the symmetric monoidal 
+  Moreover, by the naturality statement of \cref{thm: trace functor}, the symmetric monoidal 
   $(\infty,2)$-functor $\pSpf{(-)}$ induces a symmetric monoidal functor 
   \[ \pSpf{(-)}\colon \Endtrl(\sSpan{\pTop{\base}}_{\cP,\cI}) 
   \too \Endtrl(\pPrlf{\base})\,,\]
@@ -143,11 +142,11 @@ trace, which is the content of the following lemma:
 \end{proof}
 
 If the dynamical system is additionally assumed to be \emph{shapely} in the sense
-of \cref{defn: dynamical system}, we can define gerenalized fixed point
+of \cref{defn: dynamical system}, we can define generalized fixed point
 indices as well as a Lefschetz number. 
 
 \begin{lem}
-  For any proper shape sumbersion $p\colon X\to \base$, the associated cohomology sheaf
+  For any proper shape submersion $p\colon X\to \base$, the associated cohomology sheaf
   $\cptSec{X}[\base] \in \pSp{\base}$ is dualizable.
 \end{lem}
 
@@ -188,7 +187,7 @@ a map:
 which we call the \tdef{Lefschetz index} of $f$. 
 \end{cons}
 
-The proof of the main result of this section is now straightfoward.
+The proof of the main result of this section is now straightforward.
 
 \begin{thm}\label{thm: Top Lefschetz}
 Let $(X,p,f)$ be a shapely dynamical system over $\base$,
@@ -198,9 +197,7 @@ $q\colon X^f\to \base$ for the terminal map from the fixed points of $f$.
 The composite 
 \[ \SS_{\base} \xrightarrow{\pb{q}} \cptSec{X^f}[\base]
 \xrightarrow{\lambda^f} \SS_{\base}\,\]
-is given by the Lefschetz class 
-\[ L(f)\colon \SS_{\base} \to \SS_{\base}\]
-of \cref{defn: Lefschetz class}. 
+is given by the Lefschetz class $L(f)$ of \cref{defn: Lefschetz class}. 
 \end{thm}
 \begin{proof}
   Since $p\colon X\to \base$ is a proper shape submersion by assumption, the two functors 
@@ -224,8 +221,8 @@ of \cref{defn: Lefschetz class}.
     where $\alpha\colon f_!p^*\to p^*$ is adjoint to the preferred equivalence $f^*p^* = p^*$ and $\beta$ is the preferred
     equivalence $p_!f_!=p_!$. Applying the functor 
     \[ \TrcL\colon \Endtrl(\pPrlf{\base})\to \pSp{\base}\,\]
-    we obtain a commutative diagram in $\pSp{\base}$ of
-    the form:
+    and using the identification of \cref{lem: top trace identification} 
+    we obtain a commutative diagram in $\pSp{\base}$ of the form:
     \[
 \begin{tikzcd}
 	{} & {\cptSec{X^f}[\base]} & \\
@@ -238,7 +235,7 @@ of \cref{defn: Lefschetz class}.
     The map $\beta\alpha\colon p_!p^*\SS_{\base}\to p_!p^*\SS_{\base}$ is by definition
     the pullback $\pb{f}$ and so by construction of the functor 
     $\TrcL$ we have that
-    \[ \TrcL(p_!p^*,\beta\alpha)= \tr{\pb{f}}{\pSp{\base}}\,.\]
+    \[ \TrcL(p_!p^*,\beta\alpha)= \tr{\pb{f}}{\pSp{\base}} = L(f)\,.\]
     It remains to show that $\TrcL(p^*,\alpha)$ is given
     by the pullback $\pb{q}$ along the projection 
     map $q\colon X^{f}\to \base$.
@@ -308,7 +305,7 @@ of an endomorphism $f\colon A\to A$ of a sheaf of spaces on $\base$,
 wich parallels that of the Lefschetz-index in \cref{cons: Lefschetz index}. 
 Moreover, we prove that the Reidemeister trace lifts the trace of the 
 induced map on relative spherical homology. 
-Throughout this section, we make the (mild) addtional assumption that $\base$ is hypercomplete
+Throughout this section, we make the (mild) additional assumption that $\base$ is hypercomplete
 in the sense of \todo{cite}.
 
 \begin{defn}
@@ -327,7 +324,7 @@ $(\infty,2)$-categorical six functor formalism.
 
 \begin{cons}
 Consider $\pSp{\base}[(-)]$ as a functor $\pSpc{\base}^{\op}
-\to \pPrl{\base}$ via pullback of sheaves and the pointwise
+\to \pPrl{\base}$ via pullback of sheaves and the point-wise
 $\pSp{\base}$-linear structure induced by the terminal maps 
 and the natural identification $\pSp{\base}[\pt_{\base}]\simeq \pSp{\base}$. Write \enquote{$\all$} for the class of 
 all maps and \enquote{$\simeq$} for the class

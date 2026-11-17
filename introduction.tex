@@ -3,12 +3,16 @@ $H^i(f)\colon H^i(X;\QQ)\to H^i(X;\QQ)$ on (rational) singular cohomology. Since
 $X$ is compact, each of the cohomology groups is finitely generated and there but finitely
 many non-zero groups, so one defines the \emph{Lefschetz number} of $f$ to be the alternating sum:
 \[ L(f)\coloneq\sum_{i\geq 0} \mathrm{tr}\left(H^i(f)\right)\]
-The celebrated \emph{Lefschetz fixed point theorem} states that if the set of fixed points
-$X^f\subseteq X$ is finite and discrete, there exists some naturally defined integers 
-$\lambda^f(x)$ for $x\in X^f$ such that:
-\[  \sum_{x \in X^f} \lambda^f(x) = L(f)\,.\]
-The appeal of this theorem is immediate, the right hand side only depends on the homotopy
-type of $f$, while the terms on the left hand side may vary wildly
+Let $X^f\subseteq X$ denote the fixed points of $f$. 
+The celebrated \emph{Lefschetz fixed point theorem} states that:
+\begin{enumerate}
+  \item If $L(f)\neq 0$ then $X^f$ is non-empty.
+  \item If $X^f\subseteq X$ is discrete and finite, then there exist naturally
+    defined integers $\lambda^f_x$ for all $x\in X^f$ such that:
+    \[  \sum_{x \in X^f} \lambda^f(x) = L(f)\,.\]
+\end{enumerate}
+The appeal of this theorem is immediate, the number $L(f)$ depends on the homotopy
+type of $f$, while the set of fixed points and their indices vary wildly
 (and indeed may not even be defined) across different but homotopic maps.
 The goal of this note is to prove the following far reaching generalization:
 
@@ -18,14 +22,14 @@ The goal of this note is to prove the following far reaching generalization:
   the fixed points and $\cL^f X$ for the homotopy fixed
   points\footnote{i.e.~the space of pairs $(x,\gamma)$ where $x\in X$
   and $\gamma$ is a path from $x$ to $f(x)$.} of $f$. Moreover, let
-  \[\mdef{L(f)} \in H^0_{\mathrm{c}}(\base; \SS)\]
+  \[\mdef{L(f)} \in H^0(\base; \SS)\]
   denote trace of the morphism induced by $f$ on the relative spherical cohomology 
-  $\cptSec{X;\SS}[\base]$.
+$\Gamma_{\base}(X;\SS)$.
   There exists a natural\footnote{Elaborate} commutative diagram in the $\infty$-category
   $\Shv(\base,\Sp)$ of the form:
   \[
 \begin{tikzcd}
-  {\cptSec{X^f;\SS}[\base]^\vee} & {\SS_{\base}[\cL^f X]} \\
+  {\Gamma_{M}(X^f;\SS)^\vee} & {\SS_{\base}[\cL^f X]} \\
 	{\SS_{\base}} & {\SS_{\base}}
 	\arrow["{\ass_f}", from=1-1, to=1-2]
 	\arrow["\pi", from=1-2, to=2-2]
@@ -46,9 +50,11 @@ by the map taking any $x\in X^f$ to the pair $(x,\mathrm{const}_x).$
       In particular, although $X$ is to be assumed locally of constant shape,
       the fixed points need not be \todo{example?}\footnote{Hence the notational
       distinction between the spherical chains and sheaf cohomology}
+    \item It is immediate that $L(f)\neq 0$ implies $X^f\neq \varnothing$ as
+      $\Gamma_M(\varnothing; \SS)\simeq 0$. 
     \item In the case $M=\pt$, the factorization of $L(f)$ as composite 
       \[ \SS \xrightarrow{\lambda_f} \Gamma(X^f;\SS) \to \SS\]
-      readily recovers the classical Lefschetz fixed point theorem whenever $X^f$ is discrete.
+      readily recovers the classical Lefschetz formula whenever $X^f$ is discrete.
     \item The map $\rho_f$ fiberwise agrees with the \emph{Reidemeister trace}. 
     \item If $M=\pt$ and $X^f\subseteq X$ is finite and discrete, we further deduce the 
       Lefschetz--Nielsen theorem, providing a lower bound for the number of fixed points
@@ -72,12 +78,11 @@ it's category of sheaves of spectra $\Shv(X;\Sp)$, which is
 much more sensitive to topological information \todo{CITE}, as well as the
 category $\Sp^X$ of local systems of spectra on $X$.
 The first key input to proving \cref{thm: main} is the following observation, 
-generalizing the fact that $\mathrm{THH}(\Shv(X;\Sp)) \simeq \cptSec{X;\SS}$ due to
-to Efimov \todo{CITe}. 
+generalizing the fact that $\mathrm{THH}(\Shv(X;\Sp)) \simeq \Gamma(X;\SS)$.
 
 \begin{prop}
- Given a compact $X$ that is locally of constant shape and a self map 
- $f\colon X\to X$, we have a natural equivalences of spectra:
+ Let $X$ be a compact Hausdorff space tat is locally of constant shape.
+ Given any continuous map $f\colon X\to X$, we have a natural equivalences of spectra:
  \[ \mathrm{tr}\left(f_!\colon \Shv(X;\Sp) \to \Shv(X;\Sp)\right)\simeq \Gamma(X;\SS)\]
  and
  \[ \mathrm{tr}(f^* \colon \Sp^X \to \Sp^X)\simeq \SS[\cL^f X]\]
@@ -138,10 +143,9 @@ terminal maps to the point.
 
 To deduce \cref{thm: main} from this,
 we require a categorical invariant whose associated cohomology
-theory is the \emph{Borel--Moore homology} $\cptSec{X;\SS}^{\vee}$ of $X$.
-This is provided by the category of \emph{completed cosheaves}
-$\coShat(X)$ introduced by Nikolaus--Krause--Putzstück 
-in \cite{Krause_Nikolaus_Putzstuck2024}. Moreover, forthcoming work of Barthels--Nikolaus
+theory is the \emph{Borel--Moore homology} $\Gamma(X;\SS)^{\vee}$ of $X$.
+This is provided by Barthels category of \emph{completed cosheaves}
+$\coShat(X)$. Forthcoming work of Barthels--Nikolaus
 provides a factorization of the map $p^*\colon \Sp \to \Sp^X$ as the composite of 
 the \emph{local wall object} $w_X\colon \colon \coShat(X) \to \Sp^X$ with an assembly functor
 $a \colon \coShat{X}\to \Sp^X$. This in turn allows 
