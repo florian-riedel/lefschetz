@@ -38,7 +38,7 @@ with the group structure on $\RR$.)
   \[ \cH_{\cD}(-) \colon \Omega \sSpan{\cC}_{\cP,\cI}\too \Omega\mathscr{V}\,.\]
   More precisely, given a span 
   \[ \Lambda = \left( X \xleftarrow{f} Y \xrightarrow{g} X\right) \in \cC\]
-    where $f\in \cP$ and $g\in \cE$, we learn that the trace of the induced
+    where $f\in \cP$ and $g\in \cI$, we learn that the trace of the induced
     map on cohomology $\cH_{\cD}(\Lambda)\colon \cH_{\cD}(X)\to \cH_{\cD}(X)$ naturally factors
     though the cohomology of the coincidence locus $\cH_{\cD}(X^{\Lambda})$.
     However, we do not pursue this generality further in this note as most six functor
@@ -77,48 +77,60 @@ For any morphism $f\colon X\to Y \in \pTop{\base}$ we write
 \[ \mdef{f^*}\colon \pSp{Y}\to \pSp{X}\quad \text{and}\quad  \mdef{f_!} \colon \pSp{X}\to \pSp{Y}\]
 for the image under the functor $\pSpf{(-)}$ of the spans 
 \[ \left( Y \xleftarrow{f} X \xrightarrow{\id}X\right) \quad \text{and} \quad  \left(X \xleftarrow{\id} X \xrightarrow{f} Y \right)\,, \]
-respectively.
-For any $(X,p)\in \pTop{\base}$ we write
-\[ \mdef{\cptSec{X}[\base]}\coloneq p_!\SS_{X} \in \pSp{\base}\,. \]
-for the \tdef{relative cohomology} of $X$.
-
-Note that, $\cptSec{X}[\base]$ is equivalently the image
-of the span $ \base \xleftarrow{p} X \xrightarrow{p} \base$
-under the functor 
-\[\Omega \pSpf{(-)}\colon \Omega \sSpan{\pTop{\base}}_{\cP,\cI} \to
-\Omega \pPrlf{\base}\simeq \pSp{\base}\,.\]
-Moreover, for any proper map $f\colon (X,p)\to (Y,q)$ in $\pTop{/\base}$ use
-the notation
-\[ \mdef{\pb{f}}\colon \cptSec{Y}[\base]\to \cptSec{X}[\base] \]
-for the pullback on relative compactly supported cohomology, i.e.~the image of the 2-morphism 
-\[
-\begin{tikzcd}
-	& X & \\
-	\base & X & \base \\
-	& Y
-	\arrow["p"', from=1-2, to=2-1]
-	\arrow["p", from=1-2, to=2-3]
-	\arrow["\id"', from=2-2, to=1-2]
-	\arrow["f", from=2-2, to=3-2]
-	\arrow["q", from=3-2, to=2-1]
-	\arrow["q"', from=3-2, to=2-3]
-\end{tikzcd}
-\]
-under the $(\infty,2)$-functor $\pSpf{(-)}\colon \sSpan{\pTop{\base}}_{\cP,\cI} \to \pPrlf{\base}$.
+respectively. As in \cref{rmk: 2span and cohomology} we denote
+the induced cohomology theory by 
+\[ \mdef{\cptSec{-}[\base]}\colon \Span{\pTop{\base},\cP, \cI}\too \pSp{\base}\,.\]
+Explcicitly, for any $p\colon X\to \base$ we have that 
+$\cptSec{X}[\base] =  p_!p^*\SS_{\base}$, i.e.~relative (compactly supported) cohomology
+of the constant sheaf with value $\SS$.
+Moreover, for any proper map $f\colon X\to Y$ in $\pTop{\base}$, we write 
+\[ \mdef{\pi(f)}\colon \cptSec{Y}[\base]\to \cptSec{X}[\base]\]
+for the pullback map induced by the span $Y \xleftarrow{f}X \xrightarrow{\id} X$. 
 \end{notation}
-
+% For any $(X,p)\in \pTop{\base}$ we write
+% \[ \mdef{\cptSec{X}[\base]}\coloneq p_!\SS_{X} \in \pSp{\base}\,. \]
+% for the \tdef{relative cohomology} of $X$.
+%
+% Note that, $\cptSec{X}[\base]$ is equivalently the image
+% of the span $ \base \xleftarrow{p} X \xrightarrow{p} \base$
+% under the functor 
+% \[\Omega \pSpf{(-)}\colon \Omega \sSpan{\pTop{\base}}_{\cP,\cI} \to
+% \Omega \pPrlf{\base}\simeq \pSp{\base}\,.\]
+% Moreover, for any proper map $f\colon (X,p)\to (Y,q)$ in $\pTop{/\base}$ use
+% the notation
+% \[ \mdef{\pb{f}}\colon \cptSec{Y}[\base]\to \cptSec{X}[\base] \]
+% for the pullback on relative compactly supported cohomology, i.e.~the image of the 2-morphism 
+% \[
+% \begin{tikzcd}
+% 	& X & \\
+% 	\base & X & \base \\
+% 	& Y
+% 	\arrow["p"', from=1-2, to=2-1]
+% 	\arrow["p", from=1-2, to=2-3]
+% 	\arrow["\id"', from=2-2, to=1-2]
+% 	\arrow["f", from=2-2, to=3-2]
+% 	\arrow["q", from=3-2, to=2-1]
+% 	\arrow["q"', from=3-2, to=2-3]
+% \end{tikzcd}
+% \]
+% under the $(\infty,2)$-functor $\pSpf{(-)}\colon \sSpan{\pTop{\base}}_{\cP,\cI} \to \pPrlf{\base}$.
+% \end{notation}
+%
 The key insight is that, given a dynamical system $(X,p,f)$, working with the category
 $\pSp{X}$ allows us to express the cohomology of the fixed points of $f$ as a categorified
 trace, which is the content of the following lemma:
 
 \begin{lem}\label{lem: top trace identification}
     Let $(X,p,f)$ be a dynamical system over $\base$ with
-    fixed points $ X^f\subseteq X$. Then we
-    have an equivalence:
+    fixed points $ X^f\subseteq X$. Then the $\infty$-category $\pSp{X}\in \pPrl{\base}$
+    is dualizable and have an equivalence:
     \[ \tr{f_!\colon \pSp{X}\to \pSp{X}}{\pPrl{\base}}\simeq \cptSec{X^f}[\base]\in \pSp{\base}\,.\]
 \end{lem}
 \begin{proof}
-  By the naturality statment of \cref{thm: trace functor}, the symmetric monoidal 
+  Since the functor $\pSp{(-)}$ is symmetric monoidal and $X\in \Span{\pTop{\base}}$ is
+  dualizable by \cref{lem: duality datum}, it follows that $\pSp{X}$
+  is dualizable.
+  Moreover, by the naturality statment of \cref{thm: trace functor}, the symmetric monoidal 
   $(\infty,2)$-functor $\pSpf{(-)}$ induces a symmetric monoidal functor 
   \[ \pSpf{(-)}\colon \Endtrl(\sSpan{\pTop{\base}}_{\cP,\cI}) 
   \too \Endtrl(\pPrlf{\base})\,,\]
@@ -131,8 +143,24 @@ trace, which is the content of the following lemma:
 \end{proof}
 
 If the dynamical system is additionally assumed to be \emph{shapely} in the sense
-of \cref{defn: dynamical system}, we can define a fixed point index
-via the following construction:
+of \cref{defn: dynamical system}, we can define gerenalized fixed point
+indices as well as a Lefschetz number. 
+
+\begin{lem}
+  For any proper shape sumbersion $p\colon X\to \base$, the associated cohomology sheaf
+  $\cptSec{X}[\base] \in \pSp{\base}$ is dualizable.
+\end{lem}
+
+In particular, the following is well defined:
+
+\begin{defn}\label{defn: Lefschetz class}
+ Let $(X,p,f)$ be a shapely dynamical system over $\base$. We define the associated
+ \tdef{Lefschetz class} to be the trace:
+ \[ \mdef{L(f)}\coloneq \tr{\pb{f} \colon \cptSec{X}[\base] 
+ \to \cptSec{X}[\base]}{\pSp{\base}}\,.\]
+\end{defn}
+
+Moreover, we can refine this class to a fixed point index via the following construction.
 
 \begin{cons}\label{cons: Lefschetz index}
     Let $(X,p,f)$ be a shapely dynamical system over $\base$. 
@@ -158,12 +186,9 @@ a map:
 \[ \mdef{\lambda^f}\colon \cptSec{X^f}[\base]
 \to \SS_{\base} \in \pSp{\base}\]
 which we call the \tdef{Lefschetz index} of $f$. 
-    \end{cons}
+\end{cons}
 
-The following technical lemma will allow us to identify the pullback
-of the Lefschetz index to the point.
-
-We can now prove the main result of this section:
+The proof of the main result of this section is now straightfoward.
 
 \begin{thm}\label{thm: Top Lefschetz}
 Let $(X,p,f)$ be a shapely dynamical system over $\base$,
@@ -173,9 +198,9 @@ $q\colon X^f\to \base$ for the terminal map from the fixed points of $f$.
 The composite 
 \[ \SS_{\base} \xrightarrow{\pb{q}} \cptSec{X^f}[\base]
 \xrightarrow{\lambda^f} \SS_{\base}\,\]
-is given by the trace of the pullback map 
-\[ \pb{f}\colon \cptSec{X}[\base]\to \cptSec{X}[\base] \]
-on relative cohomology.
+is given by the Lefschetz class 
+\[ L(f)\colon \SS_{\base} \to \SS_{\base}\]
+of \cref{defn: Lefschetz class}. 
 \end{thm}
 \begin{proof}
   Since $p\colon X\to \base$ is a proper shape submersion by assumption, the two functors 
@@ -236,8 +261,8 @@ on relative cohomology.
 \end{tikzcd}
 \]
 in $\Endtrl(\sSpan{\pTop{\base}}_{\cP,\cI})$ whose image under the functor 
-$\pSp{(-)}$ is the left hand square of \eqref{eq: categorical factorization top}. Thus, unwinding the definitions and using the naturality of the
-functor $\Trc$, we learn that the map $\TrcL(p^*,\alpha)$
+$\pSpf{(-)}$ is the left hand square of \eqref{eq: categorical factorization top}. Thus, unwinding the definitions and using the naturality of the
+functor $\TrcL$, we learn that the map $\TrcL(p^*,\alpha)$
 is the image of the 2-morphism: 
 \[
 \begin{tikzcd}
@@ -252,21 +277,24 @@ is the image of the 2-morphism:
 	\arrow[from=3-2, to=2-3]
 \end{tikzcd}
 \]
-under the functor $\Omega \pSpf{(-)}$, which is exactly the pullback along 
+under the functor $\cptSec{-}[\base]$, which is exactly the pullback along 
 $q\colon X^f \to \base$. 
 \end{proof}
 
-As a consequence, we immediately deduce the following:
+Write $H^*(\base)$ for the sheaf cohomology of our base space $\base$.
+As a consequence of \cref{thm: Top Lefschetz}, we immediately deduce the following: 
 
 \begin{cor}\label{cor: Lefschetz finite fixed pts}
-  Let $p\colon X \to \base$ be a proper shape submersion and let $f\colon (X,p)\to (X,p)$ be a self map
-  in $\pTop{\base}$. Suppose that $X^f\simeq \base \times S$ for some finite set $S$. 
-  Then there exist classes $[\lambda^f_s]\in H^0_{\mathrm{c}}(\base)$ for each $s\in S$ such that:
-  \[ \mathrm{tr}\left(f\colon \cptSec{X}[\base] \to \cptSec{X}[\base]\right) 
-  = \sum_{s\in S} [\lambda^f_s]\in H^0_{\mathrm{c}}(\base)\,.\]
+  For any shapely dynamical system $(X,p,f)$ over $\base$, the following hold:
+  \begin{enumerate}
+    \item If $L(f)\neq 0$, then $f$ has a fixed point.
+    \item If additionally  $X^f\simeq \base \times S$ for some finite set $S$, then 
+      there exist classes $[\lambda^f_s]\in H^0(\base)$ for each $s\in S$ such that:
+  \[ L(f)= \sum_{s\in S}[\lambda_s^f]\in H^{0}(\base)\]
+  \end{enumerate}
 \end{cor}
 
-In particular, for $\base = \pt$ we have $H^0_{\mathrm{c}}(M)=\ZZ$ and $\cptSec{X}[\base]=C^*(X;\SS)$ 
+In particular, for $\base = \pt$ we have $H^0(M)=\ZZ$ and $\cptSec{X}[\base]=C^*(X;\SS)$ 
 so we obtain the fixed point formula of \cite{Dold_Puppe1980}.
 Moreover, using that the composite functor 
 \[ \Sp \xrightarrow{-\otimes \QQ} \Sp_{\QQ} \xrightarrow{\pi_{*}} \mathrm{grVect}_{\QQ}\]
@@ -276,19 +304,19 @@ point theorem of \cite{Lefschetz1937}.
 \subsection{Homotopical Lefschetz}\label{subsec: homotopical lefschetz}
 
 We now give a parametrized construction of the Reidemeister trace \cite{Reidemeister1936}
-of an endomorphism $f\colon A\to A$ of a sheaf of spaces on some base 
-topological space $\base$, 
+of an endomorphism $f\colon A\to A$ of a sheaf of spaces on $\base$, 
 wich parallels that of the Lefschetz-index in \cref{cons: Lefschetz index}. 
 Moreover, we prove that the Reidemeister trace lifts the trace of the 
 induced map on relative spherical homology. 
+Throughout this section, we make the (mild) addtional assumption that $\base$ is hypercomplete
+in the sense of \todo{cite}.
 
 \begin{defn}
-    For some $\base \in \Top$ we denote the $\infty$-category
-    of sheaves of spaces on $\base$ by:
+    For some $\base \in \Top$ we denote the $\infty$-category of sheaves of 
+    spaces on $\base$ by:
     \[\mdef{\pSpc{\base}}\coloneq \Shv(\base,\Spc) \in \Prl\,.\]
-    we denote the terminal object
-    of $\pSpc{\base}$ by $\pt_{\base}$. 
-    Moreover. for any $A\in \pSpc{\base}$ we define:
+    We denote the terminal object of $\pSpc{\base}$ by $\pt_{\base}$. 
+    Moreover, for any $A\in \pSpc{\base}$ we define:
     \[ \mdef{\pSp{\base}[A]}\coloneq \Shv((\pSpc{\base})_{/A};\Sp)\in \CAlg(\Prlst)\,, \]
     and write $\SS_{A}$ for the monoidal unit of $\pSp{\base}[A]$.
 \end{defn}
@@ -330,44 +358,26 @@ is relevant for us.
 \begin{notation}
 For any morphism $f\colon A\to B \in \pSpc{\base}$ we write 
 \[ \mdef{f^*}\colon \pSp{\base}[B]\to \pSp{\base}[A]\quad \text{and}\quad  \mdef{f_!} \colon \pSp{\base}[A]\to \pSp{\base}[B]\]
-for the image of the spans 
+for the image under the functor $\pSpf{\base}[-]$ of the spans 
 \[ \left( B \xleftarrow{f} A \xrightarrow{\id}A \right) \quad \text{and} \quad  \left(A \xleftarrow{\id} A \xrightarrow{f} B \right)\,, \]
-respectively.
-For any $A\in \pSpc{\base}$ with terminal map $p\colon A\to \pt_{\base}$ we denote
-by
-\[\mdef{\SS_{\base}[A]}\coloneq p_!\SS_{X} \in \pSp{\base}\]
-the \tdef{relative spherical homology} of $A$. Note that, this
-is equivalently the image
-of the span $\pt_\base\leftarrow A \rightarrow \pt_\base$ under
-the functor
-\[\Omega\pSpf{\base}[(-)]\colon \sSpan{\pSpc{\base}}_{\simeq,\all}\too \pPrlf{\base}\,.\] 
-Moreover, for any map 
-$f\colon A\to B\in \pSpc{\base}$ we write 
+respectively. We denote the induced cohomology theory by:
+\[ \mdef{\SS_{\base}[-]}\colon \Span{\pSp{\base}, \simeq, \all}\colon \too \pSp{\base}\]
+Explicitly, for any $A\in \pSpc{\base}$ with terminal map $p\colon A\to \pt_{\base}$
+the sheaf $\SS_{\base}[A]=p_!p^*\SS_{\base}$ is the \tdef{relative spherical homology}
+of $A$. Moreover, for any map  $f\colon A\to B\in \pSpc{\base}$ we write 
 \[\mdef{\tf{f}}\colon \SS_{\base}[A]\to \SS_{\base}[B]\]
-for the \tdef{transfer map} induced from the 2-morphism:
-\[\begin{tikzcd}
-	& B & \\
-	\pt_\base & A & \pt_\base \\
-	& A
-	\arrow[from=1-2, to=2-1]
-	\arrow[from=1-2, to=2-3]
-	\arrow["f"', from=2-2, to=1-2]
-	\arrow["\id", from=2-2, to=3-2]
-	\arrow[from=3-2, to=2-1]
-	\arrow[from=3-2, to=2-3]
-\end{tikzcd}\]
-via the functor $\Omega\pSpf{\base}[(-)]$.
+for the \tdef{transfer map} induced from the span $(A \xleftarrow{\id} A \xrightarrow{f} B)$.
 \end{notation}
 
 
-\begin{lem}\label{lem: etale internal right adj}
-For any $A\in \pSpc{\base}$the span 
-$(A\xleftarrow{\id} A \to \pt_\base) \in \sSpan{\pSpc{\base}}_{\simeq, \all}$ admits an internal right adjoint given by 
-$(\pt_\base \leftarrow A \xrightarrow{\id} A)$.
-\end{lem}
-\begin{proof}
-This is a special case of \cref{lem: internal adjoints}. 
-\end{proof}
+% \begin{lem}\label{lem: etale internal right adj}
+% For any $A\in \pSpc{\base}$the span 
+% $(A\xleftarrow{\id} A \to \pt_\base) \in \sSpan{\pSpc{\base}}_{\simeq, \all}$ admits an internal right adjoint given by 
+% $(\pt_\base \leftarrow A \xrightarrow{\id} A)$.
+% \end{lem}
+% \begin{proof}
+% This is a special case of \cref{lem: internal adjoints}. 
+% \end{proof}
 
 \begin{lem}\label{lem: homo trace identification}
     Let $f\colon A\to A$ be a self map in $\pSpc{\base}$ with homotopy
@@ -454,8 +464,46 @@ $\delta$ is adjoint to the preferred equivalence $p_\sharp f_{\sharp}= p_{\sharp
    $ip\colon \cL^fA\to \pt_\base$ using \cref{lem: internal adjoints}.
 \end{proof}
 
+Let us discuss the relation between \cref{thm: Top Lefschetz} and what is 
+done in \cref{subsec: topological lefschetz}
+explicitly. For this, we need the following notion of relative shape/homotopy type:
 
+\begin{cons}
+    Let $\psTop{\base}$ be the full subcategory of 
+    $\pTop{\base}$ spanned by those $X\to \base$ which are shape
+    submersions.
+    For any $X\in \psTop{\base}$ and any (small enough) $U\subseteq \base$, the 
+    topological space $\Map_{/\base}(U,X)$ has constant
+    shape. Thus, we may define the \tdef{relative shape} 
+    of $X$ as the sheaf of spaces $\mdef{\ani{X}[\base]}\in \pSpc{\base}$
+    given by the sheafification of the presheaf of spaces
+    $\ani{\Map_{\Top_{/\base}}(-,X)} \in \Fun(\mathrm{Open}(\base)^\op,\Spc)$. 
+    \todo{Find citations and make sure this is actually right}
+    The relative shape construction defines a functor
+    \[ \ani{-}[\base] \colon \psTop{\base} \too \pSpc{\base}\,.\]
+\end{cons}
 
+Consequently, given any shapely dynamical system $(X,p,f)$  
+over $\base$, we have an attached sheaf of spaces $\ani{X}[\base]$
+together with an endomorphism which we also denote by 
+$f\colon \ani{X}[\base]\to \ani{X}[\base]$. By \todo{Cite a comparision theorem}
+we in fact have a natural equivalence
+\[ \cptSec{X}[\base]^{\vee}\simeq \SS_{\base}[\ani{X}[\base]]\in \pSp{\base}\]
+which identifies $\tf{f}$ with the dual of $\pb{f}$. In particular, the trace
+of $\tf{f}$ agrees with the Lefschetz class $L(f)$ of \cref{defn: Lefschetz class}, and so \cref{thm: Homotopical Lefschetz} produces a commutative diagram
+of the form:
+    \[
+  \begin{tikzcd}
+        {} & {\SS_{\base}[\cL^f \ani{X}[\base]]} & \\
+	{\SS_{\base}} && {\SS_{\base}}
+  \arrow["{\tau}", from=1-2, to=2-3]
+	\arrow["{\rho_f}", from=2-1, to=1-2]
+	\arrow["{L(f)}"', from=2-1, to=2-3]
+\end{tikzcd}
+\]
+which is what we claimed in \cref{thm: main}. To understand the relation 
+to \cref{thm: Top Lefschetz} and see how this results in the Nielsen theorem,
+we will need to work harder. This is the content of the next section.
 %%% Local Variables:
 %%% mode: LaTeX
 %%% TeX-master: "main"

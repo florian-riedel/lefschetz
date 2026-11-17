@@ -148,6 +148,7 @@ $\varphi \dashv \psi$, respectively.
 %   given by the adjoint of the composite 
 %   \[ F(X^{\vee})\otimes F(X) \to F(X^{\vee}\otimes X) \xrightarrow{F(\ev)} F(\1_{\cC})\simeq \SS.\]
 % \end{lem}
+%
 \begin{defn}\label{defn: geometric setup}
 A \tdef{geometric setup} is a pair $(\mathcal C, \mathcal E)$ where $\mathcal C$ is an $\infty$-category with admits all finite limits
 and $\mathcal E \subseteq \Map (\mathcal C)$ is a class of morphisms
@@ -158,7 +159,10 @@ in $\cC$, satisfying the following conditions:
 \end{enumerate}
  Morphisms in $\mathcal E$ are called \tdef{admissible} and we also call
  an object $X\in \cC$ admissible whenever the terminal map $X\to \pt$ is.
-Given a geometric setup $(\cC,\cE)$, we write $\mdef{\Span{\cC, \all, \cE}}$ for the associated symmetric monoidal $\infty$-category of \tdef{spans}, see \todo{Add Ref}. 
+Given a geometric setup $(\cC,\cE)$, we write $\mdef{\Span{\cC, \all, \cE}}$ for
+the associated symmetric monoidal $\infty$-category of \tdef{spans}, see \todo{Add Ref}. 
+If $\cE=\all$ is the class of all maps, we supress it from the notation and
+simply write $\Span{\cC}= \Span{\cC,\all,\all}$. 
 \end{defn}
 
 \begin{lem}\label{lem: duality datum}
@@ -167,10 +171,8 @@ Given a geometric setup $(\cC,\cE)$, we write $\mdef{\Span{\cC, \all, \cE}}$ for
     $\Delta \colon X \to X\times X$ are admissible. 
     Then $X$ is dualizable and canonically self dual, with duality datum given by the 
     spans:
-    \[ \eta_X\colon \left( \pt \leftarrow X \xrightarrow{\id} X\right), \quad \coev_X\colon \left( X \xleftarrow{\id} X \xrightarrow{\Delta} X\times X\right)\,\]
-    and
-    \[ \epsilon_{X} \left( X \xleftarrow{\id} X \to \pt \right), \quad
-    \ev_{X}\colon \left( X\times X \xleftarrow{\Delta} X \xrightarrow{\id}X
+    \[  \coev_X\colon \left( \pt \xleftarrow{} X \xrightarrow{\Delta} X\times X\right)
+      \quad \text{and}\quad  \ev_{X}\colon \left( X\times X \xleftarrow{\Delta} X \xrightarrow{} \pt
     \right)\,.\]
 \end{lem}
 
@@ -249,10 +251,10 @@ $(\infty,2)$-category of spans:
   following hold:
   \begin{enumerate}[label=(\alph*)]
     \item If the maps $X\to \pt$ and $\Delta\colon X\to X\times X$ lie in $\cP$ , 
-      the 1-morphism \[(\pt\leftarrow X\xrightarrow\id X)\in \Span{\cC}_{\cP,\cI}\]
+      the 1-morphism \[(\pt\leftarrow X\xrightarrow\id X)\in \Span{\cC, \all ,\cE}_{\cP,\cI}\]
       has an internal right adjoint given by the flipped span.
   \item If the maps $X\to \pt$ and $\Delta\colon X\to X\times X$ lie in $\cI$, the 
-    1-morphism \[(X\xleftarrow{\id} X\to \pt)\in \Span{\cC}_{\cP,\cI}\] 
+    1-morphism \[(X\xleftarrow{\id} X\to \pt)\in \Span{\cC, \all, \cE}_{\cP,\cI}\] 
     has an internal right adjoint givien by flipping the span.
   \end{enumerate}
 \end{lem}
