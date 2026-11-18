@@ -36,8 +36,6 @@ giving a natural equivalence
   \[\mdef{\tr{f}{\cC}} \colon  \1_{\cC}  \xrightarrow{\coev_X}  X \otimes X^{\vee}
     \rar{f \otimes \id} X \otimes X^{\vee} \rar{\tau} X^{\vee} \otimes X 
     \rar{\ev_X} \1_{\cC}\,.\]
-  We refer to $\tr{\id_X}{\cC}\colon \1_{\cC} \to \1_{\cC}$ as the \tdef{dimension} of
-  $X$ and denote it by $\mathrm{dim}_{\cC}(X)$.
 \end{defn}
 
 % \begin{lem}\label{lem: sym mon preserve trace}
@@ -48,6 +46,7 @@ giving a natural equivalence
 %     \[ F(\tr{f}{\cC})\simeq \tr{F(f)}{\cD}\,, \]
 %     in the $(\infty,1)$ category of maps $F(Y)\to F(Z)$. 
 % \end{lem}
+
 We will make use of the $(\infty,2)$-functoriality of the trace.
 For this purpose, recall the following construction of 
 Hoyois--Scherotzke--Sibilla~\cite{Hoyois_Scherotzke_Sibilla2017}.
@@ -58,9 +57,9 @@ The assignment $\cC\mapsto \cC^{\dual}$ refines to a functor
 which preserves filtered colimits and all limits by~\cite[Proposition 4.6.1.11]{Lurie2017}
 and thus admits a left adjoint denoted by
 \[ \rm{Fr}^{\dual}\colon \Cat_{(\infty,2)} \too \Cat^{\otimes}_{(\infty,2)}.\]
-The $(\infty,1)$-category of traceable endomorphisms $\Endtrl(\cC)$ is defined as the
-maximal sub-$(\infty,1)$-category of the $(\infty,2)$-category 
-$\Fun^{\rm{oplax}}_{\otimes}(\rm{Fr}^{\dual}(B\NN), \cC)$
+The $(\infty,1)$-category of \tdef{traceable endomorphisms} is defined as the
+maximal sub-$(\infty,1)$-category \mdef{$\Endtrl(\cC)$} of the $(\infty,2)$-category 
+$\Fun^{\rm{oplax}}_{\otimes}(\rm{Fr}^{\dual}(\mathrm{B}\NN), \cC)$
 of symmetric monoidal oplax functors from the ``dualizably free'' $(\infty,2)$-category
 on the walking category with one endomorphism.
 \end{cons}
@@ -68,10 +67,11 @@ on the walking category with one endomorphism.
 Explicitly, objects of $\Endtrl(\cC)$ are given by self
 maps of dualizable objects $f\colon X \to X$ in $\cC$, while a morphism $(X,f) \to (Y,g)$
 consists of an internal left adjoint $\varphi\colon X \to Y$ together with a 2-morphism
-$\alpha \colon \varphi \circ f \to g \circ \varphi $ i.e.~a lax commutative diagram
+$\alpha \colon \varphi \circ f \to g \circ \varphi $ i.e.~a lax commutative diagram:
 \[\begin{tikzcd}
     X & Y \\
-    X & Y \arrow["\varphi", from=1-1, to=1-2] \arrow["f"', from=1-1, to=2-1] \arrow["g", from=1-2, to=2-2] \arrow["\alpha", shorten <=4pt, shorten >=4pt, Rightarrow, from=2-1, to=1-2] \arrow["\varphi"', from=2-1, to=2-2]
+    X & Y
+    \arrow["\varphi", from=1-1, to=1-2] \arrow["f"', from=1-1, to=2-1] \arrow["g", from=1-2, to=2-2] \arrow["\alpha", shorten <=4pt, shorten >=4pt, Rightarrow, from=2-1, to=1-2] \arrow["\varphi"', from=2-1, to=2-2]
   \end{tikzcd}\]
   Note that the assignment $\cC \mapsto \Endtrl(\cC)$ is manifestly
   functorial, meaning any symmetric monoidal $(\infty,2)$-functor
@@ -108,6 +108,11 @@ $\varphi \dashv \psi$, respectively.
 
 
 \subsection{Span categories}
+
+We briefly review the theory of span categories and they $(\infty,2)$-categorical enhancements.
+Moreover, we recall that traces in span categories are straightforward to compute, which
+is a key input for deducing the fixed point theorems in \cref{sec: fixed point theorems}.
+
 % Diagrammatically, these are also induced by the 2-cells
 % in the following diagram
 % \begin{equation}\label{eq: trace functoriality}
@@ -154,12 +159,12 @@ $\varphi \dashv \psi$, respectively.
 % \end{lem}
 %
 \begin{defn}\label{defn: geometric setup}
-A \tdef{geometric setup} is a pair $(\mathcal C, \mathcal E)$ where $\mathcal C$ is an $\infty$-category with admits all finite limits
+A \tdef{geometric setup} is a pair $(\cC, \mathcal E)$ where $\cC$ is an $\infty$-category with admits all finite limits
 and $\mathcal E \subseteq \Map (\mathcal C)$ is a class of morphisms
 in $\cC$, satisfying the following conditions:
 \begin{enumerate}[label=(\roman*)]
     \item $\mathcal E$ contains all equivalences and is closed under composition.
-    \item $\mathcal E$ is stable under base change in $\mathcal C$.
+    \item $\mathcal E$ is stable under base change in $\cC$.
 \end{enumerate}
  Morphisms in $\mathcal E$ are called \tdef{admissible} and we also call
  an object $X\in \cC$ admissible whenever the terminal map $X\to \pt$ is.
@@ -290,6 +295,7 @@ In the case of (a), the adjunction between $\pt\leftarrow X\xrightarrow\id X$ an
 \end{tikzcd}\]
   As for (b), simply mirror the diagrams above along the horizontal axis.
 \end{proof}
+
 
 %%% Local Variables:
 %%% TeX-master: "main"
