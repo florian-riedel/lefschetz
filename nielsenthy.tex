@@ -6,31 +6,10 @@ As before, we fix a base space $\base\in \Top$ throughout.
 
 \subsection{Parametrized traces and the Nielsen fixed point theorem}
 
-Let us begin with the following construction:
-
-\begin{cons}
-    Let $\psTop{\base}$ be the full subcategory of 
-    $\pTop{\base}$ spanned by those $X\to \base$ which are shape
-    submersions.
-    For any $X\in \psTop{\base}$ and any (small enough) $U\subseteq \base$, the topological space $\Map_{/\base}(U,X)$ has constant
-    shape. Thus, we may define the \tdef{relative shape} 
-    of $X$ as the sheaf of spaces $\mdef{\ani{X}[\base]}\in \pSpc{\base}$
-    given by the sheafification of the presheaf of spaces
-    $\ani{\Map_{\Top_{/\base}}(-,X)} \in \Fun(\mathrm{Open}(\base)^\op,\Spc)$. 
-    \todo{Find citations and make sure this is actually right}
-    The relative shape construction defines a functor
-    \[ \ani{-}[\base] \colon \psTop{\base} \too \pSpc{\base}\,.\]
-\end{cons}
-
-Consequently, given any shapely dynamical system $(X,p,f)$  
-over $\base$, we have an attached sheaf of spaces $\ani{X}[\base]$
-together with an endomorphism which we also denote by 
-$f\colon \ani{X}[\base]\to \ani{X}[\base]$.
-
-In particular, for a shapely dynamical system 
-$f\curvearrowright \tset\xrightarrow p\base$, we may apply 
-\cref{cons: Lefschetz index} as well as \cref{cons: Reidemeister trace}
-to define the associated Lefschetz index and Reidemeister trace
+Let $(X,p,f)$ be a shapely dynamical sytem over a hypercompelte base $\base$, with associated
+morphism on shape s$f\colon \ani{X}[\base]\to \ani{X}[\base]$. 
+In  \cref{cons: Lefschetz index} as well as \cref{cons: Reidemeister trace}
+we have defined the associated Lefschetz index and Reidemeister trace
 \begin{equation}
   \label{eq:nielsenthy-intro-characters}
   \lambda^f\colon \cptSec{X^f}[\base]\too \SS_\base\,
