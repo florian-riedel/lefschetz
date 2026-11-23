@@ -22,3 +22,6 @@ main.synctex(busy)
 main.tdo
 main.tdo
 *.tdo
+main.bbl-SAVE-ERROR
+*.bbl-SAVE-ERROR
+*.tdo

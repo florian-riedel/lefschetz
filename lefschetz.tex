@@ -35,7 +35,7 @@ with the group structure on $\RR$.)
   \[ \cD \colon \sSpan{\cC}_{\cP,\cI}\too \mathscr{V}\]
   where $\mathscr{V}$ is some presentably symmetric monoidal $(\infty,2)$-category.
  The methods developed in this section, generalize in a straightforward manner to 
- fixed point formulas for the associated cohomology theory :
+ fixed point formulas for the associated cohomology theory:
   \[ \cH_{\cD}(-) \colon \sSpan{\cC, \cP,\cI}\too \Omega\mathscr{V}\,.\]
   More precisely, given a span 
   \[ \Lambda = \left( X \xleftarrow{f} Y \xrightarrow{g} X\right) \in \cC\]
@@ -151,6 +151,9 @@ indices as well as a Lefschetz number.
   admits an internal right adjoint. 
   Moreover, the associated cohomology sheaf $\cptSec{X}[\base] \in \pSp{\base}$ is dualizable.
 \end{lem}
+\begin{proof}
+  This is well known, see \cite{Volpe2023}.
+\end{proof}
 
 In particular, the following is well defined:
 
@@ -312,8 +315,7 @@ Throughout this section, we make the (mild) additional assumption that $\base$ i
 in the sense of \todo{cite}.
 
 \begin{defn}
-    For some $\base \in \Top$ we denote the $\infty$-category of sheaves of 
-    spaces on $\base$ by:
+    We denote the $\infty$-topos of sheaves of spaces on $\base$ by:
     \[\mdef{\pSpc{\base}}\coloneq \Shv(\base,\Spc) \in \Prl\,.\]
     We denote the terminal object of $\pSpc{\base}$ by $\pt_{\base}$. 
     Moreover, for any $A\in \pSpc{\base}$ we define:
@@ -321,8 +323,7 @@ in the sense of \todo{cite}.
     and write $\SS_{A}$ for the monoidal unit of $\pSp{\base}[A]$.
 \end{defn}
 
-Throughout this section, we fix a hypercomplete base space $M\in \Top$.
-By extending the functor $\pSp{\base}[(-)]$ to a symmetric monoidal 
+We begin by extending the functor $\pSp{\base}[(-)]$ to a symmetric monoidal 
 $(\infty,2)$-categorical six functor formalism.
 
 \begin{cons}\label{cons: anima sixff}
