@@ -21,3 +21,7 @@ main.synctex(busy)
 .DS_Store
 main.tdo
 main.tdo
+*.tdo
+main.bbl-SAVE-ERROR
+*.bbl-SAVE-ERROR
+*.tdo
