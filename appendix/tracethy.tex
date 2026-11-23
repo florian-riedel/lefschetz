@@ -72,11 +72,15 @@ $\alpha \colon \varphi \circ f \to g \circ \varphi $ i.e.~a lax commutative diag
     X & Y \\
     X & Y
     \arrow["\varphi", from=1-1, to=1-2] \arrow["f"', from=1-1, to=2-1] \arrow["g", from=1-2, to=2-2] \arrow["\alpha", shorten <=4pt, shorten >=4pt, Rightarrow, from=2-1, to=1-2] \arrow["\varphi"', from=2-1, to=2-2]
-  \end{tikzcd}\]
-  Note that the assignment $\cC \mapsto \Endtrl(\cC)$ is manifestly
-  functorial, meaning any symmetric monoidal $(\infty,2)$-functor
-  $F\colon \cC \to \cD$ induces a functor $F\colon \Endtrl(\cC)\to \Endtrl(\cD)$. The following
-  theorem says that that the trace is compatible with everything in sight.
+\end{tikzcd}\]
+Given such a morphism $(\varphi,\alpha)\colon (X,f)\to (Y,g)$, denote by $\psi \colon Y\to X$ 
+the internal right adjoint of $\varphi$. Then we have an induced morphism on traces given
+by the composite
+\[ \tr{f}{\cC} \to \tr{\psi \varphi f}{\cC} \rar{\alpha} \tr{\psi g \varphi}{\cC}
+\simeq \tr{\varphi \psi g}{\cC} \to \tr{g}{\cC}\,,\]
+where the first and last map are given by the unit and counit of the adjunction
+$\varphi \dashv \psi$, respectively. The following theorem captures this additional
+functoriality of the trace with all the structure present.
 
 \begin{thm}\cite[Theorem 1.7]{Hoyois_Scherotzke_Sibilla2017}\label{thm: trace functor}
   The $(\infty,1)$-category $\Endtrl(\cC)$ inherits a natural
@@ -95,21 +99,11 @@ $\alpha \colon \varphi \circ f \to g \circ \varphi $ i.e.~a lax commutative diag
 \end{tikzcd}\]
 \end{thm}
 
-\begin{rmk}
-More explicitly, the functoriality of $\Trc_{\cC}$ works as follows:
-
-Given a map $(\varphi, \alpha)\colon (X,f) \to (Y,g)$, denote by $\psi \colon Y\to X$ the internal right adjoint of $\varphi$.
-Then $\Trc_{\cC}$ takes the map $(\varphi,\alpha)$ to the natural transformation given by the composite
-\[ \tr{f}{\cC} \to \tr{\psi \varphi f}{\cC} \rar{\alpha} \tr{\psi g \varphi}{\cC}
-\simeq \tr{\varphi \psi g}{\cC} \to \tr{g}{\cC},\]
-where the first and last map are given by the unit and counit of the adjunction
-$\varphi \dashv \psi$, respectively. 
-\end{rmk}
 
 
 \subsection{Span categories}
 
-We briefly review the theory of span categories and they $(\infty,2)$-categorical enhancements.
+We briefly review the theory of span categories and their $(\infty,2)$-categorical enhancements.
 Moreover, we recall that traces in span categories are straightforward to compute, which
 is a key input for deducing the fixed point theorems in \cref{sec: fixed point theorems}.
 

@@ -327,8 +327,9 @@ We begin by extending the functor $\pSp{\base}[(-)]$ to a symmetric monoidal
 $(\infty,2)$-categorical six functor formalism.
 
 \begin{cons}\label{cons: anima sixff}
-Consider $\pSp{\base}[(-)]$ as a functor $\pSpc{\base}^{\op}
-\to \pPrl{\base}$ via pullback of sheaves and the point-wise
+Consider the assignment $ A\mapsto \pSp{\base}[(A)]$ as a functor
+\[ \pSp{\base}[(-)]\colon \pSpc{\base}^{\op} \to \pPrl{\base}\] 
+via pullback of sheaves and the point-wise
 $\pSp{\base}$-linear structure induced by the terminal maps 
 and the natural identification $\pSp{\base}[\pt_{\base}]\simeq \pSp{\base}$. Write \enquote{$\all$} for the class of 
 all maps and \enquote{$\simeq$} for the class
@@ -398,7 +399,7 @@ for the \tdef{transfer map} induced from the span $(A \xleftarrow{\id} A \xright
 \begin{lem}\label{lem: fiberwise cpt implies internal adjoint}
   For any fiberwise compact $A\in \pSpc{\base}$, the functor 
   $A^*\colon \pSp{\base}\to \pSp{\base}[A]$ admits an internal right adjoint in 
-  $\pPrl{\base}$. Moreover, the homlogy $\SS_{\base}[A]\in \pSp{\base}$ is dualizable.
+  $\pPrl{\base}$. Moreover, the homology sheaf $\SS_{\base}[A]\in \pSp{\base}$ is dualizable.
 \end{lem}
 \begin{proof}
   Since any $A \in \pSpc{\base}$ is $\pSp{\base}[(-)]$-\'etale by construction, we have
@@ -413,7 +414,7 @@ for the \tdef{transfer map} induced from the span $(A \xleftarrow{\id} A \xright
   is an equivalence after pulling back to all points of $\base$. However, as $x^*A \in \Spc^{\omega}$
   by assumption, $\mathrm{Nm}_{x^*A}$ being an equivalence is clear, see \cite[Example 3.12]{Cnossen2023}. 
   Finally, \cite[Corollary 3.40]{Cnossen2023} implies that $\SS_{\base}[A]=A_! \SS_A$ is 
-  dualizbale with dual given by $A_*\SS_A = A_!D_A$.
+  dualizable with dual given by $A_*\SS_A = A_!D_A$.
 \end{proof}
 
 \begin{cons}\label{cons: Reidemeister trace}
