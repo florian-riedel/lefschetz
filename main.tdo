@@ -17,4 +17,5 @@
 \contentsline {todo}{add assumption}{14}{section*.19}%
 \contentsline {todo}{Find citations and make sure this is actually right}{14}{section*.20}%
 \contentsline {todo}{Cite a comparision theorem}{15}{section*.21}%
-\contentsline {todo}{This is missing a punchline and a comparison}{21}{section*.22}%
+\contentsline {todo}{Construct the functor $\operatorname {ADat}(\EuScript {C})\to \Fun (\Delta ^1,\EuScript {C})$, show naturality in $\EuScript {C}$.}{15}{section*.22}%
+\contentsline {todo}{This is missing a punchline and a comparison}{22}{section*.23}%

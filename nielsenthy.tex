@@ -4,6 +4,44 @@ constructed in \cref{subsec: topological lefschetz} and
 Culminating in the \emph{Aufhebung} in the form of \cref{thm: lefschetz-nielsen}.
 As before, we fix a base space $\base\in \Top$ throughout.
 
+\subsection{Assembly data}
+\begin{cons}
+  Let $\cC$ be a symmetric monoidal category, and consider the functors
+  \[
+    \mathrm{Pair}\colon\cC^\op\times\cC^\op\xtoo{\otimes^\op}\cC^\op\xrightarrow{\Map_{\cC}({-},\mathbf 1)}\Spc
+  \]
+  and
+  \[
+    \mathrm{Copair}\colon\cC\times\cC\xtoo{\otimes}\cC\xrightarrow{\Map_{\cC}(\mathbf 1,{-})}\Spc.
+  \]
+  Let
+  \[
+    \widetilde{\mathrm{Pair}}\too\cC\times\cC^\op\quad\text{and}\quad
+    \widetilde{\mathrm{Copair}}\too\cC^\op\times\cC
+  \]
+  denote the associated two-variable Grothendieck construction, defined as in~\cite[\S~2.5]{Haugseng_Hebestreit_Fabian_Linskens_Nuiten2023}. The \tdef{category of assembly data} in $\cC$, denoted $\mdef{\assdat (\cC)}$, is defined to be the fiber product
+  \[
+    \assdat (\cC ) = \widetilde{\mathrm{Pair}}\times_{\cC^\op}\widetilde{\mathrm{Copair}}.
+  \]
+\end{cons}
+Informally, an object in $\assdat (\cC )$ is the data of a pairing $\epsilon\colon B\otimes C\to\mathbf 1$ and copairing $\delta\colon\mathbf 1\to A\otimes B$, and a morphism
+\[
+  (\epsilon\colon B\otimes C\to\mathbf 1, \delta\colon\mathbf 1\to A\otimes B)
+  \too
+  (\epsilon '\colon B'\otimes C'\to\mathbf 1, \delta'\colon\mathbf 1\to A'\otimes B')
+\]
+consists of morphisms
+\[
+  f\colon A\too A',\quad g\colon B'\too B\text{ (!),}\quad\text{and}\quad h\colon C\too C'
+\]
+together with equivalences
+\[
+  (\id\otimes g)\delta '\simeq (f\otimes\id)\delta\quad\text{and}\quad
+  \epsilon (g\otimes\id )\simeq\epsilon '(\id\otimes h).
+\]
+\begin{cons}[Assembly]
+  \todo{Construct the functor $\assdat (\cC )\to\Fun (\Delta^1,\cC)$, show naturality in $\cC$.}
+\end{cons}
 \subsection{Parametrized traces and the Nielsen fixed point theorem}
 
 Let $(X,p,f)$ be a shapely dynamical sytem over a hypercompelte base $\base$, with associated
