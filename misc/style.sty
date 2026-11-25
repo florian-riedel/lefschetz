@@ -6,7 +6,7 @@
 \usepackage[final, nopatch=footnote]{microtype}
 \usepackage{csquotes}
 
-\usepackage{graphicx,tikz-cd,hyperref,enumitem,xfrac,comment,todonotes,fancyhdr,xparse}
+\usepackage{graphicx,tikz-cd,enumitem,xfrac,comment,todonotes,fancyhdr,xparse}
 
 \numberwithin{equation}{section}
 
@@ -21,7 +21,10 @@
 \usepackage[dvipsnames,svgnames,table]{xcolor}
 \definecolor{DefColor}{rgb}{0.6,0.15,0.25}
 
-\usepackage{hyperref}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 0},pdfborderstyle={},colorlinks=true]{hyperref}
+
 \hypersetup{
     colorlinks, linkcolor=PineGreen,
     citecolor=PineGreen, urlcolor=PineGreen
