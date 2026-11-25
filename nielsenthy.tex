@@ -4,43 +4,59 @@ constructed in \cref{subsec: topological lefschetz} and
 Culminating in the \emph{Aufhebung} in the form of \cref{thm: lefschetz-nielsen}.
 As before, we fix a base space $\base\in \Top$ throughout.
 
-\subsection{Assembly data}
+\subsection{Thickened morphisms and monoidal assembly}
+In order to prove the desired naturality statements about Lefschetz--Nielsen theory, we will need to do some amount of algebra in both the $(\infty ,2)$-category $\pPrlf{\base}$ and its category of traceable endomorphisms $\Endtrl(\pPrlf{\base})$. For this it will be convenient to introduce some auxiliary categories, which we may as well define for an arbitrary symmetric monoidal category.
 \begin{cons}
-  Let $\cC$ be a symmetric monoidal category, and consider the functors
+  Let $\cC$ be a symmetric monoidal category, and consider the functor
   \[
-    \mathrm{Pair}\colon\cC^\op\times\cC^\op\xtoo{\otimes^\op}\cC^\op\xrightarrow{\Map_{\cC}({-},\mathbf 1)}\Spc
+    P_\cC\colon\cC^\op\times\cC^\op\xtoo{\otimes^\op}\cC^\op\xrightarrow{\Map_{\cC}({-},\mathbf 1)}\Spc.
   \]
-  and
+  The \tdef{category of pairings} in $\cC$, denoted $\mdef{\Pair (\cC)}$, is the total category of the bifibration unstraightening
   \[
-    \mathrm{Copair}\colon\cC\times\cC\xtoo{\otimes}\cC\xrightarrow{\Map_{\cC}(\mathbf 1,{-})}\Spc.
+    \Pair (\cC)\too\cC\times\cC^\op
   \]
-  Let
+  of $P_\cC$, as supplied by the equivalence
   \[
-    \widetilde{\mathrm{Pair}}\too\cC\times\cC^\op\quad\text{and}\quad
-    \widetilde{\mathrm{Copair}}\too\cC^\op\times\cC
+    \operatorname{Bifib}(\cC ,\cC^\op)\simeq\Fun (\cC^\op\times\cC^\op,\Spc )
   \]
-  denote the associated two-variable Grothendieck construction, defined as in~\cite[\S~2.5]{Haugseng_Hebestreit_Fabian_Linskens_Nuiten2023}. The \tdef{category of assembly data} in $\cC$, denoted $\mdef{\assdat (\cC)}$, is defined to be the fiber product
+  of~\cite[Rem~2.5.7(2)]{Haugseng_Hebestreit_Fabian_Linskens_Nuiten2023}. Informally, an object of $\Pair (\cC)$ is determined by a pair of objects $A$ and $B\in\cC$ and a pairing $\epsilon\colon A\otimes B\to\mathbf 1$, whereas a morphism from $(A,B,\epsilon\colon A\otimes B\to\mathbf 1)$ to $(A',B',\epsilon '\colon A'\otimes B'\to\mathbf 1)$ consists of a pair of morphisms
   \[
-    \assdat (\cC ) = \widetilde{\mathrm{Pair}}\times_{\cC^\op}\widetilde{\mathrm{Copair}}.
+    f\colon A\too A'\quad\text{and}\quad g\colon B'\too B,
   \]
-\end{cons}
-Informally, an object in $\assdat (\cC )$ is the data of a pairing $\epsilon\colon B\otimes C\to\mathbf 1$ and copairing $\delta\colon\mathbf 1\to A\otimes B$, and a morphism
-\[
-  (\epsilon\colon B\otimes C\to\mathbf 1, \delta\colon\mathbf 1\to A\otimes B)
-  \too
-  (\epsilon '\colon B'\otimes C'\to\mathbf 1, \delta'\colon\mathbf 1\to A'\otimes B')
-\]
-consists of morphisms
-\[
-  f\colon A\too A',\quad g\colon B'\too B\text{ (!),}\quad\text{and}\quad h\colon C\too C'
-\]
-together with equivalences
-\[
-  (\id\otimes g)\delta '\simeq (f\otimes\id)\delta\quad\text{and}\quad
-  \epsilon (g\otimes\id )\simeq\epsilon '(\id\otimes h).
-\]
-\begin{cons}[Assembly]
-  \todo{Construct the functor $\assdat (\cC )\to\Fun (\Delta^1,\cC)$, show naturality in $\cC$.}
+  together with a homotopy
+  \[
+    \epsilon\circ(\id_A\otimes g)\xRightarrow\sim\epsilon '\circ (f\otimes \id_{B'})
+  \]
+  Dually, the \tdef{category of copairings} in $\cC$, denoted $\mdef{\Copair(\cC)}$, is the total category of the bifibration unstraightening
+  \[
+    \Copair (\cC)\too\cC^\op\times\cC
+  \]
+  of the functor
+  \[
+    C_{\cC}\colon\cC\times\cC\xtoo{\otimes}\cC\xrightarrow{\Map_{\cC}(\mathbf 1,{-})}\Spc.
+  \]
+  An object of $\Copair (\cC)$ is therefore a pair of objects $A$ and $B\in\cC$ and a copairing $\delta\colon \mathbf 1\to A\otimes B$, whereas a morphism from $(A,B,\delta\colon \mathbf 1\to A\otimes B)$ to $(A',B',\delta '\colon \mathbf 1\to A'\otimes B')$ consists of a pair of morphisms
+  \[
+    f\colon A'\too A\quad\text{and}\quad g\colon B\too B',
+  \]
+  together with a homotopy
+  \[
+    (f\otimes\id_B)\circ\delta\xRightarrow\sim (\id_{A'}\otimes g)\circ \delta '  
+  \]
+  Finally, the \tdef{category of assembly data}, denoted $\mdef{\assdat (\cC )}$, is defined by the fiber product
+  \[
+    \assdat (\cC ) = \Pair (\cC )\times_{\cC^\op}\Copair (\cC),
+  \]
+  where the functors $\Pair (\cC)\to\cC^\op$ and $\Copair (\cC)\to\cC^\op$ are the projections.
+  Informally, an object of $\assdat (\cC)$ is determined by a triple of objects $(A,B,C)$ together with a pairing $\epsilon \colon A\otimes B\to\mathbf 1$ and a copairing $\delta\colon \mathbf 1\to B\otimes C$. A morphism from $(A,B,C,\epsilon ,\delta)$ to $(A',B',C',\epsilon ' ,\delta ')$ is specified by a triple of morphisms
+  \[
+    f\colon A\too A',\quad g\colon B'\too B,\quad\text{and}\quad h\colon C\too C'
+  \]
+  along with homotopies
+  \[
+    \epsilon\circ(\id_A\otimes g)\xRightarrow\sim\epsilon '\circ (f\otimes \id_{B'})\quad\text{and}\quad
+    (g\otimes\id_C)\circ\delta\xRightarrow\sim (\id_{B'}\otimes h)\circ \delta '.
+  \]
 \end{cons}
 \subsection{Parametrized traces and the Nielsen fixed point theorem}
 
